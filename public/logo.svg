@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 36" fill="none">
+  <!-- Mark -->
+  <rect width="36" height="36" rx="8" fill="#0B0F19"/>
+  <path d="M8 13V8H13" stroke="#2F5BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 13V8H23" stroke="#2F5BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8 23V28H13" stroke="#2F5BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 23V28H23" stroke="#2F5BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="18" cy="18" r="4" fill="#2F5BFF"/>
+  <path d="M18 10V13M18 23V26M10 18H13M23 18H26" stroke="#2F5BFF" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Wordmark Text rendered cleanly -->
+  <g fill="currentColor">
+    <text x="48" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', Inter, sans-serif" font-weight="700" font-size="18" letter-spacing="-0.03em">AI Finder</text>
+    <text x="135" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', Inter, sans-serif" font-weight="400" font-size="13" letter-spacing="0.05em" opacity="0.65">TECHNOLOGIES</text>
+  </g>
+</svg>

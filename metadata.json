@@ -1,0 +1,6 @@
+{
+  "name": "AI Finder Technologies",
+  "description": "Curated directory of premier AI tools for chat, coding, image, video, research, and writing with in-depth evaluations and benchmarks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
