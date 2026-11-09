@@ -12,12 +12,17 @@ import { BlogPostPage } from './pages/BlogPostPage';
 import { ComparePage } from './pages/ComparePage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
+import { SubmitToolPage } from './pages/SubmitToolPage';
 import { LegalPage } from './pages/LegalPage';
-import { Nexus3DPage } from './pages/Nexus3DPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { AI_TOOLS } from './data/tools';
 import { BLOG_POSTS } from './data/blogPosts';
 import { Tool, ToolCategory, PricingType } from './types';
+
+// Route-level code-splitting for heavy 3D Nexus page
+const Nexus3DPage = React.lazy(() =>
+  import('./pages/Nexus3DPage').then((m) => ({ default: m.Nexus3DPage }))
+);
 
 export default function App() {
   // Current route pathname and search
@@ -149,6 +154,8 @@ export default function App() {
   const qParam = searchParams.get('q') || '';
   const categoryParam = (searchParams.get('category') || 'all') as ToolCategory | 'all';
   const pricingParam = (searchParams.get('pricing') || 'all') as PricingType | 'all';
+  const freeTierParam = searchParams.get('freeTier') === 'true';
+  const sortParam = (searchParams.get('sort') || 'trending') as 'trending' | 'rating' | 'newest' | 'alphabetical';
   const bookmarkedParam = searchParams.get('bookmarked') === 'true';
   const intentParam = searchParams.get('intent') || '';
 
@@ -158,8 +165,8 @@ export default function App() {
     let description = 'Discover, compare, and master premier AI tools for coding, writing, research, visual creation, and workflow automation.';
 
     if (currentPath === '/tools') {
-      title = 'AI Tools Directory – Browse All Verified Software | AI Finder';
-      description = 'Filter and compare 18+ verified AI applications across developer tools, models, and generative art.';
+      title = 'AI Tools Directory – Browse All 60+ Verified Software | AI Finder';
+      description = 'Filter and compare 60+ verified AI applications across developer tools, foundation reasoning, generative video, and academic search.';
     } else if (currentPath.startsWith('/tools/')) {
       const slug = currentPath.replace('/tools/', '');
       const tool = AI_TOOLS.find((t) => t.slug === slug);
@@ -188,8 +195,11 @@ export default function App() {
       title = 'About AI Finder Technologies – Independence & Methodology';
       description = 'Our 4-stage evaluation framework, zero-sponsored ranking guarantee, and research team.';
     } else if (currentPath === '/contact') {
-      title = 'Contact & Submit a Tool | AI Finder Technologies';
-      description = 'Submit a new artificial intelligence tool for evaluation or reach out to our editorial team.';
+      title = 'Contact & Editorial Inquiries | AI Finder Technologies';
+      description = 'Reach out to our independent research team or challenge benchmark data.';
+    } else if (currentPath === '/submit') {
+      title = 'Submit an AI Tool for Evaluation | AI Finder Technologies';
+      description = 'Submit a new artificial intelligence tool for independent verification, benchmarks, and inclusion in our directory.';
     }
 
     document.title = title;
@@ -221,6 +231,8 @@ export default function App() {
           initialCategory={categoryParam}
           initialPricing={pricingParam}
           initialOnlyBookmarked={bookmarkedParam}
+          initialOnlyFreeTier={freeTierParam}
+          initialSort={sortParam}
           bookmarkedIds={bookmarkedIds}
           onToggleBookmark={handleToggleBookmark}
           compareIds={compareIds}
@@ -319,7 +331,12 @@ export default function App() {
       return <ContactPage onNavigate={handleNavigate} initialIntent={intentParam} />;
     }
 
-    // 11. Privacy & Terms: /privacy, /terms
+    // 11. Submit a Tool Page: /submit
+    if (currentPath === '/submit') {
+      return <SubmitToolPage onNavigate={handleNavigate} />;
+    }
+
+    // 12. Privacy & Terms: /privacy, /terms
     if (currentPath === '/privacy') {
       return <LegalPage onNavigate={handleNavigate} defaultTab="privacy" />;
     }
@@ -327,17 +344,25 @@ export default function App() {
       return <LegalPage onNavigate={handleNavigate} defaultTab="terms" />;
     }
 
-    // 12. Dedicated 3D Nexus Spatial Playground: /nexus-3d
+    // 13. Dedicated 3D Nexus Spatial Playground: /nexus-3d (Lazy loaded)
     if (currentPath === '/nexus-3d') {
       return (
-        <Nexus3DPage
-          onNavigate={handleNavigate}
-          onSelectCategory={(cat) => handleNavigate(`/category/${cat}`)}
-        />
+        <React.Suspense
+          fallback={
+            <div className="h-[80vh] flex items-center justify-center bg-slate-950 text-slate-400 text-xs font-mono">
+              Loading 3D Spatial Nexus...
+            </div>
+          }
+        >
+          <Nexus3DPage
+            onNavigate={handleNavigate}
+            onSelectCategory={(cat) => handleNavigate(`/category/${cat}`)}
+          />
+        </React.Suspense>
       );
     }
 
-    // 13. Fallback 404
+    // 14. Fallback 404
     return <NotFoundPage onNavigate={handleNavigate} />;
   };
 

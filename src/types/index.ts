@@ -1,4 +1,14 @@
-export type ToolCategory = 'chat' | 'coding' | 'image' | 'video' | 'research' | 'writing';
+export type ToolCategory =
+  | 'chat'
+  | 'coding'
+  | 'image'
+  | 'video'
+  | 'audio'
+  | 'research'
+  | 'writing'
+  | 'productivity'
+  | 'design'
+  | 'marketing';
 
 export type PricingType = 'Free' | 'Freemium' | 'Paid' | 'Free Trial';
 
@@ -14,7 +24,10 @@ export interface Tool {
   tagline: string;
   description: string;
   category: ToolCategory;
+  tags: string[];
   pricing: PricingType;
+  startingPrice?: string; // e.g. "$10/mo" or "Free"
+  hasFreeTier: boolean;
   pricingDetails: string;
   platforms: string[];
   websiteUrl: string;
@@ -23,12 +36,13 @@ export interface Tool {
   trendingRank: number;
   featured: boolean;
   releaseYear: number;
+  lastUpdated: string; // e.g. "2026-03"
   bestFor: string;
   keyFeatures: string[];
   pros: string[];
   cons: string[];
   faqs: ToolFaq[];
-  alternatives: string[]; // slugs or names
+  alternatives: string[]; // slugs of alternative tools
   verified: boolean;
   monogram: string;
   accentColor: string;
@@ -56,7 +70,7 @@ export interface BlogPost {
   targetKeyword: string;
   searchIntent: 'Commercial' | 'Informational' | 'Comparative' | 'Educational';
   outline: string[];
-  content: string; // Markdown/formatted content
+  content: string;
   faqs: ToolFaq[];
   relatedToolSlugs: string[];
 }
@@ -65,6 +79,7 @@ export interface FilterOptions {
   search: string;
   category: ToolCategory | 'all';
   pricing: PricingType | 'all';
+  hasFreeTier?: boolean;
   platform: string;
   sortBy: 'trending' | 'rating' | 'newest' | 'alphabetical';
   onlyVerified: boolean;

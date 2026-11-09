@@ -9,6 +9,8 @@ interface DirectoryPageProps {
   initialCategory?: ToolCategory | 'all';
   initialPricing?: PricingType | 'all';
   initialOnlyBookmarked?: boolean;
+  initialOnlyFreeTier?: boolean;
+  initialSort?: 'trending' | 'rating' | 'newest' | 'alphabetical';
   bookmarkedIds: string[];
   onToggleBookmark: (toolId: string) => void;
   compareIds: string[];
@@ -22,6 +24,8 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
   initialCategory = 'all',
   initialPricing = 'all',
   initialOnlyBookmarked = false,
+  initialOnlyFreeTier = false,
+  initialSort = 'trending',
   bookmarkedIds,
   onToggleBookmark,
   compareIds,
@@ -33,10 +37,11 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
   const [category, setCategory] = useState<ToolCategory | 'all'>(initialCategory);
   const [pricing, setPricing] = useState<PricingType | 'all'>(initialPricing);
   const [platform, setPlatform] = useState<string>('all');
-  const [sortBy, setSortBy] = useState<'trending' | 'rating' | 'newest' | 'alphabetical'>('trending');
+  const [sortBy, setSortBy] = useState<'trending' | 'rating' | 'newest' | 'alphabetical'>(initialSort);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [onlyVerified, setOnlyVerified] = useState(false);
   const [onlyBookmarked, setOnlyBookmarked] = useState(initialOnlyBookmarked);
+  const [onlyFreeTier, setOnlyFreeTier] = useState(initialOnlyFreeTier);
 
   // Sync to URL
   const updateFilters = (newParams: Partial<{
@@ -44,17 +49,23 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
     category: string;
     pricing: string;
     bookmarked: boolean;
+    freeTier: boolean;
+    sort: string;
   }>) => {
     const params: Record<string, string> = {};
     const nextSearch = newParams.search !== undefined ? newParams.search : search;
     const nextCat = newParams.category !== undefined ? newParams.category : category;
     const nextPricing = newParams.pricing !== undefined ? newParams.pricing : pricing;
     const nextBookmarked = newParams.bookmarked !== undefined ? newParams.bookmarked : onlyBookmarked;
+    const nextFreeTier = newParams.freeTier !== undefined ? newParams.freeTier : onlyFreeTier;
+    const nextSort = newParams.sort !== undefined ? newParams.sort : sortBy;
 
     if (nextSearch) params.q = nextSearch;
     if (nextCat !== 'all') params.category = nextCat;
     if (nextPricing !== 'all') params.pricing = nextPricing;
     if (nextBookmarked) params.bookmarked = 'true';
+    if (nextFreeTier) params.freeTier = 'true';
+    if (nextSort !== 'trending') params.sort = nextSort;
 
     onUpdateUrlParams(params);
   };
@@ -69,6 +80,7 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
           t.name.toLowerCase().includes(q) ||
           t.tagline.toLowerCase().includes(q) ||
           t.category.toLowerCase().includes(q) ||
+          t.tags?.some((tag) => tag.toLowerCase().includes(q)) ||
           t.keyFeatures.some((f) => f.toLowerCase().includes(q)) ||
           t.platforms.some((p) => p.toLowerCase().includes(q));
         if (!matches) return false;
@@ -79,6 +91,9 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
 
       // Pricing
       if (pricing !== 'all' && t.pricing !== pricing) return false;
+
+      // Free Tier
+      if (onlyFreeTier && !t.hasFreeTier) return false;
 
       // Platform
       if (platform !== 'all' && !t.platforms.includes(platform)) return false;
@@ -97,7 +112,7 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
       if (sortBy === 'alphabetical') return a.name.localeCompare(b.name);
       return 0;
     });
-  }, [search, category, pricing, platform, onlyVerified, onlyBookmarked, bookmarkedIds, sortBy]);
+  }, [search, category, pricing, platform, onlyVerified, onlyBookmarked, onlyFreeTier, bookmarkedIds, sortBy]);
 
   const handleResetFilters = () => {
     setSearch('');
@@ -106,7 +121,9 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
     setPlatform('all');
     setOnlyVerified(false);
     setOnlyBookmarked(false);
-    updateFilters({ search: '', category: 'all', pricing: 'all', bookmarked: false });
+    setOnlyFreeTier(false);
+    setSortBy('trending');
+    updateFilters({ search: '', category: 'all', pricing: 'all', bookmarked: false, freeTier: false, sort: 'trending' });
   };
 
   const platformsList = ['Mac', 'Windows', 'Linux', 'iOS', 'Android', 'Web', 'VS Code'];
@@ -163,7 +180,11 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
               <span className="text-slate-400 whitespace-nowrap">Sort:</span>
               <select
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as any)}
+                onChange={(e) => {
+                  const val = e.target.value as any;
+                  setSortBy(val);
+                  updateFilters({ sort: val });
+                }}
                 className="py-1.5 px-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-md text-xs text-slate-800 dark:text-slate-200 focus:outline-none"
               >
                 <option value="trending">Trending Velocity</option>
@@ -203,10 +224,10 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
           </div>
         </div>
 
-        {/* Row 2: Category Segmented Filter Tabs */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
+        {/* Row 2: Category Segmented Filter Tabs (All 10 Categories) */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs no-scrollbar">
           <span className="text-slate-400 text-[11px] whitespace-nowrap mr-1">Category:</span>
-          {(['all', 'coding', 'chat', 'image', 'video', 'research', 'writing'] as const).map((cat) => {
+          {(['all', 'coding', 'chat', 'image', 'video', 'audio', 'research', 'writing', 'productivity', 'design', 'marketing'] as const).map((cat) => {
             const isActive = category === cat;
             return (
               <button
@@ -221,13 +242,13 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
                     : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'
                 }`}
               >
-                {cat === 'all' ? 'All Categories' : cat}
+                {cat === 'all' ? 'All' : cat}
               </button>
             );
           })}
         </div>
 
-        {/* Row 3: Faceted Pricing, Platforms, and Verification Toggles */}
+        {/* Row 3: Faceted Pricing, Free Tier, Platforms, and Verification Toggles */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs">
           <div className="flex flex-wrap items-center gap-3">
             {/* Pricing Model */}
@@ -247,6 +268,20 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
                 <option value="Paid">Paid Only</option>
               </select>
             </div>
+
+            {/* Free Tier Filter Checkbox */}
+            <label className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={onlyFreeTier}
+                onChange={(e) => {
+                  setOnlyFreeTier(e.target.checked);
+                  updateFilters({ freeTier: e.target.checked });
+                }}
+                className="w-3.5 h-3.5 rounded border-slate-300 dark:border-slate-700 text-[#2F5BFF] focus:ring-[#2F5BFF]"
+              />
+              <span className="text-emerald-600 dark:text-emerald-400 font-medium">Free Tier Available</span>
+            </label>
 
             {/* Platform Filter */}
             <div className="flex items-center gap-1.5">

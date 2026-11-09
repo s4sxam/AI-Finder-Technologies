@@ -145,8 +145,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   </button>
                 </li>
                 <li>
+                  <button onClick={() => onNavigate('/submit')} className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                    Submit a Tool
+                  </button>
+                </li>
+                <li>
                   <button onClick={() => onNavigate('/contact')} className="hover:text-slate-900 dark:hover:text-white transition-colors">
-                    Contact & Submit Tool
+                    Contact &amp; Inquiries
                   </button>
                 </li>
                 <li>

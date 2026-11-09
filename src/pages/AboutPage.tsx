@@ -130,6 +130,28 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
+      {/* Explicit Monetization & Affiliate Disclosure */}
+      <section className="p-6 bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-2xl space-y-3">
+        <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <ShieldCheck className="w-4 h-4 text-[#2F5BFF]" />
+          <span>How We Stay Independent &amp; Evaluation Disclosure</span>
+        </h2>
+        <div className="space-y-2 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p>
+            AI Finder Technologies is committed to radical editorial transparency. To support our laboratory testing, server costs, and in-depth benchmark compute, some external outbound links may generate an affiliate commission at no additional cost to you.
+          </p>
+          <p>
+            However, our evaluation criteria and editorial scores are strictly decoupled from commercial relationships:
+          </p>
+          <ul className="list-disc list-inside space-y-1 pl-1 text-slate-700 dark:text-slate-300">
+            <li>We do not accept paid placements, sponsored rankings, or pay-per-review articles.</li>
+            <li>Tools without affiliate programs receive the exact same rigorous testing and fair placement as any other tool.</li>
+            <li>Pros, cons, and benchmark ratings are authored solely by our engineering team and cannot be altered by vendors.</li>
+            <li>If a tool regresses in quality or changes pricing terms unfavorably, its rating is downgraded immediately.</li>
+          </ul>
+        </div>
+      </section>
+
       {/* CTA */}
       <div className="p-6 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
@@ -141,7 +163,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           </p>
         </div>
         <button
-          onClick={() => onNavigate('/contact?intent=submit')}
+          onClick={() => onNavigate('/submit')}
           className="px-4 py-2 bg-[#2F5BFF] hover:bg-[#1E46E6] text-white text-xs font-semibold rounded-lg whitespace-nowrap shadow-xs"
         >
           Submit Product

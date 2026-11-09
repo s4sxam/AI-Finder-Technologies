@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
-import { Search, Sparkles, ArrowRight, ShieldCheck, TrendingUp, BookOpen, Layers, Check, Star } from 'lucide-react';
+import React, { useState, Suspense, lazy } from 'react';
+import { Search, Sparkles, ArrowRight, ShieldCheck, TrendingUp, BookOpen, Layers, Check, Star, Zap, Clock } from 'lucide-react';
 import { AI_TOOLS, CATEGORIES_META } from '../data/tools';
 import { BLOG_POSTS } from '../data/blogPosts';
 import { Tool, ToolCategory } from '../types';
 import { ToolCard } from '../components/ToolCard';
-import { ThreeScene } from '../components/ThreeScene';
+
+// Lazy-load heavy Three.js 3D spatial canvas out of critical initial path
+const ThreeScene = lazy(() =>
+  import('../components/ThreeScene').then((m) => ({ default: m.ThreeScene }))
+);
 
 interface HomePageProps {
   onNavigate: (path: string) => void;
@@ -28,12 +32,17 @@ export const HomePage: React.FC<HomePageProps> = ({
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
 
-  // Trending Tools (Top 6)
-  const trendingTools = AI_TOOLS.slice()
-    .sort((a, b) => a.trendingRank - b.trendingRank)
+  // 1. Top Picks: Editor's top choices with highest benchmark rating & featured flag
+  const topPicks = AI_TOOLS.filter((t) => t.featured || t.rating >= 4.85)
     .slice(0, 6);
 
-  // Latest 3 Blog Posts
+  // 2. New This Week: Recent releases and fast-moving tools
+  const newThisWeekTools = AI_TOOLS.slice()
+    .sort((a, b) => b.releaseYear - a.releaseYear || a.trendingRank - b.trendingRank)
+    .filter((t) => !topPicks.some((p) => p.id === t.id))
+    .slice(0, 6);
+
+  // 3. Latest Guides
   const latestPosts = BLOG_POSTS.slice(0, 3);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
@@ -121,30 +130,38 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* --- OPTIONAL 3D CONSTELLATION NEXUS (THREE.JS SCENE) --- */}
+      {/* --- OPTIONAL 3D CONSTELLATION NEXUS (LAZY THREE.JS SCENE) --- */}
       {show3DNexus && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-in fade-in zoom-in-95 duration-300">
           <div className="border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-            <ThreeScene
-              onSelectCategory={(cat) => onNavigate(`/category/${cat}`)}
-              className="h-[480px]"
-            />
+            <Suspense
+              fallback={
+                <div className="h-[480px] flex items-center justify-center bg-slate-950 text-slate-400 text-xs font-mono">
+                  Initializing WebGL Constellation Nexus...
+                </div>
+              }
+            >
+              <ThreeScene
+                onSelectCategory={(cat) => onNavigate(`/category/${cat}`)}
+                className="h-[480px]"
+              />
+            </Suspense>
           </div>
         </section>
       )}
 
-      {/* --- TRENDING TOOLS THIS WEEK --- */}
+      {/* --- SECTION 1: TOP PICKS --- */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
           <div>
             <div className="flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-[#2F5BFF]" />
+              <Zap className="w-4 h-4 text-[#2F5BFF]" />
               <h2 className="text-xl font-bold text-slate-900 dark:text-white">
-                Trending AI Tools This Week
+                Top Picks &amp; Editorial Choices
               </h2>
             </div>
             <p className="text-xs text-slate-500 mt-1">
-              Ranked by community test runs, GitHub velocity, and verified engineer adoption.
+              The highest-performing models and tools rigorously validated across real developer, research, and creative workflows.
             </p>
           </div>
 
@@ -159,7 +176,47 @@ export const HomePage: React.FC<HomePageProps> = ({
 
         {/* 3-Column Responsive Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {trendingTools.map((tool) => (
+          {topPicks.map((tool) => (
+            <ToolCard
+              key={tool.id}
+              tool={tool}
+              isBookmarked={bookmarkedIds.includes(tool.id)}
+              onToggleBookmark={onToggleBookmark}
+              isSelectedForCompare={compareIds.includes(tool.id)}
+              onToggleCompare={onToggleCompare}
+              onSelect={(slug) => onNavigate(`/tools/${slug}`)}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* --- SECTION 2: NEW THIS WEEK --- */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
+          <div>
+            <div className="flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-[#2F5BFF]" />
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+                New This Week &amp; Rising Velocity
+              </h2>
+            </div>
+            <p className="text-xs text-slate-500 mt-1">
+              Recently benchmarked frontier tools and autonomous agents gaining significant engineer traction.
+            </p>
+          </div>
+
+          <button
+            onClick={() => onNavigate('/tools?sort=newest')}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#2F5BFF] hover:underline"
+          >
+            <span>Explore Newest</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        {/* 3-Column Responsive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {newThisWeekTools.map((tool) => (
             <ToolCard
               key={tool.id}
               tool={tool}

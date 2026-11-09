@@ -152,7 +152,7 @@ export const Header: React.FC<HeaderProps> = ({
 
             {/* Primary Action Button */}
             <button
-              onClick={() => onNavigate('/contact?intent=submit')}
+              onClick={() => onNavigate('/submit')}
               className="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold text-white bg-[#2F5BFF] hover:bg-[#1E46E6] rounded-md transition-colors whitespace-nowrap shadow-sm"
             >
               Submit Tool

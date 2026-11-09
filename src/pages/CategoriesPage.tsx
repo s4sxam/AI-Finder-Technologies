@@ -31,7 +31,9 @@ export const CategoriesPage: React.FC<CategoriesPageProps> = ({
   // Single Category View
   if (isSingleCategory && currentCategory) {
     const meta = CATEGORIES_META[currentCategory];
-    const categoryTools = AI_TOOLS.filter((t) => t.category === currentCategory);
+    const categoryTools = AI_TOOLS.filter((t) => t.category === currentCategory).sort(
+      (a, b) => a.trendingRank - b.trendingRank
+    );
 
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
@@ -49,38 +51,70 @@ export const CategoriesPage: React.FC<CategoriesPageProps> = ({
         </nav>
 
         {/* Category Header */}
-        <div className="p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="p-6 sm:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
             <div>
-              <div className="text-xs font-semibold text-[#2F5BFF] uppercase tracking-wider mb-1">
-                Discipline Directory
+              <div className="text-xs font-semibold text-[#2F5BFF] uppercase tracking-wider mb-1.5 flex items-center gap-2">
+                <span>Curated Industry Ranking</span>
+                <span aria-hidden="true">·</span>
+                <span>Updated 2026</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                {meta.name}
+              <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                Best AI {meta.name} Tools (2026)
               </h1>
-              <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-500 mt-2 max-w-2xl leading-relaxed">
                 {meta.description}
               </p>
             </div>
-            <div className="font-mono text-xs text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg shrink-0">
-              {categoryTools.length} Verified Tools
+            <div className="font-mono text-xs text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3.5 py-2 rounded-lg shrink-0 border border-slate-200 dark:border-slate-700">
+              <span className="font-bold text-slate-900 dark:text-white">{categoryTools.length}</span> Verified Tools Benchmarked
+            </div>
+          </div>
+
+          {/* Editorial Category Intro Paragraph */}
+          <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80">
+            <div className="p-4 bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800 rounded-xl">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                Editorial State of the Discipline
+              </span>
+              <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                {meta.intro}
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Category Tools Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categoryTools.map((tool) => (
-            <ToolCard
-              key={tool.id}
-              tool={tool}
-              isBookmarked={bookmarkedIds.includes(tool.id)}
-              onToggleBookmark={onToggleBookmark}
-              isSelectedForCompare={compareIds.includes(tool.id)}
-              onToggleCompare={onToggleCompare}
-              onSelect={onSelectTool}
-            />
-          ))}
+        {/* Category Tools Ranked Grid */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between text-xs text-slate-500 px-1">
+            <span>Ranked by verified practitioner adoption, benchmark accuracy, and pricing transparency</span>
+            <button
+              onClick={() => onNavigate(`/tools?category=${currentCategory}`)}
+              className="text-[#2F5BFF] font-medium hover:underline flex items-center gap-1"
+            >
+              <span>Filter in Directory View</span>
+              <ArrowRight className="w-3 h-3" />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {categoryTools.map((tool, index) => (
+              <div key={tool.id} className="relative group">
+                {/* Ranking Badge */}
+                <div className="absolute -top-2.5 -left-2.5 z-20 px-2 py-0.5 bg-slate-900 dark:bg-slate-800 text-white text-[10px] font-mono font-bold rounded-md shadow-md border border-slate-700">
+                  #{index + 1}
+                </div>
+                <ToolCard
+                  tool={tool}
+                  isBookmarked={bookmarkedIds.includes(tool.id)}
+                  onToggleBookmark={onToggleBookmark}
+                  isSelectedForCompare={compareIds.includes(tool.id)}
+                  onToggleCompare={onToggleCompare}
+                  onSelect={onSelectTool}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );

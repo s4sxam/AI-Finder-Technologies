@@ -48,8 +48,12 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
   if (!isOpen) return null;
 
-  // Filter tools and posts
+  // Filter tools, categories, and posts
   const lowerQuery = query.toLowerCase().trim();
+
+  const matchingCategories = (['coding', 'chat', 'image', 'video', 'audio', 'research', 'writing', 'productivity', 'design', 'marketing'] as ToolCategory[]).filter(
+    (cat) => lowerQuery && cat.includes(lowerQuery)
+  );
 
   const matchingTools = AI_TOOLS.filter((tool) => {
     if (!lowerQuery) return tool.trendingRank <= 6;
@@ -57,6 +61,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       tool.name.toLowerCase().includes(lowerQuery) ||
       tool.tagline.toLowerCase().includes(lowerQuery) ||
       tool.category.toLowerCase().includes(lowerQuery) ||
+      tool.tags?.some((t) => t.toLowerCase().includes(lowerQuery)) ||
       tool.keyFeatures.some((f) => f.toLowerCase().includes(lowerQuery))
     );
   }).slice(0, 5);
@@ -70,7 +75,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     );
   }).slice(0, 3);
 
-  const totalResults = matchingTools.length + matchingPosts.length;
+  const totalResults = matchingCategories.length + matchingTools.length + matchingPosts.length;
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown') {
@@ -81,11 +86,15 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       setSelectedIndex((prev) => (prev - 1 + totalResults) % Math.max(1, totalResults));
     } else if (e.key === 'Enter') {
       e.preventDefault();
-      if (selectedIndex < matchingTools.length) {
-        onSelectTool(matchingTools[selectedIndex].slug);
+      if (selectedIndex < matchingCategories.length) {
+        onSelectCategory(matchingCategories[selectedIndex]);
+        onClose();
+      } else if (selectedIndex < matchingCategories.length + matchingTools.length) {
+        const toolIdx = selectedIndex - matchingCategories.length;
+        onSelectTool(matchingTools[toolIdx].slug);
         onClose();
       } else {
-        const postIdx = selectedIndex - matchingTools.length;
+        const postIdx = selectedIndex - matchingCategories.length - matchingTools.length;
         if (matchingPosts[postIdx]) {
           onSelectBlog(matchingPosts[postIdx].slug);
           onClose();
@@ -144,7 +153,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                 Quick Category Jump
               </div>
               <div className="flex flex-wrap gap-1.5">
-                {(['coding', 'chat', 'image', 'video', 'research', 'writing'] as ToolCategory[]).map((cat) => (
+                {(['coding', 'chat', 'image', 'video', 'audio', 'research', 'writing', 'productivity', 'design', 'marketing'] as ToolCategory[]).map((cat) => (
                   <button
                     key={cat}
                     onClick={() => {
@@ -160,6 +169,44 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             </div>
           )}
 
+          {/* Matched Category Results when query is active */}
+          {matchingCategories.length > 0 && (
+            <div className="py-2">
+              <div className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-[#2F5BFF]" />
+                <span>Categories</span>
+              </div>
+              <div className="space-y-0.5 mt-1">
+                {matchingCategories.map((cat, idx) => {
+                  const isSelected = idx === selectedIndex;
+                  return (
+                    <div
+                      key={cat}
+                      onClick={() => {
+                        onSelectCategory(cat);
+                        onClose();
+                      }}
+                      onMouseEnter={() => setSelectedIndex(idx)}
+                      className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer transition-colors ${
+                        isSelected
+                          ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white'
+                          : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold text-xs capitalize text-slate-900 dark:text-white">
+                          Browse Best AI {cat.toUpperCase()} Tools
+                        </span>
+                        <span className="text-[11px] text-[#2F5BFF] font-medium">Category Hub</span>
+                      </div>
+                      <CornerDownLeft className="w-3 h-3 text-slate-400" />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {/* Tools Results */}
           {matchingTools.length > 0 && (
             <div className="py-2">
@@ -168,7 +215,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
               </div>
               <div className="space-y-0.5 mt-1">
                 {matchingTools.map((tool, idx) => {
-                  const isSelected = idx === selectedIndex;
+                  const isSelected = idx + matchingCategories.length === selectedIndex;
                   return (
                     <div
                       key={tool.id}
@@ -176,7 +223,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                         onSelectTool(tool.slug);
                         onClose();
                       }}
-                      onMouseEnter={() => setSelectedIndex(idx)}
+                      onMouseEnter={() => setSelectedIndex(idx + matchingCategories.length)}
                       className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-colors ${
                         isSelected
                           ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white'
@@ -232,7 +279,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
               </div>
               <div className="space-y-0.5 mt-1">
                 {matchingPosts.map((post, postIdx) => {
-                  const globalIdx = matchingTools.length + postIdx;
+                  const globalIdx = matchingCategories.length + matchingTools.length + postIdx;
                   const isSelected = globalIdx === selectedIndex;
                   return (
                     <div

@@ -24,27 +24,28 @@
 **AI Finder Technologies** is an independent, production-grade directory and evaluation platform for artificial intelligence software. Designed with the aesthetic density and typography standards of **Linear, Raycast, and Stripe**, it completely eliminates AI-slop clichés (no purple gradient heroes, no pill-badge sandwiches, no fake scorecards, and no sponsored pay-to-play rankings).
 
 ### Key Features
-* 🔍 **Instant Live Search**: Sub-millisecond debounced search with keyword highlighting and live category suggestions.
-* ⌨️ **Cmd/Ctrl+K Command Palette**: Full-featured keyboard navigation dialog to jump straight to any tool, guide, or category.
-* 🪐 **Interactive 3D Constellation Nexus (Three.js)**: Physically-Based Rendering (PBR) WebGL scene featuring composite procedural models, `RoomEnvironment` studio lighting, exponential camera damping, and a collapsible bottom dock ($\le 15\%$ viewport footprint).
-* ⚖️ **Side-by-Side Compare Matrix**: Select up to 3 tools to compare architecture, pricing models, platforms, pros/cons, and target users head-to-head.
-* 📑 **10 Original Benchmark Guides**: 900–1,500 word in-depth analyses covering IDE refactoring, model reasoning, image diffusion, video editing, and academic search.
-* 🏷️ **Faceted Real-Time Filtering**: Filter by category, pricing model (`Free`, `Freemium`, `Paid`), platform, verified status, and bookmarks—all automatically synchronized to the URL query string for effortless sharing.
-* 🔖 **Persistent Local Bookmarks**: Save favorite tools directly to browser `localStorage` with zero account required.
-* 🌓 **Dual-Theme Design System**: Clean Light and Dark modes built with CSS custom properties and Tailwind CSS v4 `@custom-variant dark`.
-* 🚀 **Technical SEO Pre-Wired**: XML Sitemap (`/sitemap.xml`), robots.txt (`/robots.txt`), RSS 2.0 Feed (`/rss.xml`), and Schema.org JSON-LD structured data (`SoftwareApplication`, `BlogPosting`, `FAQPage`, `WebSite`, `Organization`).
+* 🔍 **Instant Live Search & Cmd/Ctrl+K Palette**: Sub-millisecond search across 63 tools, 10 categories, and 10 research articles with full keyboard navigation.
+* 📦 **63 Verified AI Tools Across 10 Categories**: Detailed architectural breakdowns across Chat, Coding, Image, Video, Audio, Research, Writing, Productivity, Design, and Marketing.
+* ⚡ **Build-Time Static Prerendering (SSG)**: Statically generates pre-rendered HTML for all 100+ routes at build time with per-route `<title>`, meta description, canonical link, and JSON-LD structured data (`SoftwareApplication`, `Article`, `BreadcrumbList`, `Organization`, `WebSite`).
+* ⚖️ **Head-to-Head Compare Matrix**: Compare up to 3 tools side by side with live URL state synchronization (`/compare?tools=cursor,claude,github-copilot`).
+* 🏷️ **Faceted Real-Time Filtering**: Filter by category, pricing model (`Free`, `Freemium`, `Paid`), free tier availability, platforms, and sort order (`trending`, `rating`, `newest`, `alphabetical`), all synced to URL parameters.
+* 🪐 **Code-Split 3D Spatial Nexus (Three.js)**: Physically-Based Rendering (PBR) constellation visualization lazy-loaded via `React.lazy` and `Suspense` out of the critical bundle.
+* 📑 **10 Original Benchmark Guides**: In-depth, non-sponsored investigations and comparative benchmarks with author profiles and editorial disclosures.
+* 📩 **Submit a Tool & Serverless Function**: Dedicated `/submit` page with validated form and Vercel serverless function (`/api/submit-tool.ts`).
+* 🌓 **Zero-Flash Dual Theme**: Instant light and dark mode with synchronous inline head execution to eliminate unstyled theme flashing.
+* 🚀 **Production Technical SEO**: Automated `sitemap.xml`, `robots.txt`, and 1200x630 OpenGraph social share card images (`/public/og-default.png`).
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Framework**: React 19 (Functional components, custom hooks)
+* **Framework**: React 19 (Functional components, custom hooks, Suspense)
 * **Language**: TypeScript 5.x (Strict type safety, zero compile warnings)
-* **Build Tool**: Vite 8
+* **Build Tool**: Vite 8 + Native TypeScript Prerender Engine (`scripts/prerender.ts`)
 * **Styling**: Tailwind CSS v4 (`@tailwindcss/vite`, CSS variables, zero runtime CSS overhead)
-* **3D Visuals**: Three.js (r187) with ACES Filmic tone mapping, PMREM generator, procedural canvas textures
-* **Icons**: Lucide React
-* **Deployment Target**: Vercel, Netlify, Cloudflare Pages, or GitHub Pages
+* **3D Visuals**: Three.js (r187) with ACES Filmic tone mapping and procedural PBR materials
+* **Serverless Backend**: Vercel Serverless Functions (`/api/submit-tool.ts`)
+* **Deployment Target**: Vercel (Production zero-config with `vercel.json`)
 
 ---
 

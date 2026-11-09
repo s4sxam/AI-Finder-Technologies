@@ -14,9 +14,25 @@ export const ComparePage: React.FC<ComparePageProps> = ({
   onSelectTool,
   initialToolSlugs = ['cursor', 'github-copilot']
 }) => {
-  const [selectedSlugs, setSelectedSlugs] = useState<string[]>(
-    initialToolSlugs.length > 0 ? initialToolSlugs : ['cursor', 'github-copilot']
-  );
+  const [selectedSlugs, setSelectedSlugs] = useState<string[]>(() => {
+    // Check URL query param first
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const toolsParam = urlParams.get('tools');
+      if (toolsParam) {
+        const parsed = toolsParam.split(',').filter(Boolean).slice(0, 3);
+        if (parsed.length > 0) return parsed;
+      }
+    }
+    return initialToolSlugs.length > 0 ? initialToolSlugs : ['cursor', 'github-copilot'];
+  });
+
+  const updateUrlWithSlugs = (slugs: string[]) => {
+    if (typeof window !== 'undefined') {
+      const newSearch = slugs.length > 0 ? `?tools=${slugs.join(',')}` : '';
+      window.history.replaceState({}, '', `/compare${newSearch}`);
+    }
+  };
 
   const selectedTools = selectedSlugs
     .map((s) => AI_TOOLS.find((t) => t.slug === s))
@@ -24,12 +40,16 @@ export const ComparePage: React.FC<ComparePageProps> = ({
 
   const handleAddTool = (slug: string) => {
     if (!selectedSlugs.includes(slug) && selectedSlugs.length < 3) {
-      setSelectedSlugs([...selectedSlugs, slug]);
+      const next = [...selectedSlugs, slug];
+      setSelectedSlugs(next);
+      updateUrlWithSlugs(next);
     }
   };
 
   const handleRemoveTool = (slug: string) => {
-    setSelectedSlugs(selectedSlugs.filter((s) => s !== slug));
+    const next = selectedSlugs.filter((s) => s !== slug);
+    setSelectedSlugs(next);
+    updateUrlWithSlugs(next);
   };
 
   const unselectedTools = AI_TOOLS.filter((t) => !selectedSlugs.includes(t.slug));

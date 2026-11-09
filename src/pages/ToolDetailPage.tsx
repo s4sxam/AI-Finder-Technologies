@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { ExternalLink, Bookmark, Check, ShieldCheck, ArrowLeft, Star, ChevronDown, ChevronUp, GitCompare, Share2 } from 'lucide-react';
+import { ExternalLink, Bookmark, Check, ShieldCheck, ArrowLeft, Star, ChevronDown, ChevronUp, GitCompare, Share2, BookOpen, Clock, Tag } from 'lucide-react';
 import { AI_TOOLS } from '../data/tools';
-import { Tool } from '../types';
+import { BLOG_POSTS } from '../data/blogPosts';
+import { Tool, BlogPost } from '../types';
 import { ToolCard } from '../components/ToolCard';
 
 interface ToolDetailPageProps {
@@ -50,6 +51,11 @@ export const ToolDetailPage: React.FC<ToolDetailPageProps> = ({
 
   // Find related tools in same category
   const relatedTools = AI_TOOLS.filter((t) => t.category === tool.category && t.id !== tool.id).slice(0, 3);
+
+  // Find related blog guides
+  const relatedGuides = BLOG_POSTS.filter(
+    (p) => p.relatedToolSlugs.includes(tool.slug) || p.category === tool.category
+  ).slice(0, 2);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -146,6 +152,16 @@ export const ToolDetailPage: React.FC<ToolDetailPageProps> = ({
               {/* Zero-Pill Unboxed Metadata */}
               <div className="text-xs text-slate-500 flex items-center gap-2 flex-wrap mt-1.5">
                 <span className="font-semibold text-slate-800 dark:text-slate-200">{tool.pricing}</span>
+                {tool.startingPrice && (
+                  <>
+                    <span aria-hidden="true">·</span>
+                    <span className="text-[#2F5BFF] font-medium">{tool.startingPrice}</span>
+                  </>
+                )}
+                <span aria-hidden="true">·</span>
+                <span className={`font-medium ${tool.hasFreeTier ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500'}`}>
+                  {tool.hasFreeTier ? 'Free Tier Included' : 'Paid / Commercial'}
+                </span>
                 <span aria-hidden="true">·</span>
                 <span className="capitalize">{tool.category}</span>
                 <span aria-hidden="true">·</span>
@@ -157,6 +173,20 @@ export const ToolDetailPage: React.FC<ToolDetailPageProps> = ({
                   <span className="text-slate-400">({tool.reviewCount.toLocaleString()})</span>
                 </div>
               </div>
+
+              {/* Tags List */}
+              {tool.tags && tool.tags.length > 0 && (
+                <div className="flex flex-wrap gap-1.5 mt-2.5">
+                  {tool.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-0.5 text-[10px] bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 rounded font-medium"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
 
               <p className="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed max-w-2xl">
                 {tool.tagline}
@@ -250,6 +280,22 @@ export const ToolDetailPage: React.FC<ToolDetailPageProps> = ({
             <div className="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800/80">
               <span className="text-slate-500">Pricing Model:</span>
               <span className="font-medium text-slate-900 dark:text-white">{tool.pricing}</span>
+            </div>
+            {tool.startingPrice && (
+              <div className="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800/80">
+                <span className="text-slate-500">Starting Price:</span>
+                <span className="font-semibold text-[#2F5BFF]">{tool.startingPrice}</span>
+              </div>
+            )}
+            <div className="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800/80">
+              <span className="text-slate-500">Free Tier:</span>
+              <span className={`font-medium ${tool.hasFreeTier ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-600 dark:text-slate-400'}`}>
+                {tool.hasFreeTier ? 'Yes (Forever Free)' : 'No (Paid Only)'}
+              </span>
+            </div>
+            <div className="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800/80">
+              <span className="text-slate-500">Last Audited:</span>
+              <span className="font-mono text-slate-900 dark:text-white">{tool.lastUpdated}</span>
             </div>
             <div className="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800/80">
               <span className="text-slate-500">Release Year:</span>
@@ -377,6 +423,49 @@ export const ToolDetailPage: React.FC<ToolDetailPageProps> = ({
                 </div>
               );
             })}
+          </div>
+        </section>
+      )}
+
+      {/* --- RELATED BENCHMARKS & EDITORIAL GUIDES --- */}
+      {relatedGuides.length > 0 && (
+        <section className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-[#2F5BFF]" />
+              <span>Related Research &amp; Evaluation Guides</span>
+            </h2>
+            <button
+              onClick={() => onNavigate('/blog')}
+              className="text-xs font-semibold text-[#2F5BFF] hover:underline"
+            >
+              Browse all guides
+            </button>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {relatedGuides.map((guide) => (
+              <div
+                key={guide.id}
+                onClick={() => onNavigate(`/blog/${guide.slug}`)}
+                className="p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-slate-300 dark:hover:border-slate-700 transition-all cursor-pointer group shadow-xs"
+              >
+                <div className="text-[11px] text-slate-500 flex items-center gap-1.5 mb-2">
+                  <span className="capitalize text-slate-700 dark:text-slate-300 font-medium">{guide.category}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>{guide.readTimeMinutes} min read</span>
+                </div>
+                <h3 className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white group-hover:text-[#2F5BFF] transition-colors line-clamp-2 mb-2 leading-snug">
+                  {guide.title}
+                </h3>
+                <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                  {guide.description}
+                </p>
+                <div className="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                  <span>Author: {guide.author.name}</span>
+                  <span className="text-[#2F5BFF] font-medium group-hover:translate-x-0.5 transition-transform inline-block">Read Analysis →</span>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       )}
