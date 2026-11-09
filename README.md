@@ -203,12 +203,39 @@ This guarantees that broken imports, type mismatches, or missing files are caugh
 
 ---
 
-## ➕ Adding New AI Tools or Blog Posts (1-File Pattern)
+---
 
-Adding new content never requires touching component markup:
+## 🔄 Live Benchmarks Data Refresh Architecture
 
-### Adding a New AI Tool
-Open `/src/data/tools.ts` and append a new object to `AI_TOOLS`:
+The site uses a zero-runtime-key architecture for live benchmarks:
+
+1. **Autonomous 6-Hour Cron Crawler**:
+   * Configured in `.github/workflows/refresh-data.yml` to trigger every 6 hours (`0 */6 * * *`) and on `workflow_dispatch`.
+   * Executes `npx tsx scripts/fetch-benchmarks.ts`.
+   * Queries the free OpenRouter models catalog and the Artificial Analysis API (`https://artificialanalysis.ai/api/v2/language/models`).
+   * Normalizes metrics using explicit alias mappings in `src/data/modelAliases.ts` (no silent fuzzy matching).
+   * Appends daily snapshots to `src/data/live/history.json` (retains up to 90 days) and overwrites `src/data/live/benchmarks.json`.
+2. **Commit & Prerender Deployment**:
+   * The GitHub Action checks `git diff --staged --quiet`. If and only if data has changed, it commits with `[skip ci]` and pushes.
+   * Vercel triggers a deployment webhook to rebuild the statically prerendered routes with fresh data.
+   * Client-side bundles contain zero runtime API keys and load instantly from edge cache.
+
+### Required GitHub Secrets & Environment Variables
+
+| Secret / Env Var | Location | Description |
+|---|---|---|
+| `ARTIFICIAL_ANALYSIS_API_KEY` | GitHub Repo Secret (`Settings > Secrets > Actions`) | Free key from [artificialanalysis.ai/account](https://artificialanalysis.ai/account) for live intelligence and throughput benchmarks (1,000 req/day limit). |
+| `VITE_APP_URL` / `APP_URL` | Vercel Project Settings (`Environment Variables`) | Production canonical domain (e.g. `https://aifinder.tech`) for sitemaps, canonical tags, and OpenGraph URLs. |
+| `GEMINI_API_KEY` | Vercel / AI Studio Environment | For server-side AI model inspection and indexing. |
+
+---
+
+## ➕ Adding New AI Tools, Providers & Benchmarks (1-File Pattern)
+
+Adding content never requires modifying component code:
+
+### 1. Adding a New AI Tool
+Open `/src/data/tools.ts` and append to `AI_TOOLS`:
 ```typescript
 {
   id: 'tool-new',
@@ -216,53 +243,67 @@ Open `/src/data/tools.ts` and append a new object to `AI_TOOLS`:
   slug: 'new-ai-tool',
   tagline: 'One-line value proposition.',
   description: 'Detailed evaluation paragraph...',
-  category: 'coding', // 'chat' | 'coding' | 'image' | 'video' | 'research' | 'writing'
-  pricing: 'Freemium', // 'Free' | 'Freemium' | 'Paid'
-  pricingDetails: 'Free tier with 100 credits. Pro is $20/month.',
-  platforms: ['Web', 'Mac', 'VS Code'],
+  category: 'coding', // 'chat' | 'coding' | 'image' | 'video' | 'research' | 'writing' | 'productivity' | 'design' | 'marketing'
+  pricing: 'Freemium', // 'Free' | 'Freemium' | 'Paid' | 'Free Trial'
+  startingPrice: '$10/mo',
+  hasFreeTier: true,
+  pricingDetails: 'Free tier with quota. Pro is $10/mo.',
+  platforms: ['Web', 'VS Code'],
   websiteUrl: 'https://example.com',
-  rating: 4.8,
+  rating: 4.85,
   reviewCount: 1200,
   trendingRank: 18,
   featured: false,
   releaseYear: 2026,
   bestFor: 'Target audience summary...',
   keyFeatures: ['Feature 1', 'Feature 2'],
-  pros: ['Advantage 1', 'Advantage 2'],
+  pros: ['Advantage 1'],
   cons: ['Limitation 1'],
   faqs: [{ question: 'FAQ Question?', answer: 'FAQ Answer.' }],
   alternatives: ['cursor', 'v0'],
   verified: true,
   monogram: 'NT',
-  accentColor: '#2F5BFF'
+  accentColor: '#2F5BFF',
+  capabilities: { coding: 2, chat: 1, docAnalysis: 1 }, // 0 = no, 1 = limited, 2 = strong
+  lastReviewed: '2026-03'
 }
 ```
-The tool will automatically appear in the directory, search index, comparison matrix, category counts, and sitemap.
 
-### Adding a New Blog Guide
-Open `/src/data/blogPosts.ts` and append a new object to `BLOG_POSTS`:
+### 2. Adding a Free AI API Provider
+Open `/src/data/freeApis.ts` and append to `FREE_API_PROVIDERS`:
 ```typescript
 {
-  id: 'post-new-topic',
-  slug: 'new-topic-guide',
-  title: 'Complete Guide Title in 2026',
-  description: 'Meta description for search engine snippets (120-155 characters)...',
-  date: '2026-03-08',
-  updated: '2026-03-08',
-  author: {
-    name: 'Elena Rostova',
-    role: 'Principal Staff Engineer',
-    avatar: 'ER'
-  },
-  category: 'coding',
-  tags: ['Coding', 'Tools', 'Guide'],
-  readTimeMinutes: 8,
-  targetKeyword: 'target keyword phrase',
-  searchIntent: 'Commercial',
-  outline: ['01. Introduction', '02. Key Findings', '03. Recommendations'],
-  content: `### 01. Introduction\n\nArticle prose here...`,
-  faqs: [{ question: 'Key Question?', answer: 'Detailed answer.' }],
-  relatedToolSlugs: ['cursor', 'v0']
+  id: 'provider-slug',
+  name: 'Provider Name',
+  websiteUrl: 'https://provider.com',
+  getKeyUrl: 'https://console.provider.com/keys',
+  docsUrl: 'https://docs.provider.com',
+  limitsUrl: 'https://provider.com/pricing',
+  baseUrl: 'https://api.provider.com/v1',
+  openAiCompatible: true,
+  creditCardRequired: 'no', // 'no' | 'yes' | 'unknown'
+  phoneVerification: false,
+  envVarName: 'PROVIDER_API_KEY',
+  bestFor: 'Specialization summary...',
+  freeTierSummary: 'Free tier rate limits copy from official documentation.',
+  lastVerified: '2026-03-08',
+  steps: [
+    { title: 'Sign up', instruction: 'Register at...' },
+    { title: 'Create Key', instruction: 'Navigate to API keys...' },
+    { title: 'Configure .env', instruction: 'Save to .env...', codeSnippet: { lang: 'bash', filename: '.env', code: 'KEY="token"' } }
+  ]
+}
+```
+
+### 3. Adding a Model Alias for Live Benchmarks
+Open `/src/data/modelAliases.ts` and add:
+```typescript
+{
+  aaSlug: 'artificial-analysis-slug',
+  openRouterId: 'creator/model-id',
+  displayName: 'Display Name',
+  creator: 'Creator Name',
+  toolSlug: 'directory-tool-slug' // Optional direct link to /tools/:slug
 }
 ```
 

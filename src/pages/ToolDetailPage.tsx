@@ -4,6 +4,7 @@ import { AI_TOOLS } from '../data/tools';
 import { BLOG_POSTS } from '../data/blogPosts';
 import { Tool, BlogPost } from '../types';
 import { ToolCard } from '../components/ToolCard';
+import { CapabilityRadar } from '../components/charts/CapabilityRadar';
 
 interface ToolDetailPageProps {
   slug: string;
@@ -12,6 +13,7 @@ interface ToolDetailPageProps {
   onToggleBookmark: (toolId: string) => void;
   compareIds: string[];
   onToggleCompare: (toolId: string) => void;
+  tools?: Tool[];
 }
 
 export const ToolDetailPage: React.FC<ToolDetailPageProps> = ({
@@ -20,9 +22,10 @@ export const ToolDetailPage: React.FC<ToolDetailPageProps> = ({
   bookmarkedIds,
   onToggleBookmark,
   compareIds,
-  onToggleCompare
+  onToggleCompare,
+  tools = AI_TOOLS
 }) => {
-  const tool = AI_TOOLS.find((t) => t.slug === slug);
+  const tool = tools.find((t) => t.slug === slug);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [copiedLink, setCopiedLink] = useState(false);
 
@@ -47,10 +50,10 @@ export const ToolDetailPage: React.FC<ToolDetailPageProps> = ({
   const isCompared = compareIds.includes(tool.id);
 
   // Find alternative tools
-  const alternativesList = AI_TOOLS.filter((t) => tool.alternatives.includes(t.slug));
+  const alternativesList = tools.filter((t) => tool.alternatives.includes(t.slug));
 
   // Find related tools in same category
-  const relatedTools = AI_TOOLS.filter((t) => t.category === tool.category && t.id !== tool.id).slice(0, 3);
+  const relatedTools = tools.filter((t) => t.category === tool.category && t.id !== tool.id).slice(0, 3);
 
   // Find related blog guides
   const relatedGuides = BLOG_POSTS.filter(
@@ -321,6 +324,61 @@ export const ToolDetailPage: React.FC<ToolDetailPageProps> = ({
           </div>
         </div>
       </div>
+
+      {/* --- CAPABILITY RADAR & EDITORIAL SCORES --- */}
+      {tool.capabilities && (
+        <section className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">
+              Aptitude Profile vs. Top Alternatives
+            </h2>
+            <span className="text-xs text-slate-500 font-mono">
+              Editorial Audit: March 2026
+            </span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="md:col-span-1">
+              <CapabilityRadar tools={[tool, ...alternativesList.slice(0, 2)]} />
+            </div>
+            <div className="md:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 shadow-xs flex flex-col justify-between">
+              <div>
+                <h3 className="font-bold text-sm text-slate-900 dark:text-white mb-2">
+                  Task Aptitude Ratings
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                  Evaluated across practical software engineering, multimodal generation, and business analysis workflows. Ratings indicate verified platform capabilities (Strong / Limited / No native support).
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                  {Object.entries(tool.capabilities).map(([task, score]) => (
+                    <div
+                      key={task}
+                      className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-between"
+                    >
+                      <span className="capitalize font-medium text-slate-700 dark:text-slate-300">
+                        {task.replace('Gen', '')}
+                      </span>
+                      <span
+                        className={`text-[10px] font-bold px-1.5 py-0.5 rounded font-mono ${
+                          score === 2
+                            ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
+                            : score === 1
+                            ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
+                            : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
+                        }`}
+                      >
+                        {score === 2 ? 'Strong' : score === 1 ? 'Limited' : 'None'}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="text-[11px] text-slate-400 pt-3 border-t border-slate-100 dark:border-slate-800 mt-4">
+                Independent editorial evaluation conducted by AI Finder technical reviewers.
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* --- KEY FEATURES --- */}
       <section className="space-y-4">

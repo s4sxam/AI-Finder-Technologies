@@ -1,0 +1,50 @@
+{
+  "entities": {
+    "Model": {
+      "title": "Model",
+      "description": "AI model or tool uploaded by the community",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 100 },
+        "slug": { "type": "string", "pattern": "^[a-z0-9-]+$", "maxLength": 100 },
+        "tagline": { "type": "string", "maxLength": 200 },
+        "description": { "type": "string", "maxLength": 3000 },
+        "category": {
+          "type": "string",
+          "enum": ["chat", "coding", "image", "video", "audio", "research", "writing", "productivity", "design", "marketing"]
+        },
+        "pricing": {
+          "type": "string",
+          "enum": ["Free", "Freemium", "Paid", "Free Trial"]
+        },
+        "startingPrice": { "type": "string", "maxLength": 50 },
+        "hasFreeTier": { "type": "boolean" },
+        "websiteUrl": { "type": "string", "maxLength": 300 },
+        "rating": { "type": "number" },
+        "reviewCount": { "type": "number" },
+        "verified": { "type": "boolean" },
+        "monogram": { "type": "string", "maxLength": 4 },
+        "accentColor": { "type": "string", "maxLength": 20 },
+        "tags": { "type": "array" },
+        "keyFeatures": { "type": "array" },
+        "pros": { "type": "array" },
+        "cons": { "type": "array" },
+        "submitterName": { "type": "string", "maxLength": 100 },
+        "submitterEmail": { "type": "string", "maxLength": 150 },
+        "status": {
+          "type": "string",
+          "enum": ["published", "pending", "archived"]
+        },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "slug", "tagline", "category", "pricing", "websiteUrl", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/models/{modelId}": {
+      "schema": "#/entities/Model",
+      "description": "Collection of community uploaded AI models and tools"
+    }
+  }
+}

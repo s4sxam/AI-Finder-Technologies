@@ -67,8 +67,8 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </button>
 
-          {/* Zone 2: 4-5 clean single-line nav links */}
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+          {/* Zone 2: Clean single-line nav links */}
+          <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-slate-600 dark:text-slate-300">
             <button
               onClick={() => onNavigate('/tools')}
               className={`whitespace-nowrap shrink-0 transition-colors hover:text-[#2F5BFF] dark:hover:text-[#2F5BFF] ${
@@ -78,12 +78,21 @@ export const Header: React.FC<HeaderProps> = ({
               Directory
             </button>
             <button
-              onClick={() => onNavigate('/categories')}
-              className={`whitespace-nowrap shrink-0 transition-colors hover:text-[#2F5BFF] dark:hover:text-[#2F5BFF] ${
-                currentPath.startsWith('/category') ? 'text-[#2F5BFF] dark:text-[#2F5BFF] font-semibold' : ''
+              onClick={() => onNavigate('/benchmarks')}
+              className={`whitespace-nowrap shrink-0 transition-colors hover:text-[#2F5BFF] dark:hover:text-[#2F5BFF] flex items-center gap-1.5 ${
+                currentPath === '/benchmarks' ? 'text-[#2F5BFF] dark:text-[#2F5BFF] font-semibold' : ''
               }`}
             >
-              Categories
+              <span>Live Benchmarks</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            </button>
+            <button
+              onClick={() => onNavigate('/free-apis')}
+              className={`whitespace-nowrap shrink-0 transition-colors hover:text-[#2F5BFF] dark:hover:text-[#2F5BFF] ${
+                currentPath.startsWith('/free-apis') ? 'text-[#2F5BFF] dark:text-[#2F5BFF] font-semibold' : ''
+              }`}
+            >
+              Free APIs
             </button>
             <button
               onClick={() => onNavigate('/compare')}
@@ -91,7 +100,7 @@ export const Header: React.FC<HeaderProps> = ({
                 currentPath === '/compare' ? 'text-[#2F5BFF] dark:text-[#2F5BFF] font-semibold' : ''
               }`}
             >
-              Compare Matrix
+              Compare
             </button>
             <button
               onClick={() => onNavigate('/blog')}
@@ -99,16 +108,7 @@ export const Header: React.FC<HeaderProps> = ({
                 currentPath.startsWith('/blog') ? 'text-[#2F5BFF] dark:text-[#2F5BFF] font-semibold' : ''
               }`}
             >
-              Research & Blog
-            </button>
-            <button
-              onClick={() => onNavigate('/nexus-3d')}
-              className={`flex items-center gap-1.5 whitespace-nowrap shrink-0 transition-colors hover:text-[#2F5BFF] dark:hover:text-[#2F5BFF] ${
-                currentPath === '/nexus-3d' ? 'text-[#2F5BFF] dark:text-[#2F5BFF] font-semibold' : ''
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5 text-[#2F5BFF]" />
-              <span>3D Nexus</span>
+              Research &amp; Guides
             </button>
           </nav>
 

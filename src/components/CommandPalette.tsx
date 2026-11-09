@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Search, ArrowRight, CornerDownLeft, Sparkles, BookOpen, Layers, X, Bookmark, Check } from 'lucide-react';
 import { AI_TOOLS } from '../data/tools';
 import { BLOG_POSTS } from '../data/blogPosts';
+import { FREE_API_PROVIDERS } from '../data/freeApis';
 import { Tool, BlogPost, ToolCategory } from '../types';
 
 interface CommandPaletteProps {
@@ -10,6 +11,8 @@ interface CommandPaletteProps {
   onSelectTool: (slug: string) => void;
   onSelectBlog: (slug: string) => void;
   onSelectCategory: (category: ToolCategory) => void;
+  onNavigate?: (path: string) => void;
+  tools?: Tool[];
 }
 
 export const CommandPalette: React.FC<CommandPaletteProps> = ({
@@ -17,7 +20,9 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   onClose,
   onSelectTool,
   onSelectBlog,
-  onSelectCategory
+  onSelectCategory,
+  onNavigate,
+  tools = AI_TOOLS
 }) => {
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -55,7 +60,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     (cat) => lowerQuery && cat.includes(lowerQuery)
   );
 
-  const matchingTools = AI_TOOLS.filter((tool) => {
+  const matchingTools = tools.filter((tool) => {
     if (!lowerQuery) return tool.trendingRank <= 6;
     return (
       tool.name.toLowerCase().includes(lowerQuery) ||
@@ -75,7 +80,20 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     );
   }).slice(0, 3);
 
-  const totalResults = matchingCategories.length + matchingTools.length + matchingPosts.length;
+  const matchingFreeApis = FREE_API_PROVIDERS.filter((p) => {
+    if (!lowerQuery) return false;
+    return (
+      p.name.toLowerCase().includes(lowerQuery) ||
+      p.envVarName.toLowerCase().includes(lowerQuery) ||
+      p.bestFor.toLowerCase().includes(lowerQuery)
+    );
+  }).slice(0, 3);
+
+  const totalResults =
+    matchingCategories.length +
+    matchingTools.length +
+    matchingPosts.length +
+    matchingFreeApis.length;
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown') {
@@ -93,10 +111,16 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         const toolIdx = selectedIndex - matchingCategories.length;
         onSelectTool(matchingTools[toolIdx].slug);
         onClose();
-      } else {
+      } else if (selectedIndex < matchingCategories.length + matchingTools.length + matchingPosts.length) {
         const postIdx = selectedIndex - matchingCategories.length - matchingTools.length;
         if (matchingPosts[postIdx]) {
           onSelectBlog(matchingPosts[postIdx].slug);
+          onClose();
+        }
+      } else {
+        const apiIdx = selectedIndex - matchingCategories.length - matchingTools.length - matchingPosts.length;
+        if (matchingFreeApis[apiIdx] && onNavigate) {
+          onNavigate(`/free-apis/${matchingFreeApis[apiIdx].id}`);
           onClose();
         }
       }
@@ -303,6 +327,56 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                           </div>
                           <div className="text-[11px] text-slate-500">
                             {post.readTimeMinutes} min read · {post.category}
+                          </div>
+                        </div>
+                      </div>
+
+                      {isSelected && (
+                        <CornerDownLeft className="w-3.5 h-3.5 text-[#2F5BFF] shrink-0" />
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Free AI API Setup Guides */}
+          {matchingFreeApis.length > 0 && (
+            <div className="py-2">
+              <div className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                Free AI API Key Guides
+              </div>
+              <div className="space-y-0.5 mt-1">
+                {matchingFreeApis.map((api, apiIdx) => {
+                  const globalIdx =
+                    matchingCategories.length +
+                    matchingTools.length +
+                    matchingPosts.length +
+                    apiIdx;
+                  const isSelected = globalIdx === selectedIndex;
+                  return (
+                    <div
+                      key={api.id}
+                      onClick={() => {
+                        if (onNavigate) onNavigate(`/free-apis/${api.id}`);
+                        onClose();
+                      }}
+                      onMouseEnter={() => setSelectedIndex(globalIdx)}
+                      className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-colors ${
+                        isSelected
+                          ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white'
+                          : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <Sparkles className="w-4 h-4 text-emerald-500 shrink-0" />
+                        <div className="truncate">
+                          <div className="text-xs font-medium text-slate-900 dark:text-white truncate">
+                            {api.name} Free API Key Guide
+                          </div>
+                          <div className="text-[11px] text-slate-500 font-mono">
+                            Env: {api.envVarName} · {api.creditCardRequired === 'no' ? 'No Credit Card' : 'Credit Card Req.'}
                           </div>
                         </div>
                       </div>

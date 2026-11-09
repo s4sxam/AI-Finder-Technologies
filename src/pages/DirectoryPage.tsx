@@ -17,6 +17,7 @@ interface DirectoryPageProps {
   onToggleCompare: (toolId: string) => void;
   onSelectTool: (slug: string) => void;
   onUpdateUrlParams: (params: Record<string, string>) => void;
+  tools?: Tool[];
 }
 
 export const DirectoryPage: React.FC<DirectoryPageProps> = ({
@@ -31,7 +32,8 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
   compareIds,
   onToggleCompare,
   onSelectTool,
-  onUpdateUrlParams
+  onUpdateUrlParams,
+  tools = AI_TOOLS
 }) => {
   const [search, setSearch] = useState(initialSearch);
   const [category, setCategory] = useState<ToolCategory | 'all'>(initialCategory);
@@ -72,7 +74,7 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
 
   // Filter and sort calculation
   const filteredTools = useMemo(() => {
-    return AI_TOOLS.filter((t) => {
+    return tools.filter((t) => {
       // Search
       if (search.trim()) {
         const q = search.toLowerCase();
@@ -112,7 +114,7 @@ export const DirectoryPage: React.FC<DirectoryPageProps> = ({
       if (sortBy === 'alphabetical') return a.name.localeCompare(b.name);
       return 0;
     });
-  }, [search, category, pricing, platform, onlyVerified, onlyBookmarked, onlyFreeTier, bookmarkedIds, sortBy]);
+  }, [tools, search, category, pricing, platform, onlyVerified, onlyBookmarked, onlyFreeTier, bookmarkedIds, sortBy]);
 
   const handleResetFilters = () => {
     setSearch('');

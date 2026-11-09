@@ -1,595 +1,691 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yourdomain.com</loc>
+    <loc>https://ai-finder-ruddy.vercel.app</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/categories</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/compare</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/categories</loc>
-    <lastmod>2026-11-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://yourdomain.com/compare</loc>
-    <lastmod>2026-11-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://yourdomain.com/blog</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/blog</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/about</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/about</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/contact</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/contact</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/privacy</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/submit</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/terms</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/privacy</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/nexus-3d</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/terms</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/category/chat</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/nexus-3d</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/benchmarks</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/submit-tool</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis/google-ai-studio</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/category/coding</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis/groq</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/category/image</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis/openrouter</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/category/video</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis/cerebras</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/category/audio</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis/mistral</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/category/research</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis/nvidia-nim</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/category/writing</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis/github-models</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/category/productivity</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis/cloudflare-workers-ai</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/category/design</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis/huggingface-inference</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/category/marketing</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis/cohere</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/claude</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis/openrouter-models-api</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/free-apis/artificial-analysis-api</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/category/chat</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/category/coding</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/category/image</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/category/video</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/category/audio</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/category/research</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/category/writing</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/category/productivity</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/category/design</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/category/marketing</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/claude</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/chatgpt</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/chatgpt</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/deepseek-r1</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/deepseek-r1</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/gemini-advanced</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/gemini-advanced</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/grok</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/grok</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/le-chat</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/le-chat</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/meta-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/meta-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/cursor</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/cursor</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/github-copilot</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/github-copilot</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/v0</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/v0</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/windsurf</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/windsurf</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/claude-code</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/claude-code</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/aider</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/aider</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/replit-agent</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/replit-agent</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/lovable</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/lovable</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/bolt-new</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/bolt-new</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/tabnine</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/tabnine</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/devin</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/devin</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/midjourney</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/midjourney</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/flux</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/flux</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/ideogram</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/ideogram</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/recraft</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/recraft</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/leonardo</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/leonardo</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/krea</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/krea</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/magnific</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/magnific</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/freepik-pikaso</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/freepik-pikaso</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/runway</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/runway</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/luma-dream-machine</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/luma-dream-machine</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/kling-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/kling-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/hailuo-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/hailuo-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/pika</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/pika</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/heygen</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/heygen</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/synthesia</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/synthesia</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/elevenlabs</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/elevenlabs</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/suno</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/suno</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/udio</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/udio</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/whisper</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/whisper</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/descript</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/descript</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/soundraw</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/soundraw</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/perplexity</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/perplexity</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/notebooklm</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/notebooklm</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/consensus</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/consensus</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/elicit</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/elicit</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/scite</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/scite</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/semantic-scholar</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/semantic-scholar</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/notion-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/notion-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/jasper</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/jasper</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/copy-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/copy-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/writesonic</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/writesonic</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/grammarly-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/grammarly-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/sudowrite</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/sudowrite</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/granola</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/granola</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/otter-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/otter-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/superhuman-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/superhuman-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/raycast-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/raycast-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/fathom</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/fathom</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/routine-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/routine-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/figma-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/figma-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/uizard</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/uizard</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/spline-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/spline-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/meshy</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/meshy</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/tripo-3d</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/tripo-3d</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/framer-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/framer-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/surfer-seo</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/surfer-seo</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/adcreative-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/adcreative-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/mutiny</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/mutiny</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/lately-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/lately-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/brand24-ai</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/brand24-ai</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/tools/taplio</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/tools/taplio</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/blog/best-ai-tools-for-coding</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/blog/best-ai-tools-for-coding</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/blog/chatgpt-vs-claude-vs-gemini</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/blog/chatgpt-vs-claude-vs-gemini</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/blog/best-free-ai-image-generators</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/blog/best-free-ai-image-generators</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/blog/best-ai-tools-for-students</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/blog/best-ai-tools-for-students</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/blog/how-to-choose-an-ai-tool-checklist</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/blog/how-to-choose-an-ai-tool-checklist</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/blog/top-ai-video-editing-tools</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/blog/top-ai-video-editing-tools</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/blog/best-ai-research-assistants</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/blog/best-ai-research-assistants</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/blog/best-ai-writing-tools-for-bloggers</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/blog/best-ai-writing-tools-for-bloggers</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/blog/perplexity-vs-google-search</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/blog/perplexity-vs-google-search</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourdomain.com/blog/free-vs-paid-ai-tools-worth-it</loc>
+    <loc>https://ai-finder-ruddy.vercel.app/blog/free-vs-paid-ai-tools-worth-it</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

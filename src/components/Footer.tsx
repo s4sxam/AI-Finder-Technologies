@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ShieldCheck, Rss, FileText, ExternalLink, Sparkles } from 'lucide-react';
 import { BrandGuideModal } from './BrandGuideModal';
+import { NewsletterSignup } from './NewsletterSignup';
 
 interface FooterProps {
   onNavigate: (path: string) => void;
@@ -13,6 +14,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     <>
       <footer className="w-full bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 text-xs transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          {/* Newsletter Signup Integration */}
+          <div className="mb-12 pb-8 border-b border-slate-100 dark:border-slate-800/80">
+            <div className="max-w-xl">
+              <NewsletterSignup />
+            </div>
+          </div>
+
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             
             {/* Col 1: Brand & Mission */}
@@ -103,8 +111,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
               <ul className="space-y-2">
                 <li>
+                  <button onClick={() => onNavigate('/benchmarks')} className="hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1.5 font-medium text-[#2F5BFF]">
+                    <span>Live Benchmarks</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => onNavigate('/free-apis')} className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                    Free AI APIs Hub
+                  </button>
+                </li>
+                <li>
                   <button onClick={() => onNavigate('/blog')} className="hover:text-slate-900 dark:hover:text-white transition-colors">
-                    All Blog Posts
+                    Research &amp; Guides
                   </button>
                 </li>
                 <li>

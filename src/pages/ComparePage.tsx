@@ -2,17 +2,20 @@ import React, { useState } from 'react';
 import { GitCompare, ExternalLink, Star, ShieldCheck, Plus, X, ArrowRight } from 'lucide-react';
 import { AI_TOOLS } from '../data/tools';
 import { Tool } from '../types';
+import { CapabilityRadar } from '../components/charts/CapabilityRadar';
 
 interface ComparePageProps {
   onNavigate: (path: string) => void;
   onSelectTool: (slug: string) => void;
   initialToolSlugs?: string[];
+  tools?: Tool[];
 }
 
 export const ComparePage: React.FC<ComparePageProps> = ({
   onNavigate,
   onSelectTool,
-  initialToolSlugs = ['cursor', 'github-copilot']
+  initialToolSlugs = ['cursor', 'github-copilot'],
+  tools = AI_TOOLS
 }) => {
   const [selectedSlugs, setSelectedSlugs] = useState<string[]>(() => {
     // Check URL query param first
@@ -35,7 +38,7 @@ export const ComparePage: React.FC<ComparePageProps> = ({
   };
 
   const selectedTools = selectedSlugs
-    .map((s) => AI_TOOLS.find((t) => t.slug === s))
+    .map((s) => tools.find((t) => t.slug === s))
     .filter((t): t is Tool => !!t);
 
   const handleAddTool = (slug: string) => {
@@ -52,7 +55,7 @@ export const ComparePage: React.FC<ComparePageProps> = ({
     updateUrlWithSlugs(next);
   };
 
-  const unselectedTools = AI_TOOLS.filter((t) => !selectedSlugs.includes(t.slug));
+  const unselectedTools = tools.filter((t) => !selectedSlugs.includes(t.slug));
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
@@ -133,6 +136,13 @@ export const ComparePage: React.FC<ComparePageProps> = ({
           ))}
         </div>
       </div>
+
+      {/* Multidimensional Radar Overlay */}
+      {selectedTools.length > 0 && (
+        <div className="flex justify-center">
+          <CapabilityRadar tools={selectedTools} className="w-full max-w-xl" />
+        </div>
+      )}
 
       {/* Comparison Matrix Table */}
       {selectedTools.length > 0 ? (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { CommandPalette } from './components/CommandPalette';
@@ -18,10 +18,20 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { AI_TOOLS } from './data/tools';
 import { BLOG_POSTS } from './data/blogPosts';
 import { Tool, ToolCategory, PricingType } from './types';
+import { subscribeToCommunityModels } from './lib/modelsService';
 
-// Route-level code-splitting for heavy 3D Nexus page
+// Route-level code-splitting for heavy pages
 const Nexus3DPage = React.lazy(() =>
   import('./pages/Nexus3DPage').then((m) => ({ default: m.Nexus3DPage }))
+);
+const BenchmarksPage = React.lazy(() =>
+  import('./pages/BenchmarksPage').then((m) => ({ default: m.BenchmarksPage }))
+);
+const FreeApisIndexPage = React.lazy(() =>
+  import('./pages/FreeApisIndexPage').then((m) => ({ default: m.FreeApisIndexPage }))
+);
+const FreeApiDetailPage = React.lazy(() =>
+  import('./pages/FreeApiDetailPage').then((m) => ({ default: m.FreeApiDetailPage }))
 );
 
 export default function App() {
@@ -52,6 +62,23 @@ export default function App() {
 
   // Comparison Tool Selection (Max 3)
   const [compareIds, setCompareIds] = useState<string[]>([]);
+
+  // Community Uploaded Models Streamed from Firebase Firestore
+  const [communityModels, setCommunityModels] = useState<Tool[]>([]);
+
+  // Real-time Firestore subscription: anyone can upload without touching source code
+  useEffect(() => {
+    const unsubscribe = subscribeToCommunityModels(
+      (models) => {
+        setCommunityModels(models);
+      },
+      (err: unknown) => {
+        const msg = err instanceof Error ? err.message : String(err);
+        console.warn('Real-time models subscription notice:', msg);
+      }
+    );
+    return () => unsubscribe();
+  }, []);
 
   // Command Palette Open State
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
@@ -144,9 +171,17 @@ export default function App() {
     setCompareIds([]);
   };
 
+  // Unified tool list merging static registry + live Firestore community uploads
+  const allTools = useMemo(() => {
+    if (communityModels.length === 0) return AI_TOOLS;
+    const staticSlugs = new Set(AI_TOOLS.map((t) => t.slug));
+    const newFromCommunity = communityModels.filter((t) => !staticSlugs.has(t.slug));
+    return [...AI_TOOLS, ...newFromCommunity];
+  }, [communityModels]);
+
   // Selected tool objects for comparison drawer
   const selectedCompareTools = compareIds
-    .map((id) => AI_TOOLS.find((t) => t.id === id))
+    .map((id) => allTools.find((t) => t.id === id))
     .filter((t): t is Tool => !!t);
 
   // Parse query parameters
@@ -165,11 +200,11 @@ export default function App() {
     let description = 'Discover, compare, and master premier AI tools for coding, writing, research, visual creation, and workflow automation.';
 
     if (currentPath === '/tools') {
-      title = 'AI Tools Directory – Browse All 60+ Verified Software | AI Finder';
-      description = 'Filter and compare 60+ verified AI applications across developer tools, foundation reasoning, generative video, and academic search.';
+      title = `AI Tools Directory – Browse All ${allTools.length}+ Verified Software | AI Finder`;
+      description = 'Filter and compare verified AI applications across developer tools, foundation reasoning, generative video, and academic search.';
     } else if (currentPath.startsWith('/tools/')) {
       const slug = currentPath.replace('/tools/', '');
-      const tool = AI_TOOLS.find((t) => t.slug === slug);
+      const tool = allTools.find((t) => t.slug === slug);
       if (tool) {
         title = `${tool.name} Review, Pricing & Alternatives (2026) | AI Finder`;
         description = `${tool.tagline} Verified ratings, specifications, pros & cons, and key alternatives.`;
@@ -197,7 +232,17 @@ export default function App() {
     } else if (currentPath === '/contact') {
       title = 'Contact & Editorial Inquiries | AI Finder Technologies';
       description = 'Reach out to our independent research team or challenge benchmark data.';
-    } else if (currentPath === '/submit') {
+    } else if (currentPath === '/benchmarks') {
+      title = 'Live AI Model Benchmarks & Intelligence Index | AI Finder';
+      description = 'Real-world comparative data across reasoning indexes, coding speed (tokens/sec), and token pricing economics. Sourced from Artificial Analysis & OpenRouter.';
+    } else if (currentPath === '/free-apis') {
+      title = 'Free AI APIs & Legitimate Developer Key Setup Hub (2026) | AI Finder';
+      description = 'Official verified tutorials on obtaining zero-cost API keys for Google Gemini, Groq, Cerebras, Mistral, OpenRouter, and NVIDIA NIM without credit cards.';
+    } else if (currentPath.startsWith('/free-apis/')) {
+      const providerId = currentPath.replace('/free-apis/', '');
+      title = `How to Get a Free ${providerId.toUpperCase()} API Key | AI Finder`;
+      description = 'Step-by-step verified tutorial to configure environment variables, test with cURL, and copy-paste code snippets.';
+    } else if (currentPath === '/submit' || currentPath === '/submit-tool') {
       title = 'Submit an AI Tool for Evaluation | AI Finder Technologies';
       description = 'Submit a new artificial intelligence tool for independent verification, benchmarks, and inclusion in our directory.';
     }
@@ -219,6 +264,7 @@ export default function App() {
           onToggleBookmark={handleToggleBookmark}
           compareIds={compareIds}
           onToggleCompare={handleToggleCompare}
+          tools={allTools}
         />
       );
     }
@@ -239,6 +285,7 @@ export default function App() {
           onToggleCompare={handleToggleCompare}
           onSelectTool={(slug) => handleNavigate(`/tools/${slug}`)}
           onUpdateUrlParams={handleUpdateUrlParams}
+          tools={allTools}
         />
       );
     }
@@ -254,6 +301,7 @@ export default function App() {
           onToggleBookmark={handleToggleBookmark}
           compareIds={compareIds}
           onToggleCompare={handleToggleCompare}
+          tools={allTools}
         />
       );
     }
@@ -268,6 +316,7 @@ export default function App() {
           compareIds={compareIds}
           onToggleCompare={handleToggleCompare}
           onSelectTool={(slug) => handleNavigate(`/tools/${slug}`)}
+          tools={allTools}
         />
       );
     }
@@ -284,6 +333,7 @@ export default function App() {
           compareIds={compareIds}
           onToggleCompare={handleToggleCompare}
           onSelectTool={(slug) => handleNavigate(`/tools/${slug}`)}
+          tools={allTools}
         />
       );
     }
@@ -317,26 +367,76 @@ export default function App() {
           onNavigate={handleNavigate}
           onSelectTool={(slug) => handleNavigate(`/tools/${slug}`)}
           initialToolSlugs={selectedCompareTools.map((t) => t.slug)}
+          tools={allTools}
         />
       );
     }
 
-    // 9. About Page: /about
+    // 9. Live Benchmarks Matrix: /benchmarks
+    if (currentPath === '/benchmarks') {
+      return (
+        <React.Suspense
+          fallback={
+            <div className="h-[60vh] flex items-center justify-center text-xs font-mono text-slate-400">
+              Loading Live Benchmarks Matrix...
+            </div>
+          }
+        >
+          <BenchmarksPage onNavigate={handleNavigate} tools={allTools} />
+        </React.Suspense>
+      );
+    }
+
+    // 10. Free AI API Keys Hub: /free-apis
+    if (currentPath === '/free-apis') {
+      return (
+        <React.Suspense
+          fallback={
+            <div className="h-[60vh] flex items-center justify-center text-xs font-mono text-slate-400">
+              Loading Free AI API Keys Hub...
+            </div>
+          }
+        >
+          <FreeApisIndexPage
+            onNavigate={handleNavigate}
+            onSelectProvider={(id) => handleNavigate(`/free-apis/${id}`)}
+          />
+        </React.Suspense>
+      );
+    }
+
+    // 11. Free AI API Provider Guide: /free-apis/[provider]
+    if (currentPath.startsWith('/free-apis/')) {
+      const providerId = currentPath.replace('/free-apis/', '');
+      return (
+        <React.Suspense
+          fallback={
+            <div className="h-[60vh] flex items-center justify-center text-xs font-mono text-slate-400">
+              Loading Provider Setup Guide...
+            </div>
+          }
+        >
+          <FreeApiDetailPage providerId={providerId} onNavigate={handleNavigate} />
+        </React.Suspense>
+      );
+    }
+
+    // 12. About Page: /about
     if (currentPath === '/about') {
       return <AboutPage onNavigate={handleNavigate} />;
     }
 
-    // 10. Contact Page: /contact
+    // 13. Contact Page: /contact
     if (currentPath === '/contact') {
       return <ContactPage onNavigate={handleNavigate} initialIntent={intentParam} />;
     }
 
-    // 11. Submit a Tool Page: /submit
-    if (currentPath === '/submit') {
-      return <SubmitToolPage onNavigate={handleNavigate} />;
+    // 14. Submit a Tool Page: /submit or /submit-tool
+    if (currentPath === '/submit' || currentPath === '/submit-tool') {
+      return <SubmitToolPage onNavigate={handleNavigate} communityModels={communityModels} />;
     }
 
-    // 12. Privacy & Terms: /privacy, /terms
+    // 15. Privacy & Terms: /privacy, /terms
     if (currentPath === '/privacy') {
       return <LegalPage onNavigate={handleNavigate} defaultTab="privacy" />;
     }
@@ -344,7 +444,7 @@ export default function App() {
       return <LegalPage onNavigate={handleNavigate} defaultTab="terms" />;
     }
 
-    // 13. Dedicated 3D Nexus Spatial Playground: /nexus-3d (Lazy loaded)
+    // 16. Dedicated 3D Nexus Spatial Playground: /nexus-3d (Lazy loaded)
     if (currentPath === '/nexus-3d') {
       return (
         <React.Suspense
@@ -362,7 +462,7 @@ export default function App() {
       );
     }
 
-    // 14. Fallback 404
+    // 17. Fallback 404
     return <NotFoundPage onNavigate={handleNavigate} />;
   };
 
@@ -398,6 +498,8 @@ export default function App() {
         onSelectTool={(slug) => handleNavigate(`/tools/${slug}`)}
         onSelectBlog={(slug) => handleNavigate(`/blog/${slug}`)}
         onSelectCategory={(cat) => handleNavigate(`/category/${cat}`)}
+        onNavigate={handleNavigate}
+        tools={allTools}
       />
 
       {/* Quiet Authority Footer */}

@@ -1,5 +1,5 @@
 import React, { useState, Suspense, lazy } from 'react';
-import { Search, Sparkles, ArrowRight, ShieldCheck, TrendingUp, BookOpen, Layers, Check, Star, Zap, Clock } from 'lucide-react';
+import { Search, Sparkles, ArrowRight, ShieldCheck, TrendingUp, BookOpen, Layers, Check, Star, Zap, Clock, Activity, Key } from 'lucide-react';
 import { AI_TOOLS, CATEGORIES_META } from '../data/tools';
 import { BLOG_POSTS } from '../data/blogPosts';
 import { Tool, ToolCategory } from '../types';
@@ -17,6 +17,7 @@ interface HomePageProps {
   onToggleBookmark: (toolId: string) => void;
   compareIds: string[];
   onToggleCompare: (toolId: string) => void;
+  tools?: Tool[];
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
@@ -25,7 +26,8 @@ export const HomePage: React.FC<HomePageProps> = ({
   bookmarkedIds,
   onToggleBookmark,
   compareIds,
-  onToggleCompare
+  onToggleCompare,
+  tools = AI_TOOLS
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [show3DNexus, setShow3DNexus] = useState(false);
@@ -33,11 +35,11 @@ export const HomePage: React.FC<HomePageProps> = ({
   const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
 
   // 1. Top Picks: Editor's top choices with highest benchmark rating & featured flag
-  const topPicks = AI_TOOLS.filter((t) => t.featured || t.rating >= 4.85)
+  const topPicks = tools.filter((t) => t.featured || t.rating >= 4.85)
     .slice(0, 6);
 
   // 2. New This Week: Recent releases and fast-moving tools
-  const newThisWeekTools = AI_TOOLS.slice()
+  const newThisWeekTools = tools.slice()
     .sort((a, b) => b.releaseYear - a.releaseYear || a.trendingRank - b.trendingRank)
     .filter((t) => !topPicks.some((p) => p.id === t.id))
     .slice(0, 6);
@@ -227,6 +229,80 @@ export const HomePage: React.FC<HomePageProps> = ({
               onSelect={(slug) => onNavigate(`/tools/${slug}`)}
             />
           ))}
+        </div>
+      </section>
+
+      {/* --- SECTION 3: MINI LIVE BENCHMARK TEASER --- */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950 text-white rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl relative overflow-hidden">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+            <div className="space-y-3 max-w-xl">
+              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Live Data Feed · Refreshed Every 6 Hours</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                Independent AI Model Benchmark Tracker
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                We continuously crawl verified benchmarks across reasoning intelligence, real-world coding agility, and token economics directly from Artificial Analysis and OpenRouter.
+              </p>
+
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <button
+                  onClick={() => onNavigate('/benchmarks')}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#2F5BFF] hover:bg-blue-600 text-white rounded-lg text-xs font-semibold transition-all shadow-md shadow-blue-500/20"
+                >
+                  <Activity className="w-4 h-4" />
+                  <span>Launch Live Graphs &amp; Scatter Matrix</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={() => onNavigate('/free-apis')}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium border border-slate-700 transition-colors"
+                >
+                  <Key className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Browse Free AI APIs Hub</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Teaser Leaderboard Mini Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2.5 w-full lg:w-80 flex-shrink-0">
+              <div className="bg-slate-800/80 border border-slate-700/80 rounded-xl p-3 flex items-center justify-between">
+                <div>
+                  <div className="text-[10px] font-mono text-slate-400 uppercase">#1 Intelligence</div>
+                  <div className="text-xs font-bold text-white">Claude 3.7 Sonnet</div>
+                </div>
+                <div className="text-right font-mono">
+                  <div className="text-xs font-bold text-amber-400">70.4 pts</div>
+                  <div className="text-[10px] text-slate-400">78.5 tok/s</div>
+                </div>
+              </div>
+
+              <div className="bg-slate-800/80 border border-slate-700/80 rounded-xl p-3 flex items-center justify-between">
+                <div>
+                  <div className="text-[10px] font-mono text-slate-400 uppercase">#2 Reasoning</div>
+                  <div className="text-xs font-bold text-white">OpenAI o3-mini</div>
+                </div>
+                <div className="text-right font-mono">
+                  <div className="text-xs font-bold text-emerald-400">69.2 pts</div>
+                  <div className="text-[10px] text-slate-400">88.0 tok/s</div>
+                </div>
+              </div>
+
+              <div className="bg-slate-800/80 border border-slate-700/80 rounded-xl p-3 flex items-center justify-between">
+                <div>
+                  <div className="text-[10px] font-mono text-slate-400 uppercase">#3 Open Weights</div>
+                  <div className="text-xs font-bold text-white">DeepSeek R1</div>
+                </div>
+                <div className="text-right font-mono">
+                  <div className="text-xs font-bold text-blue-400">68.9 pts</div>
+                  <div className="text-[10px] text-slate-400">$0.55 / 1M</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -50,7 +50,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'CL',
     accentColor: '#D97706',
-    monthlyUsers: '28M+'
+    monthlyUsers: '28M+',
+    capabilities: {"chat":2,"coding":2,"writing":2,"docAnalysis":2,"research":1,"dataAnalysis":2,"agents":2,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-chatgpt',
@@ -98,7 +100,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'GP',
     accentColor: '#10B981',
-    monthlyUsers: '320M+'
+    monthlyUsers: '320M+',
+    capabilities: {"chat":2,"coding":2,"writing":2,"imageGen":2,"audioVoice":2,"research":2,"dataAnalysis":2,"docAnalysis":2,"agents":2,"videoGen":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-deepseek-r1',
@@ -146,7 +150,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'DS',
     accentColor: '#2563EB',
-    monthlyUsers: '45M+'
+    monthlyUsers: '45M+',
+    capabilities: {"chat":2,"coding":2,"writing":1,"dataAnalysis":2,"docAnalysis":1,"research":1,"agents":1,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-gemini-advanced',
@@ -194,7 +200,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'GM',
     accentColor: '#4285F4',
-    monthlyUsers: '85M+'
+    monthlyUsers: '85M+',
+    capabilities: {"chat":2,"coding":2,"writing":2,"imageGen":2,"audioVoice":2,"research":2,"dataAnalysis":2,"docAnalysis":2,"videoGen":1,"agents":2},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-grok',
@@ -242,7 +250,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'GK',
     accentColor: '#1F2937',
-    monthlyUsers: '20M+'
+    monthlyUsers: '20M+',
+    capabilities: {"chat":2,"coding":1,"writing":2,"imageGen":2,"research":2,"dataAnalysis":1,"docAnalysis":1,"agents":1,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-le-chat',
@@ -290,7 +300,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'MC',
     accentColor: '#F97316',
-    monthlyUsers: '10M+'
+    monthlyUsers: '10M+',
+    capabilities: {"chat":2,"coding":2,"writing":2,"docAnalysis":2,"research":1,"dataAnalysis":1,"agents":1,"imageGen":1,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-meta-ai',
@@ -338,7 +350,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'MA',
     accentColor: '#0081FB',
-    monthlyUsers: '500M+'
+    monthlyUsers: '500M+',
+    capabilities: {"chat":2,"coding":1,"writing":2,"imageGen":2,"audioVoice":1,"research":1,"dataAnalysis":1,"docAnalysis":1,"agents":0,"videoGen":1},
+    lastReviewed: '2026-03'
   },
 
   // ==========================================
@@ -390,7 +404,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'CR',
     accentColor: '#3B82F6',
-    monthlyUsers: '1.4M+'
+    monthlyUsers: '1.4M+',
+    capabilities: {"coding":2,"chat":2,"docAnalysis":2,"agents":2,"dataAnalysis":1,"writing":1,"research":1,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-github-copilot',
@@ -438,7 +454,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'GH',
     accentColor: '#10B981',
-    monthlyUsers: '10M+'
+    monthlyUsers: '10M+',
+    capabilities: {"coding":2,"chat":2,"docAnalysis":1,"agents":1,"dataAnalysis":1,"writing":0,"research":0,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-v0',
@@ -486,7 +504,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'V0',
     accentColor: '#000000',
-    monthlyUsers: '950K+'
+    monthlyUsers: '950K+',
+    capabilities: {"coding":2,"chat":2,"docAnalysis":1,"agents":1,"writing":1,"research":0,"imageGen":1,"videoGen":0,"audioVoice":0,"dataAnalysis":1},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-windsurf',
@@ -534,7 +554,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'WS',
     accentColor: '#06B6D4',
-    monthlyUsers: '600K+'
+    monthlyUsers: '600K+',
+    capabilities: {"coding":2,"chat":2,"docAnalysis":2,"agents":2,"dataAnalysis":1,"writing":0,"research":1,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-claude-code',
@@ -582,7 +604,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'CC',
     accentColor: '#D97706',
-    monthlyUsers: '150K+'
+    monthlyUsers: '150K+',
+    capabilities: {"coding":2,"chat":2,"docAnalysis":2,"agents":2,"dataAnalysis":2,"writing":1,"research":1,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-aider',
@@ -630,7 +654,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'AD',
     accentColor: '#10B981',
-    monthlyUsers: '250K+'
+    monthlyUsers: '250K+',
+    capabilities: {"coding":2,"chat":1,"docAnalysis":1,"agents":2,"dataAnalysis":1,"writing":0,"research":0,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-replit-agent',
@@ -678,7 +704,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'RP',
     accentColor: '#F97316',
-    monthlyUsers: '2.5M+'
+    monthlyUsers: '2.5M+',
+    capabilities: {"coding":2,"chat":2,"agents":2,"docAnalysis":1,"dataAnalysis":2,"writing":0,"research":1,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-lovable',
@@ -726,7 +754,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'LV',
     accentColor: '#EC4899',
-    monthlyUsers: '400K+'
+    monthlyUsers: '400K+',
+    capabilities: {"coding":2,"chat":2,"agents":2,"docAnalysis":1,"writing":1,"research":0,"imageGen":1,"videoGen":0,"audioVoice":0,"dataAnalysis":1},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-bolt-new',
@@ -774,7 +804,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'BL',
     accentColor: '#8B5CF6',
-    monthlyUsers: '800K+'
+    monthlyUsers: '800K+',
+    capabilities: {"coding":2,"chat":2,"agents":2,"docAnalysis":1,"writing":0,"research":0,"imageGen":0,"videoGen":0,"audioVoice":0,"dataAnalysis":1},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-tabnine',
@@ -822,7 +854,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'TB',
     accentColor: '#0EA5E9',
-    monthlyUsers: '1.2M+'
+    monthlyUsers: '1.2M+',
+    capabilities: {"coding":2,"chat":1,"docAnalysis":1,"agents":0,"dataAnalysis":0,"writing":0,"research":0,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-devin',
@@ -870,7 +904,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'DV',
     accentColor: '#6366F1',
-    monthlyUsers: '50K+'
+    monthlyUsers: '50K+',
+    capabilities: {"coding":2,"agents":2,"chat":2,"dataAnalysis":2,"docAnalysis":2,"research":2,"writing":1,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
 
   // ==========================================
@@ -922,7 +958,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'MJ',
     accentColor: '#EC4899',
-    monthlyUsers: '18M+'
+    monthlyUsers: '18M+',
+    capabilities: {"imageGen":2,"chat":0,"coding":0,"videoGen":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-flux',
@@ -970,7 +1008,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'FX',
     accentColor: '#F97316',
-    monthlyUsers: '4.5M+'
+    monthlyUsers: '4.5M+',
+    capabilities: {"imageGen":2,"chat":0,"coding":0,"videoGen":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-ideogram',
@@ -1018,7 +1058,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'ID',
     accentColor: '#6366F1',
-    monthlyUsers: '3.8M+'
+    monthlyUsers: '3.8M+',
+    capabilities: {"imageGen":2,"writing":1,"chat":0,"coding":0,"videoGen":0,"audioVoice":0,"research":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-recraft',
@@ -1066,7 +1108,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'RC',
     accentColor: '#10B981',
-    monthlyUsers: '1.5M+'
+    monthlyUsers: '1.5M+',
+    capabilities: {"imageGen":2,"chat":0,"coding":0,"videoGen":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-leonardo',
@@ -1114,7 +1158,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'LA',
     accentColor: '#A855F7',
-    monthlyUsers: '12M+'
+    monthlyUsers: '12M+',
+    capabilities: {"imageGen":2,"videoGen":1,"chat":0,"coding":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-krea',
@@ -1162,7 +1208,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'KR',
     accentColor: '#EF4444',
-    monthlyUsers: '2M+'
+    monthlyUsers: '2M+',
+    capabilities: {"imageGen":2,"videoGen":1,"chat":0,"coding":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-magnific',
@@ -1210,7 +1258,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'MG',
     accentColor: '#F59E0B',
-    monthlyUsers: '1.2M+'
+    monthlyUsers: '1.2M+',
+    capabilities: {"imageGen":2,"chat":0,"coding":0,"videoGen":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-freepik-pikaso',
@@ -1258,7 +1308,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'FP',
     accentColor: '#3B82F6',
-    monthlyUsers: '5M+'
+    monthlyUsers: '5M+',
+    capabilities: {"imageGen":2,"chat":0,"coding":0,"videoGen":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
 
   // ==========================================
@@ -1310,7 +1362,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'RW',
     accentColor: '#EC4899',
-    monthlyUsers: '6.5M+'
+    monthlyUsers: '6.5M+',
+    capabilities: {"videoGen":2,"imageGen":2,"audioVoice":1,"chat":0,"coding":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-luma-dream-machine',
@@ -1358,7 +1412,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'LM',
     accentColor: '#3B82F6',
-    monthlyUsers: '3.2M+'
+    monthlyUsers: '3.2M+',
+    capabilities: {"videoGen":2,"imageGen":1,"chat":0,"coding":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-kling-ai',
@@ -1406,7 +1462,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'KL',
     accentColor: '#8B5CF6',
-    monthlyUsers: '4M+'
+    monthlyUsers: '4M+',
+    capabilities: {"videoGen":2,"imageGen":1,"chat":0,"coding":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-hailuo-ai',
@@ -1454,7 +1512,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'HL',
     accentColor: '#10B981',
-    monthlyUsers: '2.5M+'
+    monthlyUsers: '2.5M+',
+    capabilities: {"videoGen":2,"imageGen":1,"chat":0,"coding":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-pika',
@@ -1502,7 +1562,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'PK',
     accentColor: '#EC4899',
-    monthlyUsers: '3M+'
+    monthlyUsers: '3M+',
+    capabilities: {"videoGen":2,"audioVoice":1,"imageGen":1,"chat":0,"coding":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-heygen',
@@ -1550,7 +1612,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'HG',
     accentColor: '#2F5BFF',
-    monthlyUsers: '4.5M+'
+    monthlyUsers: '4.5M+',
+    capabilities: {"videoGen":2,"audioVoice":2,"chat":0,"coding":0,"imageGen":1,"research":0,"writing":1,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-synthesia',
@@ -1598,7 +1662,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'SY',
     accentColor: '#0EA5E9',
-    monthlyUsers: '3M+'
+    monthlyUsers: '3M+',
+    capabilities: {"videoGen":2,"audioVoice":2,"chat":0,"coding":0,"imageGen":1,"research":0,"writing":1,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
 
   // ==========================================
@@ -1650,7 +1716,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'EL',
     accentColor: '#000000',
-    monthlyUsers: '12M+'
+    monthlyUsers: '12M+',
+    capabilities: {"audioVoice":2,"chat":0,"coding":0,"imageGen":0,"videoGen":0,"research":0,"writing":1,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-suno',
@@ -1698,7 +1766,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'SN',
     accentColor: '#F97316',
-    monthlyUsers: '15M+'
+    monthlyUsers: '15M+',
+    capabilities: {"audioVoice":2,"writing":1,"chat":0,"coding":0,"imageGen":0,"videoGen":0,"research":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-udio',
@@ -1746,7 +1816,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'UD',
     accentColor: '#6366F1',
-    monthlyUsers: '8M+'
+    monthlyUsers: '8M+',
+    capabilities: {"audioVoice":2,"writing":1,"chat":0,"coding":0,"imageGen":0,"videoGen":0,"research":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-whisper',
@@ -1794,7 +1866,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'WP',
     accentColor: '#10B981',
-    monthlyUsers: '5M+'
+    monthlyUsers: '5M+',
+    capabilities: {"audioVoice":2,"docAnalysis":1,"chat":0,"coding":0,"imageGen":0,"videoGen":0,"research":0,"writing":0,"dataAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-descript',
@@ -1842,7 +1916,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'DS',
     accentColor: '#3B82F6',
-    monthlyUsers: '4M+'
+    monthlyUsers: '4M+',
+    capabilities: {"audioVoice":2,"videoGen":1,"docAnalysis":1,"writing":1,"chat":0,"coding":0,"imageGen":0,"research":0,"dataAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-soundraw',
@@ -1890,7 +1966,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'SR',
     accentColor: '#EC4899',
-    monthlyUsers: '1.2M+'
+    monthlyUsers: '1.2M+',
+    capabilities: {"audioVoice":2,"chat":0,"coding":0,"imageGen":0,"videoGen":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
 
   // ==========================================
@@ -1942,7 +2020,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'PX',
     accentColor: '#0EA5E9',
-    monthlyUsers: '16M+'
+    monthlyUsers: '16M+',
+    capabilities: {"research":2,"chat":2,"writing":2,"docAnalysis":2,"dataAnalysis":1,"coding":1,"agents":1,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-notebooklm',
@@ -1990,7 +2070,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'NL',
     accentColor: '#8B5CF6',
-    monthlyUsers: '6M+'
+    monthlyUsers: '6M+',
+    capabilities: {"docAnalysis":2,"research":2,"audioVoice":2,"chat":2,"writing":2,"dataAnalysis":1,"coding":0,"imageGen":0,"videoGen":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-consensus',
@@ -2038,7 +2120,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'CS',
     accentColor: '#14B8A6',
-    monthlyUsers: '2.2M+'
+    monthlyUsers: '2.2M+',
+    capabilities: {"research":2,"docAnalysis":2,"writing":1,"chat":1,"dataAnalysis":1,"coding":0,"imageGen":0,"videoGen":0,"audioVoice":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-elicit',
@@ -2086,7 +2170,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'EC',
     accentColor: '#3B82F6',
-    monthlyUsers: '800K+'
+    monthlyUsers: '800K+',
+    capabilities: {"research":2,"docAnalysis":2,"dataAnalysis":2,"writing":1,"chat":1,"coding":0,"imageGen":0,"videoGen":0,"audioVoice":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-scite',
@@ -2134,7 +2220,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'SC',
     accentColor: '#0EA5E9',
-    monthlyUsers: '900K+'
+    monthlyUsers: '900K+',
+    capabilities: {"research":2,"docAnalysis":2,"writing":1,"chat":1,"dataAnalysis":1,"coding":0,"imageGen":0,"videoGen":0,"audioVoice":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-semantic-scholar',
@@ -2182,7 +2270,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'SS',
     accentColor: '#1F2937',
-    monthlyUsers: '8M+'
+    monthlyUsers: '8M+',
+    capabilities: {"research":2,"docAnalysis":2,"chat":1,"writing":0,"dataAnalysis":1,"coding":0,"imageGen":0,"videoGen":0,"audioVoice":0,"agents":0},
+    lastReviewed: '2026-03'
   },
 
   // ==========================================
@@ -2234,7 +2324,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'NT',
     accentColor: '#000000',
-    monthlyUsers: '35M+'
+    monthlyUsers: '35M+',
+    capabilities: {"writing":2,"docAnalysis":2,"chat":2,"dataAnalysis":1,"agents":1,"research":1,"coding":1,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-jasper',
@@ -2282,7 +2374,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'JS',
     accentColor: '#8B5CF6',
-    monthlyUsers: '1.5M+'
+    monthlyUsers: '1.5M+',
+    capabilities: {"writing":2,"chat":1,"imageGen":1,"docAnalysis":1,"research":1,"agents":1,"coding":0,"videoGen":0,"audioVoice":0,"dataAnalysis":1},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-copy-ai',
@@ -2330,7 +2424,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'CA',
     accentColor: '#10B981',
-    monthlyUsers: '3M+'
+    monthlyUsers: '3M+',
+    capabilities: {"writing":2,"chat":1,"docAnalysis":1,"agents":2,"research":1,"coding":0,"imageGen":0,"videoGen":0,"audioVoice":0,"dataAnalysis":1},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-writesonic',
@@ -2378,7 +2474,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'WS',
     accentColor: '#8B5CF6',
-    monthlyUsers: '2M+'
+    monthlyUsers: '2M+',
+    capabilities: {"writing":2,"chat":2,"research":2,"imageGen":1,"audioVoice":1,"docAnalysis":1,"coding":0,"videoGen":0,"dataAnalysis":1,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-grammarly-ai',
@@ -2426,7 +2524,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'GR',
     accentColor: '#10B981',
-    monthlyUsers: '30M+'
+    monthlyUsers: '30M+',
+    capabilities: {"writing":2,"docAnalysis":2,"chat":1,"dataAnalysis":0,"research":0,"coding":0,"imageGen":0,"videoGen":0,"audioVoice":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-sudowrite',
@@ -2474,7 +2574,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'SW',
     accentColor: '#EC4899',
-    monthlyUsers: '200K+'
+    monthlyUsers: '200K+',
+    capabilities: {"writing":2,"chat":1,"docAnalysis":1,"imageGen":1,"research":0,"coding":0,"videoGen":0,"audioVoice":0,"dataAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
 
   // ==========================================
@@ -2526,7 +2628,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'GN',
     accentColor: '#D97706',
-    monthlyUsers: '180K+'
+    monthlyUsers: '180K+',
+    capabilities: {"docAnalysis":2,"writing":2,"audioVoice":2,"chat":1,"research":0,"coding":0,"imageGen":0,"videoGen":0,"dataAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-otter-ai',
@@ -2574,7 +2678,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'OT',
     accentColor: '#3B82F6',
-    monthlyUsers: '10M+'
+    monthlyUsers: '10M+',
+    capabilities: {"audioVoice":2,"docAnalysis":2,"writing":1,"chat":1,"research":0,"coding":0,"imageGen":0,"videoGen":0,"dataAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-superhuman-ai',
@@ -2622,7 +2728,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'SH',
     accentColor: '#8B5CF6',
-    monthlyUsers: '300K+'
+    monthlyUsers: '300K+',
+    capabilities: {"writing":2,"docAnalysis":2,"chat":1,"agents":1,"dataAnalysis":0,"research":0,"coding":0,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-raycast-ai',
@@ -2670,7 +2778,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'RC',
     accentColor: '#EF4444',
-    monthlyUsers: '1M+'
+    monthlyUsers: '1M+',
+    capabilities: {"chat":2,"coding":1,"writing":1,"agents":2,"docAnalysis":1,"dataAnalysis":1,"research":1,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-fathom',
@@ -2718,7 +2828,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'FT',
     accentColor: '#10B981',
-    monthlyUsers: '2M+'
+    monthlyUsers: '2M+',
+    capabilities: {"audioVoice":2,"docAnalysis":2,"writing":1,"chat":1,"research":0,"coding":0,"imageGen":0,"videoGen":0,"dataAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-routine-ai',
@@ -2766,7 +2878,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'RT',
     accentColor: '#6366F1',
-    monthlyUsers: '250K+'
+    monthlyUsers: '250K+',
+    capabilities: {"agents":2,"chat":1,"docAnalysis":1,"writing":1,"dataAnalysis":0,"research":0,"coding":0,"imageGen":0,"videoGen":0,"audioVoice":0},
+    lastReviewed: '2026-03'
   },
 
   // ==========================================
@@ -2818,7 +2932,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'FG',
     accentColor: '#F24E1E',
-    monthlyUsers: '15M+'
+    monthlyUsers: '15M+',
+    capabilities: {"imageGen":1,"writing":1,"coding":1,"docAnalysis":1,"chat":1,"videoGen":0,"audioVoice":0,"research":0,"dataAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-uizard',
@@ -2866,7 +2982,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'UZ',
     accentColor: '#0EA5E9',
-    monthlyUsers: '3M+'
+    monthlyUsers: '3M+',
+    capabilities: {"imageGen":2,"coding":1,"chat":1,"writing":0,"videoGen":0,"audioVoice":0,"research":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-spline-ai',
@@ -2914,7 +3032,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'SP',
     accentColor: '#3B82F6',
-    monthlyUsers: '1.8M+'
+    monthlyUsers: '1.8M+',
+    capabilities: {"imageGen":1,"coding":1,"chat":1,"videoGen":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-meshy',
@@ -2962,7 +3082,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'MS',
     accentColor: '#8B5CF6',
-    monthlyUsers: '900K+'
+    monthlyUsers: '900K+',
+    capabilities: {"imageGen":1,"chat":0,"coding":0,"videoGen":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-tripo-3d',
@@ -3010,7 +3132,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'TP',
     accentColor: '#10B981',
-    monthlyUsers: '600K+'
+    monthlyUsers: '600K+',
+    capabilities: {"imageGen":1,"chat":0,"coding":0,"videoGen":0,"audioVoice":0,"research":0,"writing":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-framer-ai',
@@ -3058,7 +3182,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'FR',
     accentColor: '#0055FF',
-    monthlyUsers: '5M+'
+    monthlyUsers: '5M+',
+    capabilities: {"coding":2,"writing":1,"imageGen":1,"chat":1,"videoGen":0,"audioVoice":0,"research":0,"dataAnalysis":0,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
 
   // ==========================================
@@ -3110,7 +3236,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'SF',
     accentColor: '#F59E0B',
-    monthlyUsers: '1.2M+'
+    monthlyUsers: '1.2M+',
+    capabilities: {"research":2,"writing":2,"dataAnalysis":2,"docAnalysis":2,"chat":1,"coding":0,"imageGen":0,"videoGen":0,"audioVoice":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-adcreative-ai',
@@ -3158,7 +3286,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'AC',
     accentColor: '#EF4444',
-    monthlyUsers: '1.5M+'
+    monthlyUsers: '1.5M+',
+    capabilities: {"imageGen":2,"writing":2,"dataAnalysis":1,"chat":0,"coding":0,"videoGen":1,"audioVoice":0,"research":1,"docAnalysis":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-mutiny',
@@ -3206,7 +3336,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'MT',
     accentColor: '#3B82F6',
-    monthlyUsers: '80K+'
+    monthlyUsers: '80K+',
+    capabilities: {"dataAnalysis":2,"writing":2,"research":1,"chat":0,"coding":0,"imageGen":0,"videoGen":0,"audioVoice":0,"docAnalysis":1,"agents":1},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-lately-ai',
@@ -3254,7 +3386,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'LT',
     accentColor: '#10B981',
-    monthlyUsers: '120K+'
+    monthlyUsers: '120K+',
+    capabilities: {"writing":2,"audioVoice":1,"videoGen":1,"docAnalysis":1,"dataAnalysis":1,"chat":0,"coding":0,"imageGen":0,"research":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-brand24-ai',
@@ -3302,7 +3436,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'B2',
     accentColor: '#0EA5E9',
-    monthlyUsers: '400K+'
+    monthlyUsers: '400K+',
+    capabilities: {"research":2,"dataAnalysis":2,"docAnalysis":1,"chat":1,"writing":1,"coding":0,"imageGen":0,"videoGen":0,"audioVoice":0,"agents":0},
+    lastReviewed: '2026-03'
   },
   {
     id: 'tool-taplio',
@@ -3350,7 +3486,9 @@ export const AI_TOOLS: Tool[] = [
     verified: true,
     monogram: 'TP',
     accentColor: '#0077B5',
-    monthlyUsers: '500K+'
+    monthlyUsers: '500K+',
+    capabilities: {"writing":2,"research":1,"dataAnalysis":1,"chat":1,"docAnalysis":0,"coding":0,"imageGen":0,"videoGen":0,"audioVoice":0,"agents":0},
+    lastReviewed: '2026-03'
   }
 ];
 

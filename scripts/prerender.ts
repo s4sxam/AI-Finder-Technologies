@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { AI_TOOLS, CATEGORIES_META } from '../src/data/tools.ts';
 import { BLOG_POSTS } from '../src/data/blogPosts.ts';
+import { FREE_API_PROVIDERS } from '../src/data/freeApis.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,7 +11,7 @@ const rootDir = path.resolve(__dirname, '..');
 const distDir = path.resolve(rootDir, 'dist');
 const publicDir = path.resolve(rootDir, 'public');
 
-const BASE_URL = process.env.VITE_APP_URL || 'https://yourdomain.com';
+const BASE_URL = (process.env.VITE_APP_URL || 'https://ai-finder-ruddy.vercel.app').replace(/\/+$/, '');
 
 interface RouteMeta {
   path: string;
@@ -199,8 +200,106 @@ const routes: RouteMeta[] = [
         ]
       }
     ]
+  },
+  {
+    path: '/benchmarks',
+    title: 'Live AI Model Benchmarks & Intelligence Index | AI Finder',
+    description: 'Real-world comparative data across reasoning indexes, coding speed (tokens/sec), and token pricing economics. Sourced from Artificial Analysis & OpenRouter.',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Benchmarks', item: `${BASE_URL}/benchmarks` }
+        ]
+      }
+    ]
+  },
+  {
+    path: '/free-apis',
+    title: 'Free AI APIs & Legitimate Developer Key Setup Hub (2026) | AI Finder',
+    description: 'Official verified tutorials on obtaining zero-cost API keys for Google Gemini, Groq, Cerebras, Mistral, OpenRouter, and NVIDIA NIM without credit cards.',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Free AI APIs', item: `${BASE_URL}/free-apis` }
+        ]
+      }
+    ]
+  },
+  {
+    path: '/submit-tool',
+    title: 'Submit an AI Tool for Evaluation | AI Finder Technologies',
+    description: 'Submit a new artificial intelligence tool for independent verification, benchmarks, and inclusion in our directory.',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Submit a Tool', item: `${BASE_URL}/submit-tool` }
+        ]
+      }
+    ]
   }
 ];
+
+// Add all Free AI API Provider routes with Article & HowTo JSON-LD
+FREE_API_PROVIDERS.forEach((provider) => {
+  routes.push({
+    path: `/free-apis/${provider.id}`,
+    title: `How to Get a Free ${provider.name} API Key (2026) | AI Finder`,
+    description: `${provider.bestFor} Step-by-step setup guide with cURL, environment variables, and code snippets.`,
+    type: 'article',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Free AI APIs', item: `${BASE_URL}/free-apis` },
+          { '@type': 'ListItem', position: 3, name: provider.name, item: `${BASE_URL}/free-apis/${provider.id}` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: `How to Get a Free ${provider.name} API Key`,
+        description: provider.bestFor,
+        step: provider.steps.map((s, idx) => ({
+          '@type': 'HowToStep',
+          position: idx + 1,
+          name: s.title,
+          text: s.instruction
+        }))
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: `How to Get a Free ${provider.name} API Key`,
+        description: provider.bestFor,
+        author: {
+          '@type': 'Organization',
+          name: 'AI Finder Research'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'AI Finder Technologies',
+          logo: {
+            '@type': 'ImageObject',
+            url: `${BASE_URL}/logo.svg`
+          }
+        },
+        datePublished: '2026-03-01',
+        dateModified: '2026-03-08'
+      }
+    ]
+  });
+});
 
 // Add all 10 Category routes
 (Object.keys(CATEGORIES_META) as Array<keyof typeof CATEGORIES_META>).forEach((catKey) => {
@@ -455,12 +554,15 @@ ${routes
     if (r.path === '/') {
       priority = '1.0';
       changefreq = 'daily';
-    } else if (r.path === '/tools' || r.path === '/blog') {
+    } else if (r.path === '/tools' || r.path === '/benchmarks' || r.path === '/free-apis') {
+      priority = '0.95';
+      changefreq = 'daily';
+    } else if (r.path === '/blog' || r.path === '/compare') {
       priority = '0.9';
       changefreq = 'daily';
-    } else if (r.path.startsWith('/category/')) {
+    } else if (r.path.startsWith('/category/') || r.path.startsWith('/free-apis/')) {
       priority = '0.85';
-      changefreq = 'daily';
+      changefreq = 'weekly';
     } else if (r.path.startsWith('/tools/')) {
       priority = '0.8';
       changefreq = 'weekly';

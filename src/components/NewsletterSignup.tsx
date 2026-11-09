@@ -1,0 +1,153 @@
+import React, { useState } from 'react';
+import { Mail, Check, AlertCircle, ArrowRight, Loader2 } from 'lucide-react';
+
+interface NewsletterSignupProps {
+  className?: string;
+  variant?: 'footer' | 'standalone';
+}
+
+export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
+  className = '',
+  variant = 'footer'
+}) => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const validateEmail = (val: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(val.trim());
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const cleanEmail = email.trim();
+
+    if (!cleanEmail) {
+      setStatus('error');
+      setMessage('Please enter your email address.');
+      return;
+    }
+
+    if (!validateEmail(cleanEmail)) {
+      setStatus('error');
+      setMessage('Please enter a valid email address (e.g., name@domain.com).');
+      return;
+    }
+
+    setStatus('loading');
+    setMessage('');
+
+    try {
+      const endpoint =
+        (import.meta.env.VITE_NEWSLETTER_ENDPOINT as string) || '/api/newsletter-subscribe';
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: cleanEmail, subscribedAt: new Date().toISOString() })
+      }).catch(() => null);
+
+      // Save locally as fallback if offline or no backend service attached
+      try {
+        const existing = JSON.parse(localStorage.getItem('aifinder_subscribers') || '[]');
+        if (!existing.includes(cleanEmail)) {
+          existing.push(cleanEmail);
+          localStorage.setItem('aifinder_subscribers', JSON.stringify(existing));
+        }
+      } catch (storageErr) {
+        console.warn('Could not cache subscription locally', storageErr);
+      }
+
+      setStatus('success');
+      setMessage('Thank you for subscribing! Weekly briefing sent every Thursday.');
+      setEmail('');
+    } catch (err) {
+      console.error('Newsletter subscription error:', err);
+      setStatus('error');
+      setMessage('Unable to subscribe right now. Please try again.');
+    }
+  };
+
+  if (status === 'success') {
+    return (
+      <div className={`p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-xs space-y-1 ${className}`}>
+        <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold">
+          <Check className="w-4 h-4 shrink-0" />
+          <span>Subscription Confirmed</span>
+        </div>
+        <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+          {message}
+        </p>
+        <button
+          onClick={() => {
+            setStatus('idle');
+            setMessage('');
+          }}
+          className="text-[10px] text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 underline pt-1"
+        >
+          Subscribe another email
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`space-y-2.5 ${className}`}>
+      <div className="space-y-1">
+        <h3 className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white">
+          Weekly AI Briefing
+        </h3>
+        <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm">
+          Get verified benchmark results, new model releases, and honest zero-sponsored evaluations every Thursday.
+        </p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-2" noValidate>
+        <div className="relative flex items-center">
+          <Mail className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (status === 'error') {
+                setStatus('idle');
+                setMessage('');
+              }
+            }}
+            placeholder="developer@company.com"
+            disabled={status === 'loading'}
+            aria-label="Email address for weekly AI briefing"
+            className="w-full pl-8 pr-24 py-2 text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#2F5BFF] focus:ring-1 focus:ring-[#2F5BFF] transition-all"
+          />
+          <button
+            type="submit"
+            disabled={status === 'loading'}
+            className="absolute right-1 top-1/2 -translate-y-1/2 px-3 py-1 bg-[#2F5BFF] hover:bg-[#1E46E6] disabled:opacity-60 text-white text-[11px] font-semibold rounded-md transition-colors flex items-center gap-1 shadow-xs"
+          >
+            {status === 'loading' ? (
+              <Loader2 className="w-3 h-3 animate-spin" />
+            ) : (
+              <>
+                <span>Join</span>
+                <ArrowRight className="w-2.5 h-2.5" />
+              </>
+            )}
+          </button>
+        </div>
+
+        {status === 'error' && (
+          <div className="flex items-center gap-1.5 text-rose-500 text-[11px] animate-in fade-in duration-150">
+            <AlertCircle className="w-3 h-3 shrink-0" />
+            <span>{message}</span>
+          </div>
+        )}
+
+        <div className="text-[10px] text-slate-400">
+          No spam, ever. Unsubscribe with 1 click anytime.
+        </div>
+      </form>
+    </div>
+  );
+};

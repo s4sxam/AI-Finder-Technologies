@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Layers, Sparkles } from 'lucide-react';
 import { CATEGORIES_META, AI_TOOLS } from '../data/tools';
-import { ToolCategory } from '../types';
+import { Tool, ToolCategory } from '../types';
 import { ToolCard } from '../components/ToolCard';
 
 interface CategoriesPageProps {
@@ -12,6 +12,7 @@ interface CategoriesPageProps {
   compareIds: string[];
   onToggleCompare: (toolId: string) => void;
   onSelectTool: (slug: string) => void;
+  tools?: Tool[];
 }
 
 export const CategoriesPage: React.FC<CategoriesPageProps> = ({
@@ -21,7 +22,8 @@ export const CategoriesPage: React.FC<CategoriesPageProps> = ({
   onToggleBookmark,
   compareIds,
   onToggleCompare,
-  onSelectTool
+  onSelectTool,
+  tools = AI_TOOLS
 }) => {
   const isSingleCategory = !!currentCategorySlug && currentCategorySlug in CATEGORIES_META;
   const currentCategory = isSingleCategory
@@ -31,7 +33,7 @@ export const CategoriesPage: React.FC<CategoriesPageProps> = ({
   // Single Category View
   if (isSingleCategory && currentCategory) {
     const meta = CATEGORIES_META[currentCategory];
-    const categoryTools = AI_TOOLS.filter((t) => t.category === currentCategory).sort(
+    const categoryTools = tools.filter((t) => t.category === currentCategory).sort(
       (a, b) => a.trendingRank - b.trendingRank
     );
 
@@ -144,7 +146,7 @@ export const CategoriesPage: React.FC<CategoriesPageProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {(Object.keys(CATEGORIES_META) as ToolCategory[]).map((catKey) => {
           const meta = CATEGORIES_META[catKey];
-          const sampleTools = AI_TOOLS.filter((t) => t.category === catKey).slice(0, 3);
+          const sampleTools = tools.filter((t) => t.category === catKey).slice(0, 3);
 
           return (
             <div

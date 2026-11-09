@@ -70,7 +70,7 @@
   <!-- Bottom Authority Bar -->
   <line x1="100" y1="530" x2="1100" y2="530" stroke="#1E293B" stroke-width="1"/>
   <text x="100" y="570" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" fill="#64748B">
-    https://yourdomain.com · Zero Sponsored Rankings · WCAG 2.2 AA Compliant
+    https://ai-finder-ruddy.vercel.app · Zero Sponsored Rankings · WCAG 2.2 AA Compliant
   </text>
   <text x="1100" y="570" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="600" fill="#2F5BFF" text-anchor="end">
     Independent Evaluation Lab

@@ -1,0 +1,72 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Default-deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidCategory(cat) {
+      return cat in ['chat', 'coding', 'image', 'video', 'audio', 'research', 'writing', 'productivity', 'design', 'marketing'];
+    }
+
+    function isValidPricing(p) {
+      return p in ['Free', 'Freemium', 'Paid', 'Free Trial'];
+    }
+
+    function isValidStatus(s) {
+      return s in ['published', 'pending', 'archived'];
+    }
+
+    function isValidModel(data) {
+      return data.keys().hasAll(['name', 'slug', 'tagline', 'category', 'pricing', 'websiteUrl', 'status', 'createdAt'])
+        && data.name is string && data.name.size() >= 2 && data.name.size() <= 100
+        && data.slug is string && data.slug.size() >= 2 && data.slug.size() <= 100 && data.slug.matches('^[a-z0-9\\-]+$')
+        && data.tagline is string && data.tagline.size() >= 5 && data.tagline.size() <= 250
+        && (!('description' in data) || (data.description is string && data.description.size() <= 3000))
+        && isValidCategory(data.category)
+        && isValidPricing(data.pricing)
+        && (!('startingPrice' in data) || (data.startingPrice is string && data.startingPrice.size() <= 50))
+        && (!('hasFreeTier' in data) || data.hasFreeTier is bool)
+        && data.websiteUrl is string && data.websiteUrl.size() >= 8 && data.websiteUrl.size() <= 300
+        && (!('rating' in data) || (data.rating is number && data.rating >= 0 && data.rating <= 5))
+        && (!('reviewCount' in data) || (data.reviewCount is number && data.reviewCount >= 0))
+        && (!('verified' in data) || data.verified is bool)
+        && (!('monogram' in data) || (data.monogram is string && data.monogram.size() <= 4))
+        && (!('accentColor' in data) || (data.accentColor is string && data.accentColor.size() <= 20))
+        && (!('tags' in data) || (data.tags is list && data.tags.size() <= 15))
+        && (!('keyFeatures' in data) || (data.keyFeatures is list && data.keyFeatures.size() <= 10))
+        && (!('pros' in data) || (data.pros is list && data.pros.size() <= 10))
+        && (!('cons' in data) || (data.cons is list && data.cons.size() <= 10))
+        && (!('submitterName' in data) || (data.submitterName is string && data.submitterName.size() <= 100))
+        && (!('submitterEmail' in data) || (data.submitterEmail is string && data.submitterEmail.size() <= 150))
+        && isValidStatus(data.status);
+    }
+
+    // Community Models collection
+    match /models/{modelId} {
+      // Anyone can read and list published models
+      allow read, list: if true;
+
+      // Anyone can submit/create a valid new model
+      allow create: if isValidId(modelId) && isValidModel(incoming());
+
+      // Updates and deletes are disallowed for public users
+      allow update, delete: if false;
+    }
+  }
+}
