@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { ExternalLink, Bookmark, Check, ShieldCheck, ArrowLeft, Star, ChevronDown, ChevronUp, GitCompare, Share2, BookOpen, Clock, Tag } from 'lucide-react';
+import { ExternalLink, Heart, Check, ShieldCheck, ArrowLeft, Star, ChevronDown, ChevronUp, GitCompare, Share2, BookOpen, Clock, Tag } from 'lucide-react';
 import { AI_TOOLS } from '../data/tools';
 import { BLOG_POSTS } from '../data/blogPosts';
 import { Tool, BlogPost } from '../types';
 import { ToolCard } from '../components/ToolCard';
 import { CapabilityRadar } from '../components/charts/CapabilityRadar';
+import { useAuth } from '../context/AuthContext';
 
 interface ToolDetailPageProps {
   slug: string;
@@ -26,6 +27,7 @@ export const ToolDetailPage: React.FC<ToolDetailPageProps> = ({
   tools = AI_TOOLS
 }) => {
   const tool = tools.find((t) => t.slug === slug);
+  const { isFavorite, toggleFavorite } = useAuth();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [copiedLink, setCopiedLink] = useState(false);
 
@@ -211,15 +213,20 @@ export const ToolDetailPage: React.FC<ToolDetailPageProps> = ({
 
             <div className="flex items-center gap-2">
               <button
-                onClick={() => onToggleBookmark(tool.id)}
+                onClick={async () => {
+                  if (tool) {
+                    await toggleFavorite(tool.slug);
+                    onToggleBookmark(tool.id);
+                  }
+                }}
                 className={`flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 border rounded-lg text-xs font-medium transition-colors ${
-                  isBookmarked
-                    ? 'border-[#2F5BFF] bg-[#2F5BFF]/10 text-[#2F5BFF]'
+                  tool && isFavorite(tool.slug)
+                    ? 'border-rose-200 dark:border-rose-900 bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400'
                     : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                 }`}
               >
-                <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-current' : ''}`} />
-                <span>{isBookmarked ? 'Saved' : 'Bookmark'}</span>
+                <Heart className={`w-3.5 h-3.5 ${tool && isFavorite(tool.slug) ? 'fill-current text-rose-500' : ''}`} />
+                <span>{tool && isFavorite(tool.slug) ? 'Saved' : 'Favorite'}</span>
               </button>
 
               <button

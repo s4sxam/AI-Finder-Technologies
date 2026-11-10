@@ -14,7 +14,9 @@ import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { SubmitToolPage } from './pages/SubmitToolPage';
 import { LegalPage } from './pages/LegalPage';
+import { AccountPage } from './pages/AccountPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { AuthProvider } from './context/AuthContext';
 import { AI_TOOLS } from './data/tools';
 import { BLOG_POSTS } from './data/blogPosts';
 import { Tool, ToolCategory, PricingType } from './types';
@@ -245,6 +247,9 @@ export default function App() {
     } else if (currentPath === '/submit' || currentPath === '/submit-tool') {
       title = 'Submit an AI Tool for Evaluation | AI Finder Technologies';
       description = 'Submit a new artificial intelligence tool for independent verification, benchmarks, and inclusion in our directory.';
+    } else if (currentPath === '/account' || currentPath === '/account/saved') {
+      title = 'Account & Saved Tools | AI Finder Technologies';
+      description = 'Manage your saved AI tools, track submitted software reviews, and configure account privacy settings.';
     }
 
     document.title = title;
@@ -444,6 +449,18 @@ export default function App() {
       return <LegalPage onNavigate={handleNavigate} defaultTab="terms" />;
     }
 
+    // 16. User Account & Saved Tools: /account, /account/saved
+    if (currentPath === '/account' || currentPath === '/account/saved') {
+      const defaultTab = currentPath === '/account/saved' ? 'saved' : 'saved';
+      return (
+        <AccountPage
+          onNavigate={handleNavigate}
+          tools={allTools}
+          defaultTab={defaultTab}
+        />
+      );
+    }
+
     // 16. Dedicated 3D Nexus Spatial Playground: /nexus-3d (Lazy loaded)
     if (currentPath === '/nexus-3d') {
       return (
@@ -467,43 +484,45 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-150">
-      {/* 3-Zone Header */}
-      <Header
-        currentPath={currentPath}
-        onNavigate={handleNavigate}
-        onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
-        bookmarkCount={bookmarkedIds.length}
-        isDarkMode={isDarkMode}
-        onToggleDarkMode={() => setIsDarkMode((prev) => !prev)}
-      />
+    <AuthProvider>
+      <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-150">
+        {/* 3-Zone Header */}
+        <Header
+          currentPath={currentPath}
+          onNavigate={handleNavigate}
+          onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
+          bookmarkCount={bookmarkedIds.length}
+          isDarkMode={isDarkMode}
+          onToggleDarkMode={() => setIsDarkMode((prev) => !prev)}
+        />
 
-      {/* Main Content Area */}
-      <main id="main-content" className="flex-1">
-        {renderRoute()}
-      </main>
+        {/* Main Content Area */}
+        <main id="main-content" className="flex-1">
+          {renderRoute()}
+        </main>
 
-      {/* Persistent Floating Compare Drawer (Visible when >= 1 tools selected) */}
-      <ComparisonDrawer
-        selectedTools={selectedCompareTools}
-        onRemoveTool={handleRemoveCompare}
-        onClearAll={handleClearCompare}
-        onSelectTool={(slug) => handleNavigate(`/tools/${slug}`)}
-      />
+        {/* Persistent Floating Compare Drawer (Visible when >= 1 tools selected) */}
+        <ComparisonDrawer
+          selectedTools={selectedCompareTools}
+          onRemoveTool={handleRemoveCompare}
+          onClearAll={handleClearCompare}
+          onSelectTool={(slug) => handleNavigate(`/tools/${slug}`)}
+        />
 
-      {/* Global Cmd+K Search Palette */}
-      <CommandPalette
-        isOpen={isCommandPaletteOpen}
-        onClose={() => setIsCommandPaletteOpen(false)}
-        onSelectTool={(slug) => handleNavigate(`/tools/${slug}`)}
-        onSelectBlog={(slug) => handleNavigate(`/blog/${slug}`)}
-        onSelectCategory={(cat) => handleNavigate(`/category/${cat}`)}
-        onNavigate={handleNavigate}
-        tools={allTools}
-      />
+        {/* Global Cmd+K Search Palette */}
+        <CommandPalette
+          isOpen={isCommandPaletteOpen}
+          onClose={() => setIsCommandPaletteOpen(false)}
+          onSelectTool={(slug) => handleNavigate(`/tools/${slug}`)}
+          onSelectBlog={(slug) => handleNavigate(`/blog/${slug}`)}
+          onSelectCategory={(cat) => handleNavigate(`/category/${cat}`)}
+          onNavigate={handleNavigate}
+          tools={allTools}
+        />
 
-      {/* Quiet Authority Footer */}
-      <Footer onNavigate={handleNavigate} />
-    </div>
+        {/* Quiet Authority Footer */}
+        <Footer onNavigate={handleNavigate} />
+      </div>
+    </AuthProvider>
   );
 }

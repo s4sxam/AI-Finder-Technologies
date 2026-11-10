@@ -1,6 +1,7 @@
 import React from 'react';
-import { ExternalLink, Bookmark, Check, ShieldCheck, ArrowRight, Star } from 'lucide-react';
+import { ExternalLink, Heart, Check, ShieldCheck, ArrowRight, Star } from 'lucide-react';
 import { Tool } from '../types';
+import { useAuth } from '../context/AuthContext';
 
 interface ToolCardProps {
   tool: Tool;
@@ -21,6 +22,14 @@ export const ToolCard: React.FC<ToolCardProps> = ({
   onToggleCompare,
   onSelect
 }) => {
+  const { isFavorite, toggleFavorite } = useAuth();
+  const favorited = isFavorite(tool.slug) || isBookmarked;
+
+  const handleFavoriteClick = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    await toggleFavorite(tool.slug);
+    onToggleBookmark(tool.id);
+  };
   if (viewMode === 'list') {
     return (
       <div className="group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4 transition-all duration-150 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-sm">
@@ -77,16 +86,16 @@ export const ToolCard: React.FC<ToolCardProps> = ({
           {/* Right Action Block */}
           <div className="flex items-center justify-end gap-2.5 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100 dark:border-slate-800">
             <button
-              onClick={() => onToggleBookmark(tool.id)}
+              onClick={handleFavoriteClick}
               className={`p-2 rounded-md border text-xs transition-colors ${
-                isBookmarked
-                  ? 'border-[#2F5BFF]/30 text-[#2F5BFF] bg-[#2F5BFF]/5'
-                  : 'border-slate-200 dark:border-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
+                favorited
+                  ? 'border-rose-200 dark:border-rose-900 text-rose-500 bg-rose-50 dark:bg-rose-950/30'
+                  : 'border-slate-200 dark:border-slate-800 text-slate-400 hover:text-rose-500 dark:hover:text-rose-400'
               }`}
-              title={isBookmarked ? 'Remove bookmark' : 'Save bookmark'}
-              aria-label={`Bookmark ${tool.name}`}
+              title={favorited ? 'Remove from favorites' : 'Save favorite'}
+              aria-label={`Favorite ${tool.name}`}
             >
-              <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-current' : ''}`} />
+              <Heart className={`w-3.5 h-3.5 ${favorited ? 'fill-current' : ''}`} />
             </button>
 
             <a
@@ -149,19 +158,19 @@ export const ToolCard: React.FC<ToolCardProps> = ({
             </div>
           </div>
 
-          {/* Quick Actions (Bookmark + Compare Checkbox) */}
+          {/* Quick Actions (Favorite Heart + Compare Checkbox) */}
           <div className="flex items-center gap-1.5 shrink-0">
             <button
-              onClick={() => onToggleBookmark(tool.id)}
+              onClick={handleFavoriteClick}
               className={`p-1.5 rounded border text-xs transition-colors ${
-                isBookmarked
-                  ? 'border-[#2F5BFF]/30 text-[#2F5BFF] bg-[#2F5BFF]/5'
-                  : 'border-slate-200 dark:border-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
+                favorited
+                  ? 'border-rose-200 dark:border-rose-900 text-rose-500 bg-rose-50 dark:bg-rose-950/30'
+                  : 'border-slate-200 dark:border-slate-800 text-slate-400 hover:text-rose-500 dark:hover:text-rose-400'
               }`}
-              title={isBookmarked ? 'Remove bookmark' : 'Save bookmark'}
-              aria-label={`Bookmark ${tool.name}`}
+              title={favorited ? 'Remove from favorites' : 'Save favorite'}
+              aria-label={`Favorite ${tool.name}`}
             >
-              <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-current' : ''}`} />
+              <Heart className={`w-3.5 h-3.5 ${favorited ? 'fill-current' : ''}`} />
             </button>
 
             <label

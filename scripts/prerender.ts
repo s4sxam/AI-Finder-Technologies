@@ -187,6 +187,36 @@ const routes: RouteMeta[] = [
     ]
   },
   {
+    path: '/account',
+    title: 'Account & Saved Tools | AI Finder Technologies',
+    description: 'Manage your saved AI tools, track submitted software reviews, and configure account privacy settings.',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Account', item: `${BASE_URL}/account` }
+        ]
+      }
+    ]
+  },
+  {
+    path: '/account/saved',
+    title: 'Saved AI Tools & Bookmarks | AI Finder Technologies',
+    description: 'Your personal collection of saved AI tools, coding assistants, and productivity software.',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Saved Tools', item: `${BASE_URL}/account/saved` }
+        ]
+      }
+    ]
+  },
+  {
     path: '/nexus-3d',
     title: '3D AI Constellation Nexus (WebGL PBR) | AI Finder Technologies',
     description: 'Interactive Three.js 3D spatial constellation nexus for exploring artificial intelligence tools and category clusters.',

@@ -179,6 +179,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   </button>
                 </li>
                 <li>
+                  <button onClick={() => onNavigate('/account')} className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                    Account &amp; Data
+                  </button>
+                </li>
+                <li>
                   <button onClick={() => onNavigate('/terms')} className="hover:text-slate-900 dark:hover:text-white transition-colors">
                     Terms of Service
                   </button>
@@ -191,11 +196,27 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Bottom Hairline & Legal Bar */}
           <div className="mt-12 pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
             <div>
-              © 2026 AI Finder Technologies. All rights reserved. Zero-tracking evaluations.
+              © 2026 AI Finder Technologies. All rights reserved. Zero-sponsored rankings.
             </div>
             <div className="flex items-center gap-4">
-              <span>Domain: https://yourdomain.com</span>
-              <span className="hidden sm:inline">·</span>
+              <a
+                href="https://artificialanalysis.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#2F5BFF] transition-colors"
+              >
+                Data: Artificial Analysis
+              </a>
+              <span>·</span>
+              <a
+                href="https://openrouter.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#2F5BFF] transition-colors"
+              >
+                OpenRouter
+              </a>
+              <span>·</span>
               <span className="hidden sm:inline">WCAG 2.2 AA Compliant</span>
             </div>
           </div>
