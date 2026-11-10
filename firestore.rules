@@ -2,7 +2,7 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     
-    // Default-deny all reads and writes
+    // Default-deny all reads and writes across the database
     match /{document=**} {
       allow read, write: if false;
     }
@@ -28,26 +28,94 @@ service cloud.firestore {
       return p in ['Free', 'Freemium', 'Paid', 'Free Trial'];
     }
 
+    function isValidDomainKey(key) {
+      return key is string && key.size() >= 3 && key.size() <= 128 && key.matches('^[a-z0-9._-]+$');
+    }
+
+    function isValidSlug(s) {
+      return s is string && s.size() >= 2 && s.size() <= 100 && s.matches('^[a-z0-9-]+$');
+    }
+
+    function checkSubmissionRateLimit(uid) {
+      let limitDoc = getAfter(/databases/$(database)/documents/users/$(uid)/limits/submissions);
+      return limitDoc.data.count is int
+        && limitDoc.data.count <= 5
+        && limitDoc.data.windowStart is timestamp;
+    }
+
+    function isValidCommunityTool(data) {
+      return data.keys().hasAll([
+          'name', 'slug', 'websiteUrl', 'domainKey', 'description',
+          'category', 'pricing', 'tags', 'logoUrl', 'ownerUid',
+          'submitterName', 'submitterPhotoURL', 'showSubmitter',
+          'createdAt', 'hidden', 'source'
+        ])
+        && data.ownerUid == request.auth.uid
+        && data.source == 'community'
+        && data.hidden == false
+        && data.name is string && data.name.size() >= 2 && data.name.size() <= 100
+        && isValidSlug(data.slug)
+        && data.websiteUrl is string && data.websiteUrl.size() >= 8 && data.websiteUrl.size() <= 300
+        && isValidDomainKey(data.domainKey)
+        && data.description is string && data.description.size() >= 20 && data.description.size() <= 300
+        && isValidCategory(data.category)
+        && isValidPricing(data.pricing)
+        && data.tags is list && data.tags.size() <= 10
+        && data.logoUrl is string && data.logoUrl.size() <= 300
+        && data.submitterName is string && data.submitterName.size() <= 100
+        && data.submitterPhotoURL is string && data.submitterPhotoURL.size() <= 500
+        && data.showSubmitter is bool
+        && data.createdAt == request.time;
+    }
+
     function isValidSubmission(data) {
       return data.keys().hasAll(['ownerUid', 'name', 'slug', 'tagline', 'category', 'pricing', 'websiteUrl', 'status', 'createdAt'])
         && data.ownerUid == request.auth.uid
-        && data.status == 'pending'
         && data.name is string && data.name.size() >= 2 && data.name.size() <= 100
-        && data.slug is string && data.slug.size() >= 2 && data.slug.size() <= 100 && data.slug.matches('^[a-z0-9\\-]+$')
+        && isValidSlug(data.slug)
         && data.tagline is string && data.tagline.size() >= 5 && data.tagline.size() <= 250
         && (!('description' in data) || (data.description is string && data.description.size() <= 3000))
         && isValidCategory(data.category)
         && isValidPricing(data.pricing)
-        && (!('startingPrice' in data) || (data.startingPrice is string && data.startingPrice.size() <= 50))
-        && (!('hasFreeTier' in data) || data.hasFreeTier is bool)
-        && data.websiteUrl is string && data.websiteUrl.size() >= 8 && data.websiteUrl.size() <= 300
-        && (!('bestFor' in data) || (data.bestFor is string && data.bestFor.size() <= 300))
-        && (!('keyFeatures' in data) || (data.keyFeatures is list && data.keyFeatures.size() <= 10))
-        && (!('pros' in data) || (data.pros is list && data.pros.size() <= 10))
-        && (!('cons' in data) || (data.cons is list && data.cons.size() <= 10));
+        && data.websiteUrl is string && data.websiteUrl.size() >= 8 && data.websiteUrl.size() <= 300;
     }
 
-    // Users collection: only the owner can read or write their profile and subcollections (favorites)
+    // Community Tools collection: public read, authenticated owner create with rate limit & field validation, owner edit/delete
+    match /communityTools/{domainKey} {
+      allow read: if true;
+      allow create: if isSignedIn()
+        && isValidDomainKey(domainKey)
+        && domainKey == incoming().domainKey
+        && isValidCommunityTool(incoming())
+        && checkSubmissionRateLimit(request.auth.uid);
+      allow update: if isSignedIn()
+        && resource.data.ownerUid == request.auth.uid
+        && incoming().diff(resource.data).affectedKeys().hasOnly(['description', 'tags', 'showSubmitter'])
+        && incoming().description is string && incoming().description.size() >= 20 && incoming().description.size() <= 300
+        && incoming().tags is list && incoming().tags.size() <= 10
+        && incoming().showSubmitter is bool
+        && incoming().domainKey == resource.data.domainKey
+        && incoming().ownerUid == resource.data.ownerUid
+        && incoming().createdAt == resource.data.createdAt
+        && incoming().hidden == resource.data.hidden
+        && incoming().source == resource.data.source;
+      allow delete: if isSignedIn() && resource.data.ownerUid == request.auth.uid;
+    }
+
+    // Reports collection: authenticated user can submit a report on a domainKey, no client reads allowed
+    match /reports/{reportId} {
+      allow read, update, delete: if false;
+      allow create: if isSignedIn()
+        && reportId == incoming().domainKey + '_' + request.auth.uid
+        && incoming().reporterUid == request.auth.uid
+        && incoming().createdAt == request.time
+        && incoming().reason is string && incoming().reason.size() >= 5 && incoming().reason.size() <= 500
+        && incoming().slug is string && incoming().slug.size() <= 100
+        && incoming().domainKey is string && incoming().domainKey.size() <= 128
+        && incoming().reporterName is string && incoming().reporterName.size() <= 100;
+    }
+
+    // Users collection: user owns their account doc and all subcollections (favorites, limits)
     match /users/{userId} {
       allow read, write: if isOwner(userId);
 
@@ -56,14 +124,15 @@ service cloud.firestore {
       }
     }
 
-    // Submissions collection: authenticated users can create their own pending submission, and only read their own
+    // Legacy Submissions collection: owner can read, update (for migration flag), or delete their own
     match /submissions/{submissionId} {
       allow read: if isSignedIn() && resource.data.ownerUid == request.auth.uid;
       allow create: if isSignedIn() && isValidSubmission(incoming());
-      allow update, delete: if false;
+      allow update: if isSignedIn() && resource.data.ownerUid == request.auth.uid;
+      allow delete: if isSignedIn() && resource.data.ownerUid == request.auth.uid;
     }
 
-    // Benchmark history: public read access for all clients, no client writes permitted
+    // Benchmark history: public read access, no client writes permitted
     match /benchmarkHistory/{dateId} {
       allow read: if true;
       allow write: if false;

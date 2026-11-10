@@ -68,6 +68,13 @@ export const ToolCard: React.FC<ToolCardProps> = ({
                     <ShieldCheck className="w-3.5 h-3.5 text-[#2F5BFF] shrink-0" />
                   </span>
                 )}
+                {tool.source === 'community' && (
+                  <span className="inline-flex items-center text-[10px] px-1.5 py-0.2 rounded bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 font-medium">
+                    {tool.showSubmitter && tool.submitterName
+                      ? `Community · by ${tool.submitterName}`
+                      : 'Community submitted'}
+                  </span>
+                )}
                 {/* Zero-Pill: Clean unboxed metadata with bullet separators */}
                 <span className="text-xs text-slate-500 flex items-center gap-1.5 whitespace-nowrap">
                   <span>{tool.pricing}</span>
@@ -101,7 +108,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({
             <a
               href={tool.websiteUrl}
               target="_blank"
-              rel="nofollow noopener noreferrer"
+              rel="nofollow ugc noopener noreferrer"
               className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-md transition-colors"
             >
               <span>Visit</span>
@@ -136,7 +143,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({
             </div>
 
             <div className="min-w-0">
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 flex-wrap">
                 <button
                   onClick={() => onSelect(tool.slug)}
                   className="font-bold text-sm text-slate-900 dark:text-white hover:text-[#2F5BFF] dark:hover:text-[#2F5BFF] transition-colors truncate text-left"
@@ -146,6 +153,13 @@ export const ToolCard: React.FC<ToolCardProps> = ({
                 {tool.verified && (
                   <span title="Verified AI Tool" className="inline-flex items-center">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#2F5BFF] shrink-0" />
+                  </span>
+                )}
+                {tool.source === 'community' && (
+                  <span className="inline-flex items-center text-[10px] px-1.5 py-0.2 rounded bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 font-medium">
+                    {tool.showSubmitter && tool.submitterName
+                      ? `by ${tool.submitterName}`
+                      : 'Community'}
                   </span>
                 )}
               </div>
@@ -229,7 +243,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({
           <a
             href={tool.websiteUrl}
             target="_blank"
-            rel="nofollow noopener noreferrer"
+            rel="nofollow ugc noopener noreferrer"
             className="p-1.5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-100 dark:bg-slate-800 rounded-md border border-slate-200 dark:border-slate-700 transition-colors"
             title="Open official site"
             aria-label={`Visit official site for ${tool.name}`}

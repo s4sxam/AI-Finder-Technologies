@@ -291,7 +291,7 @@ export const Header: React.FC<HeaderProps> = ({
                       <button
                         onClick={() => {
                           setIsUserMenuOpen(false);
-                          onNavigate('/account#submissions');
+                          onNavigate('/account/submissions');
                         }}
                         className="w-full text-left px-3.5 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-2"
                       >
@@ -429,6 +429,16 @@ export const Header: React.FC<HeaderProps> = ({
 
             {user && (
               <div className="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-1">
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    onNavigate('/account/submissions');
+                  }}
+                  className="w-full text-left py-2 px-3 rounded-md text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 font-medium flex items-center gap-2"
+                >
+                  <FileText className="w-4 h-4 text-[#2F5BFF]" />
+                  My Submissions
+                </button>
                 <button
                   onClick={() => {
                     setIsMobileMenuOpen(false);

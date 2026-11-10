@@ -23,9 +23,69 @@
       },
       "required": ["toolSlug", "addedAt"]
     },
+    "SubmissionLimit": {
+      "title": "SubmissionLimit",
+      "description": "Rate limiting tracking document for daily community tool submissions",
+      "type": "object",
+      "properties": {
+        "count": { "type": "integer" },
+        "windowStart": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["count", "windowStart"]
+    },
+    "CommunityTool": {
+      "title": "CommunityTool",
+      "description": "Publicly published AI tool with instant directory availability",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 100, "minLength": 2 },
+        "slug": { "type": "string", "pattern": "^[a-z0-9-]+$", "maxLength": 100, "minLength": 2 },
+        "websiteUrl": { "type": "string", "maxLength": 300, "minLength": 8 },
+        "domainKey": { "type": "string", "pattern": "^[a-z0-9._-]+$", "maxLength": 128, "minLength": 3 },
+        "description": { "type": "string", "maxLength": 300, "minLength": 20 },
+        "category": {
+          "type": "string",
+          "enum": ["chat", "coding", "image", "video", "audio", "research", "writing", "productivity", "design", "marketing"]
+        },
+        "pricing": {
+          "type": "string",
+          "enum": ["Free", "Freemium", "Paid", "Free Trial"]
+        },
+        "tags": { "type": "array" },
+        "logoUrl": { "type": "string", "maxLength": 300 },
+        "ownerUid": { "type": "string", "maxLength": 128 },
+        "submitterName": { "type": "string", "maxLength": 100 },
+        "submitterPhotoURL": { "type": "string", "maxLength": 500 },
+        "showSubmitter": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "hidden": { "type": "boolean" },
+        "source": { "type": "string", "enum": ["community"] }
+      },
+      "required": [
+        "name", "slug", "websiteUrl", "domainKey", "description",
+        "category", "pricing", "tags", "logoUrl", "ownerUid",
+        "submitterName", "submitterPhotoURL", "showSubmitter",
+        "createdAt", "hidden", "source"
+      ]
+    },
+    "ToolReport": {
+      "title": "ToolReport",
+      "description": "User flagged content or abuse report on a community submitted AI tool",
+      "type": "object",
+      "properties": {
+        "domainKey": { "type": "string", "maxLength": 128 },
+        "slug": { "type": "string", "maxLength": 100 },
+        "reason": { "type": "string", "maxLength": 500, "minLength": 5 },
+        "reporterUid": { "type": "string", "maxLength": 128 },
+        "reporterName": { "type": "string", "maxLength": 100 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["domainKey", "slug", "reason", "reporterUid", "createdAt"]
+    },
     "Submission": {
       "title": "Submission",
-      "description": "Tool submission awaiting editorial review",
+      "description": "Legacy tool submission record",
       "type": "object",
       "properties": {
         "ownerUid": { "type": "string", "maxLength": 128 },
@@ -42,18 +102,13 @@
           "type": "string",
           "enum": ["Free", "Freemium", "Paid", "Free Trial"]
         },
-        "startingPrice": { "type": "string", "maxLength": 50 },
-        "hasFreeTier": { "type": "boolean" },
         "websiteUrl": { "type": "string", "maxLength": 300 },
-        "bestFor": { "type": "string", "maxLength": 300 },
-        "keyFeatures": { "type": "array" },
-        "pros": { "type": "array" },
-        "cons": { "type": "array" },
         "status": {
           "type": "string",
           "enum": ["pending", "approved", "rejected"]
         },
-        "createdAt": { "type": "string", "format": "date-time" }
+        "createdAt": { "type": "string", "format": "date-time" },
+        "migrated": { "type": "boolean" }
       },
       "required": ["ownerUid", "name", "slug", "tagline", "category", "pricing", "websiteUrl", "status", "createdAt"]
     },
@@ -70,6 +125,14 @@
     }
   },
   "firestore": {
+    "/communityTools/{domainKey}": {
+      "schema": "#/entities/CommunityTool",
+      "description": "Live directory of community-submitted AI tools keyed by unique domainKey"
+    },
+    "/reports/{reportId}": {
+      "schema": "#/entities/ToolReport",
+      "description": "Content flags and abuse reports on community tools"
+    },
     "/users/{userId}": {
       "schema": "#/entities/UserProfile",
       "description": "User profile document containing non-sensitive account metadata"
@@ -78,9 +141,13 @@
       "schema": "#/entities/UserFavorite",
       "description": "Saved favorite tools subcollection for a user"
     },
+    "/users/{userId}/limits/submissions": {
+      "schema": "#/entities/SubmissionLimit",
+      "description": "Daily submission rate limit tracker per user"
+    },
     "/submissions/{submissionId}": {
       "schema": "#/entities/Submission",
-      "description": "User submitted tools submitted for directory curation"
+      "description": "Legacy user submitted tools records"
     },
     "/benchmarkHistory/{dateId}": {
       "schema": "#/entities/BenchmarkDailySnapshot",

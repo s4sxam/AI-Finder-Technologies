@@ -64,6 +64,15 @@ export interface Tool {
   githubStars?: string;
   capabilities?: Partial<Record<TaskId, TaskScore>>;
   lastReviewed?: string;
+  domainKey?: string;
+  source?: 'built-in' | 'community';
+  ownerUid?: string;
+  submitterName?: string;
+  submitterPhotoURL?: string;
+  showSubmitter?: boolean;
+  logoUrl?: string;
+  hidden?: boolean;
+  createdAt?: string;
 }
 
 export interface Author {

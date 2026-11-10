@@ -20,7 +20,7 @@ import { AuthProvider } from './context/AuthContext';
 import { AI_TOOLS } from './data/tools';
 import { BLOG_POSTS } from './data/blogPosts';
 import { Tool, ToolCategory, PricingType } from './types';
-import { subscribeToCommunityModels } from './lib/modelsService';
+import { useAllTools } from './hooks/useAllTools';
 
 // Route-level code-splitting for heavy pages
 const Nexus3DPage = React.lazy(() =>
@@ -65,22 +65,8 @@ export default function App() {
   // Comparison Tool Selection (Max 3)
   const [compareIds, setCompareIds] = useState<string[]>([]);
 
-  // Community Uploaded Models Streamed from Firebase Firestore
-  const [communityModels, setCommunityModels] = useState<Tool[]>([]);
-
-  // Real-time Firestore subscription: anyone can upload without touching source code
-  useEffect(() => {
-    const unsubscribe = subscribeToCommunityModels(
-      (models) => {
-        setCommunityModels(models);
-      },
-      (err: unknown) => {
-        const msg = err instanceof Error ? err.message : String(err);
-        console.warn('Real-time models subscription notice:', msg);
-      }
-    );
-    return () => unsubscribe();
-  }, []);
+  // Unified tools hook merging static registry + live Firestore community uploads with caching
+  const { allTools, communityTools } = useAllTools();
 
   // Command Palette Open State
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
@@ -108,7 +94,13 @@ export default function App() {
   // Handle browser back/forward buttons
   useEffect(() => {
     const handlePopState = () => {
-      setCurrentPath(window.location.pathname || '/');
+      const rawPath = window.location.pathname || '/';
+      const hash = window.location.hash.replace(/^#/, '');
+      let effectivePath = rawPath;
+      if (rawPath === '/account' && hash === 'submissions') {
+        effectivePath = '/account/submissions';
+      }
+      setCurrentPath(effectivePath);
       setCurrentSearch(window.location.search || '');
     };
     window.addEventListener('popstate', handlePopState);
@@ -129,8 +121,13 @@ export default function App() {
 
   // Programmatic navigation handler
   const handleNavigate = (to: string) => {
-    const [path, search] = to.split('?');
-    setCurrentPath(path || '/');
+    const [rawPath, search] = to.split('?');
+    const [cleanPath, hash] = (rawPath || '/').split('#');
+    let effectivePath = cleanPath;
+    if (cleanPath === '/account' && hash === 'submissions') {
+      effectivePath = '/account/submissions';
+    }
+    setCurrentPath(effectivePath || '/');
     setCurrentSearch(search ? `?${search}` : '');
     window.history.pushState({}, '', to);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -172,14 +169,6 @@ export default function App() {
   const handleClearCompare = () => {
     setCompareIds([]);
   };
-
-  // Unified tool list merging static registry + live Firestore community uploads
-  const allTools = useMemo(() => {
-    if (communityModels.length === 0) return AI_TOOLS;
-    const staticSlugs = new Set(AI_TOOLS.map((t) => t.slug));
-    const newFromCommunity = communityModels.filter((t) => !staticSlugs.has(t.slug));
-    return [...AI_TOOLS, ...newFromCommunity];
-  }, [communityModels]);
 
   // Selected tool objects for comparison drawer
   const selectedCompareTools = compareIds
@@ -247,9 +236,14 @@ export default function App() {
     } else if (currentPath === '/submit' || currentPath === '/submit-tool') {
       title = 'Submit an AI Tool for Evaluation | AI Finder Technologies';
       description = 'Submit a new artificial intelligence tool for independent verification, benchmarks, and inclusion in our directory.';
-    } else if (currentPath === '/account' || currentPath === '/account/saved') {
-      title = 'Account & Saved Tools | AI Finder Technologies';
-      description = 'Manage your saved AI tools, track submitted software reviews, and configure account privacy settings.';
+    } else if (currentPath === '/account' || currentPath === '/account/saved' || currentPath === '/account/submissions') {
+      if (currentPath === '/account/submissions') {
+        title = 'My Submissions | AI Finder Technologies';
+        description = 'Manage and edit your published AI tools live in the AI Finder directory.';
+      } else {
+        title = 'Account & Saved Tools | AI Finder Technologies';
+        description = 'Manage your saved AI tools, track submitted software reviews, and configure account privacy settings.';
+      }
     }
 
     document.title = title;
@@ -438,7 +432,7 @@ export default function App() {
 
     // 14. Submit a Tool Page: /submit or /submit-tool
     if (currentPath === '/submit' || currentPath === '/submit-tool') {
-      return <SubmitToolPage onNavigate={handleNavigate} communityModels={communityModels} />;
+      return <SubmitToolPage onNavigate={handleNavigate} />;
     }
 
     // 15. Privacy & Terms: /privacy, /terms
@@ -449,9 +443,13 @@ export default function App() {
       return <LegalPage onNavigate={handleNavigate} defaultTab="terms" />;
     }
 
-    // 16. User Account & Saved Tools: /account, /account/saved
-    if (currentPath === '/account' || currentPath === '/account/saved') {
-      const defaultTab = currentPath === '/account/saved' ? 'saved' : 'saved';
+    // 16. User Account & Saved Tools: /account, /account/saved, /account/submissions
+    if (currentPath === '/account' || currentPath === '/account/saved' || currentPath === '/account/submissions') {
+      const defaultTab = currentPath === '/account/submissions'
+        ? 'submissions'
+        : currentPath === '/account/saved'
+        ? 'saved'
+        : 'saved';
       return (
         <AccountPage
           onNavigate={handleNavigate}

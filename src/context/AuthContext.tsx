@@ -251,11 +251,47 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const favDeletions = favSnap.docs.map((d) => deleteDoc(d.ref));
       await Promise.all(favDeletions);
 
-      // 2. Delete user profile doc
+      // 2. Delete user limits document
+      try {
+        const limitDocRef = doc(db, 'users', uid, 'limits', 'submissions');
+        await deleteDoc(limitDocRef);
+      } catch {}
+
+      // 3. Delete user community tools
+      try {
+        const communityCol = collection(db, 'communityTools');
+        const commSnap = await getDocs(query(communityCol, where('ownerUid', '==', uid)));
+        const commDeletions = commSnap.docs.map((d) => deleteDoc(d.ref));
+        await Promise.all(commDeletions);
+      } catch (e) {
+        console.warn('Could not delete user communityTools:', e);
+      }
+
+      // 4. Delete user legacy submissions
+      try {
+        const subCol = collection(db, 'submissions');
+        const subSnap = await getDocs(query(subCol, where('ownerUid', '==', uid)));
+        const subDeletions = subSnap.docs.map((d) => deleteDoc(d.ref));
+        await Promise.all(subDeletions);
+      } catch (e) {
+        console.warn('Could not delete user submissions:', e);
+      }
+
+      // 5. Delete user reports
+      try {
+        const repCol = collection(db, 'reports');
+        const repSnap = await getDocs(query(repCol, where('reporterUid', '==', uid)));
+        const repDeletions = repSnap.docs.map((d) => deleteDoc(d.ref));
+        await Promise.all(repDeletions);
+      } catch (e) {
+        console.warn('Could not delete user reports:', e);
+      }
+
+      // 6. Delete user profile doc
       const userDocRef = doc(db, 'users', uid);
       await deleteDoc(userDocRef);
 
-      // 3. Delete Firebase Auth user
+      // 7. Delete Firebase Auth user
       try {
         await deleteUser(auth.currentUser);
       } catch (authErr: any) {
@@ -272,6 +308,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setUser(null);
       setFavorites(new Set());
       setSubmissions([]);
+      window.dispatchEvent(new CustomEvent('aifinder_community_tools_changed'));
     } catch (err: any) {
       console.error('Account deletion error:', err);
       throw new Error(err?.message || 'Failed to complete account deletion. Please try again.');
