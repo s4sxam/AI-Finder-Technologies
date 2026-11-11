@@ -1,0 +1,78 @@
+{
+  "id": "tool-elevenlabs",
+  "name": "ElevenLabs",
+  "slug": "elevenlabs",
+  "tagline": "The gold standard for emotionally nuanced text-to-speech, voice cloning, and audio dubbing.",
+  "description": "ElevenLabs leads the industry in generative voice AI. It produces human-level speech with authentic emotional intonations, laughs, whispers, instant voice cloning from 60-second samples, and multi-lingual dubbing.",
+  "category": "audio",
+  "tags": [
+    "Text to Speech",
+    "Voice Cloning",
+    "Audio Dubbing",
+    "Podcasts",
+    "Audiobooks"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$5/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 10,000 characters/month. Starter plan is $5/month (first month $1); Creator is $22/month for high-volume audiobooks.",
+  "platforms": [
+    "Web",
+    "iOS",
+    "Android",
+    "API"
+  ],
+  "websiteUrl": "https://elevenlabs.io",
+  "rating": 4.95,
+  "reviewCount": 16000,
+  "trendingRank": 5,
+  "featured": true,
+  "releaseYear": 2022,
+  "lastUpdated": "2026-03",
+  "bestFor": "Audiobook narrators, game developers, podcasters, and video creators wanting indistinguishable human voices.",
+  "keyFeatures": [
+    "Prime Voice AI: emotional inflection, pacing, pauses, and natural breathing sounds",
+    "Instant Voice Cloning: clone any voice from 60 seconds of clean speech audio",
+    "Voice Isolator: strips background noise and studio hum from rough microphone recordings",
+    "Dubbing Studio: automatically translates audio in videos while matching original voice tone"
+  ],
+  "pros": [
+    "Virtually indistinguishable from real human speech delivery",
+    "Voice cloning captures accents and emotional nuances with uncanny precision",
+    "Low-latency Conversational AI API for real-time interactive phone agents"
+  ],
+  "cons": [
+    "Character consumption can deplete quickly on 30-minute audiobook chapters",
+    "Strict content moderation requires voice verification to prevent impersonation"
+  ],
+  "faqs": [
+    {
+      "question": "Can I clone my own voice on ElevenLabs?",
+      "answer": "Yes, you record a short voice agreement prompt and upload 1-5 minutes of speaking audio to generate an instant clone."
+    }
+  ],
+  "alternatives": [
+    "descript",
+    "whisper"
+  ],
+  "verified": true,
+  "monogram": "EL",
+  "accentColor": "#000000",
+  "monthlyUsers": "12M+",
+  "capabilities": {
+    "audioVoice": 2,
+    "chat": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "research": 0,
+    "writing": 1,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://elevenlabs.io",
+  "needsReview": true
+}

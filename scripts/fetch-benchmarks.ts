@@ -210,7 +210,12 @@ async function main() {
     }
   }
 
-  // 4. Save benchmarks.json
+  // 4. Save benchmarks.json only if valid
+  if (normalizedModels.length === 0) {
+    console.error('[BENCHMARKS ERROR] No models could be normalized. Retaining existing cache.');
+    process.exit(1);
+  }
+
   const benchmarkResult: BenchmarkData = {
     fetchedAt: new Date().toISOString(),
     source: 'Artificial Analysis & OpenRouter',

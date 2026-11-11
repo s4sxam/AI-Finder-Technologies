@@ -1,0 +1,75 @@
+{
+  "id": "tool-lovable",
+  "name": "Lovable",
+  "slug": "lovable",
+  "tagline": "Full-stack AI software engineer that creates production web apps from prompt to database.",
+  "description": "Lovable turns natural language into production full-stack web applications with React, Tailwind, and Supabase backends. It supports GitHub syncing, user authentication, and visual canvas iterations.",
+  "category": "coding",
+  "tags": [
+    "Full Stack",
+    "Supabase",
+    "React",
+    "Rapid Prototyping"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$20/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with limited daily messages. Starter plan is $20/month for active development and Supabase integrations.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://lovable.dev",
+  "rating": 4.8,
+  "reviewCount": 2100,
+  "trendingRank": 11,
+  "featured": true,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Designers, product managers, and entrepreneurs shipping MVPs with authentication and database storage.",
+  "keyFeatures": [
+    "Supabase database integration with authentication and real-time tables",
+    "Two-way GitHub synchronization with clean pull requests",
+    "Visual element selector: click any element on the preview to request changes",
+    "Exportable clean React + TypeScript source code"
+  ],
+  "pros": [
+    "Builds real working authentication and databases, not just static UI",
+    "High visual design fidelity out of the box",
+    "Direct git sync prevents vendor lock-in"
+  ],
+  "cons": [
+    "Message credits deplete quickly on complex applications",
+    "Complex backend business logic requires manual code editing"
+  ],
+  "faqs": [
+    {
+      "question": "Can I export Lovable projects to my own GitHub?",
+      "answer": "Yes, Lovable syncs commits directly to your personal or organization GitHub repositories."
+    }
+  ],
+  "alternatives": [
+    "bolt-new",
+    "replit-agent",
+    "v0"
+  ],
+  "verified": true,
+  "monogram": "LV",
+  "accentColor": "#EC4899",
+  "monthlyUsers": "400K+",
+  "capabilities": {
+    "coding": 2,
+    "chat": 2,
+    "agents": 2,
+    "docAnalysis": 1,
+    "writing": 1,
+    "research": 0,
+    "imageGen": 1,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "dataAnalysis": 1
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://lovable.dev",
+  "needsReview": true
+}

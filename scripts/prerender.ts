@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url';
 import { AI_TOOLS, CATEGORIES_META } from '../src/data/tools.ts';
 import { BLOG_POSTS } from '../src/data/blogPosts.ts';
 import { FREE_API_PROVIDERS } from '../src/data/freeApis.ts';
+import { safeJsonLd } from '../src/lib/safeJsonLd.ts';
+import { SITE_URL } from '../src/lib/constants.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,7 +13,7 @@ const rootDir = path.resolve(__dirname, '..');
 const distDir = path.resolve(rootDir, 'dist');
 const publicDir = path.resolve(rootDir, 'public');
 
-const BASE_URL = (process.env.VITE_APP_URL || 'https://ai-finder-ruddy.vercel.app').replace(/\/+$/, '');
+const BASE_URL = SITE_URL;
 
 interface RouteMeta {
   path: string;
@@ -127,6 +129,21 @@ const routes: RouteMeta[] = [
     ]
   },
   {
+    path: '/methodology',
+    title: 'Testing Methodology & Editorial Score | AI Finder Technologies',
+    description: 'Complete explanation of our 4-pillar evaluation framework, benchmark data sources, and zero-sponsored ranking standards.',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Methodology', item: `${BASE_URL}/methodology` }
+        ]
+      }
+    ]
+  },
+  {
     path: '/contact',
     title: 'Contact & Submit a Tool | AI Finder Technologies',
     description: 'Submit a new artificial intelligence tool for editorial verification, challenge benchmark data, or contact our research team.',
@@ -212,6 +229,21 @@ const routes: RouteMeta[] = [
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
           { '@type': 'ListItem', position: 2, name: 'Saved Tools', item: `${BASE_URL}/account/saved` }
+        ]
+      }
+    ]
+  },
+  {
+    path: '/account/submissions',
+    title: 'My Submissions | AI Finder Technologies',
+    description: 'Manage and edit your published community AI tools live in the AI Finder directory.',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+          { '@type': 'ListItem', position: 2, name: 'My Submissions', item: `${BASE_URL}/account/submissions` }
         ]
       }
     ]
@@ -373,21 +405,17 @@ AI_TOOLS.forEach((tool) => {
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
         name: tool.name,
+        url: `${BASE_URL}/tools/${tool.slug}`,
         applicationCategory: tool.category,
         operatingSystem: tool.platforms.join(', '),
         description: tool.description,
-        offers: {
-          '@type': 'Offer',
-          price: tool.hasFreeTier ? '0' : '20.00',
-          priceCurrency: 'USD'
-        },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: tool.rating,
-          reviewCount: tool.reviewCount,
-          bestRating: '5',
-          worstRating: '1'
-        }
+        ...(tool.priceVerifiedAt && tool.startingPrice ? {
+          offers: {
+            '@type': 'Offer',
+            price: tool.hasFreeTier ? '0' : tool.startingPrice.replace(/[^0-9.]/g, '') || '0',
+            priceCurrency: 'USD'
+          }
+        } : {})
       },
       {
         '@context': 'https://schema.org',
@@ -540,13 +568,10 @@ async function runPrerender() {
       `<meta name="twitter:description" content="${escapedDesc}" />`
     );
 
-    // Inject JSON-LD structured data
+    // Inject JSON-LD structured data with safe escaping
     if (route.jsonLd && route.jsonLd.length > 0) {
-      const jsonLdTag = `\n  <script type="application/ld+json">\n${JSON.stringify(
-        route.jsonLd.length === 1 ? route.jsonLd[0] : { '@context': 'https://schema.org', '@graph': route.jsonLd },
-        null,
-        2
-      )}\n  </script>\n`;
+      const payload = route.jsonLd.length === 1 ? route.jsonLd[0] : { '@context': 'https://schema.org', '@graph': route.jsonLd };
+      const jsonLdTag = `\n  <script type="application/ld+json">\n${safeJsonLd(payload, 2)}\n  </script>\n`;
       html = html.replace('</head>', `${jsonLdTag}</head>`);
     }
 

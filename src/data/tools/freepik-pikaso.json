@@ -1,0 +1,74 @@
+{
+  "id": "tool-freepik-pikaso",
+  "name": "Pikaso by Freepik",
+  "slug": "freepik-pikaso",
+  "tagline": "Fast AI sketch-to-image and mockups suite integrated with Freepik's creative library.",
+  "description": "Pikaso by Freepik turns simple doodles, webcam inputs, or 3D primitive blocks into photorealistic artwork in real time. Backed by Freepik's massive library of design stock and templates.",
+  "category": "image",
+  "tags": [
+    "Sketch to Image",
+    "Real-time",
+    "Stock Art",
+    "Design"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$9/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with daily tokens. Premium is $9/month with commercial licensing across all Freepik assets.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://freepik.com/pikaso",
+  "rating": 4.6,
+  "reviewCount": 4100,
+  "trendingRank": 42,
+  "featured": false,
+  "releaseYear": 2023,
+  "lastUpdated": "2026-03",
+  "bestFor": "Graphic designers and marketing teams creating commercial visual mockups quickly.",
+  "keyFeatures": [
+    "Real-time sketch to image transformation",
+    "Webcam AI rendering: hold up hand sketches to your camera to generate scenes",
+    "Integrated with millions of Freepik vectors, icons, and stock photos",
+    "Clean background replacer and resolution upscaler"
+  ],
+  "pros": [
+    "Affordable entry pricing ($9/mo)",
+    "Access to Freepik's complete commercial asset library",
+    "Very easy for non-artists to sketch concepts"
+  ],
+  "cons": [
+    "Less fine-grained control over lighting parameters than Midjourney",
+    "Can produce generic stock aesthetics without specific descriptive prompts"
+  ],
+  "faqs": [
+    {
+      "question": "Are Pikaso images commercially licensed?",
+      "answer": "Yes, with a Freepik subscription, generated images include full commercial clearance."
+    }
+  ],
+  "alternatives": [
+    "krea",
+    "recraft"
+  ],
+  "verified": true,
+  "monogram": "FP",
+  "accentColor": "#3B82F6",
+  "monthlyUsers": "5M+",
+  "capabilities": {
+    "imageGen": 2,
+    "chat": 0,
+    "coding": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://freepik.com/pikaso",
+  "needsReview": true
+}

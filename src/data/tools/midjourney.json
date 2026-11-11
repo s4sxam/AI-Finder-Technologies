@@ -1,0 +1,76 @@
+{
+  "id": "tool-midjourney",
+  "name": "Midjourney v6.1",
+  "slug": "midjourney",
+  "tagline": "The undisputed benchmark for photorealistic and cinematic generative imagery.",
+  "description": "Midjourney produces world-class visual aesthetics, photorealism, and artistic versatility. Version 6.1 features improved coherence, realistic skin textures, accurate lighting, inpainting, and a standalone web interface.",
+  "category": "image",
+  "tags": [
+    "Photorealism",
+    "Cinematic",
+    "Art",
+    "Web Editor"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "$10/mo",
+  "hasFreeTier": false,
+  "pricingDetails": "Plans start at $10/month (Basic) up to $60/month (Pro) for fast GPU hours and stealth generation mode.",
+  "platforms": [
+    "Web",
+    "Discord"
+  ],
+  "websiteUrl": "https://midjourney.com",
+  "rating": 4.95,
+  "reviewCount": 24000,
+  "trendingRank": 10,
+  "featured": true,
+  "releaseYear": 2022,
+  "lastUpdated": "2026-03",
+  "bestFor": "Art directors, designers, and creatives needing award-winning cinematic fidelity and artistic flair.",
+  "keyFeatures": [
+    "Photorealistic texture fidelity, subsurface scattering, and natural lighting",
+    "Web-based canvas editor with pan, zoom, varying regions, and upscaling",
+    "Style Reference (--sref) and Character Consistency (--cref) parameters",
+    "High text rendering accuracy inside signage and graphic banners"
+  ],
+  "pros": [
+    "Unsurpassed aesthetic beauty and artistic composition out of the box",
+    "Vibrant community showcase with searchable prompt recipes",
+    "Dedicated web creation interface eliminates Discord friction"
+  ],
+  "cons": [
+    "No free tier available",
+    "Image generations on basic tiers are publicly viewable by default"
+  ],
+  "faqs": [
+    {
+      "question": "Do I own the commercial rights to images generated on Midjourney?",
+      "answer": "Yes, paid subscribers own full commercial rights to images generated on their accounts."
+    }
+  ],
+  "alternatives": [
+    "flux",
+    "ideogram",
+    "recraft"
+  ],
+  "verified": true,
+  "monogram": "MJ",
+  "accentColor": "#EC4899",
+  "monthlyUsers": "18M+",
+  "capabilities": {
+    "imageGen": 2,
+    "chat": 0,
+    "coding": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://midjourney.com",
+  "needsReview": true
+}

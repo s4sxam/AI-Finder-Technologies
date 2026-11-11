@@ -1,0 +1,77 @@
+{
+  "id": "tool-grok",
+  "name": "Grok 3",
+  "slug": "grok",
+  "tagline": "xAI's frontier reasoning model with real-time X news telemetry and unfiltered analysis.",
+  "description": "Grok 3 by xAI features massive compute backing, real-time X data access, and Think Mode for rigorous scientific and code analysis. Includes DeepSearch for real-time web investigation.",
+  "category": "chat",
+  "tags": [
+    "Real-time News",
+    "Reasoning",
+    "X Integration",
+    "DeepSearch"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "$8/mo",
+  "hasFreeTier": false,
+  "pricingDetails": "Included with X Premium ($8/mo) or X Premium+ ($16/mo). SuperGrok plan with full Grok 3 reasoning at $30/mo.",
+  "platforms": [
+    "Web",
+    "iOS",
+    "Android"
+  ],
+  "websiteUrl": "https://x.ai",
+  "rating": 4.7,
+  "reviewCount": 6500,
+  "trendingRank": 15,
+  "featured": false,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Users tracking breaking news, financial rumors, and unfiltered real-time commentary.",
+  "keyFeatures": [
+    "Real-time ingestion of live breaking news and discussions across X",
+    "Think Mode: step-by-step mathematical reasoning pipeline",
+    "DeepSearch: autonomous agent querying multiple web and social sources",
+    "Uncensored, direct conversational demeanor"
+  ],
+  "pros": [
+    "Fastest access to breaking real-time news and market events",
+    "High benchmark performance on mathematics and coding",
+    "Clean interface with minimal lecturing or moralizing"
+  ],
+  "cons": [
+    "Requires paid X account for full access",
+    "Real-time social data can occasionally pick up unverified rumors"
+  ],
+  "faqs": [
+    {
+      "question": "Does Grok have access to private tweets?",
+      "answer": "No, Grok only indexes publicly visible posts, news links, and open web pages."
+    }
+  ],
+  "alternatives": [
+    "chatgpt",
+    "perplexity",
+    "claude"
+  ],
+  "verified": true,
+  "monogram": "GK",
+  "accentColor": "#1F2937",
+  "monthlyUsers": "20M+",
+  "capabilities": {
+    "chat": 2,
+    "coding": 1,
+    "writing": 2,
+    "imageGen": 2,
+    "research": 2,
+    "dataAnalysis": 1,
+    "docAnalysis": 1,
+    "agents": 1,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://x.ai",
+  "needsReview": true
+}

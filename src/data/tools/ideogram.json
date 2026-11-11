@@ -1,0 +1,77 @@
+{
+  "id": "tool-ideogram",
+  "name": "Ideogram 2.0",
+  "slug": "ideogram",
+  "tagline": "The industry champion for accurate typography, graphic design, and vector-style generation.",
+  "description": "Ideogram 2.0 solves the historic failure of AI image models: rendering crisp, spelled-correct text and graphic typography. Ideal for posters, logos, apparel prints, and marketing cards, it offers dedicated Color Palette controls and realistic rendering modes.",
+  "category": "image",
+  "tags": [
+    "Typography",
+    "Logos",
+    "Graphic Design",
+    "Color Palettes"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$8/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 40 priority credits/week. Basic plan is $8/month; Plus is $20/month with private generation.",
+  "platforms": [
+    "Web",
+    "iOS",
+    "Android"
+  ],
+  "websiteUrl": "https://ideogram.ai",
+  "rating": 4.85,
+  "reviewCount": 5900,
+  "trendingRank": 17,
+  "featured": false,
+  "releaseYear": 2023,
+  "lastUpdated": "2026-03",
+  "bestFor": "Graphic designers, marketers, and print-on-demand creators needing pristine typography inside visual artwork.",
+  "keyFeatures": [
+    "Flawless typographic rendering of multi-sentence phrases in varied font styles",
+    "Custom hex color palette selector to maintain brand color guidelines",
+    "Magic Prompt feature that intelligently enriches brief prompts for superior aesthetics",
+    "Multiple style modes: Realistic, Design, 3D, and Anime"
+  ],
+  "pros": [
+    "Best-in-class text rendering in banners, t-shirts, and logos",
+    "Generous free daily tier for quick experimentation",
+    "Precise control over aspect ratios (16:9, 1:1, 9:16, 3:4)"
+  ],
+  "cons": [
+    "Photorealism on faces can look slightly illustrated compared to Midjourney v6.1",
+    "Queue times can increase on the free tier during peak hours"
+  ],
+  "faqs": [
+    {
+      "question": "Can Ideogram generate transparent PNGs?",
+      "answer": "Ideogram focuses on raster compositions, but the Design style mode produces clean high-contrast backgrounds easily removed in Figma or Canva."
+    }
+  ],
+  "alternatives": [
+    "midjourney",
+    "flux",
+    "recraft"
+  ],
+  "verified": true,
+  "monogram": "ID",
+  "accentColor": "#6366F1",
+  "monthlyUsers": "3.8M+",
+  "capabilities": {
+    "imageGen": 2,
+    "writing": 1,
+    "chat": 0,
+    "coding": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://ideogram.ai",
+  "needsReview": true
+}

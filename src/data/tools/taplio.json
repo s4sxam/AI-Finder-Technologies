@@ -1,0 +1,75 @@
+{
+  "id": "tool-taplio",
+  "name": "Taplio",
+  "slug": "taplio",
+  "tagline": "All-in-one AI tool to grow your personal brand and inbound leads on LinkedIn.",
+  "description": "Taplio is the leading AI platform for LinkedIn creators and founders. It generates viral post ideas, schedules updates, tracks analytics, and provides an AI lead generator that identifies active prospects engaging with your content.",
+  "category": "marketing",
+  "tags": [
+    "LinkedIn",
+    "Personal Brand",
+    "Lead Gen",
+    "Social Growth"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "$39/mo",
+  "hasFreeTier": false,
+  "pricingDetails": "Starter plan is $39/month (billed annually); Standard is $55/month with relationship builder and lead search.",
+  "platforms": [
+    "Web",
+    "Chrome Extension"
+  ],
+  "websiteUrl": "https://taplio.com",
+  "rating": 4.8,
+  "reviewCount": 2900,
+  "trendingRank": 30,
+  "featured": false,
+  "releaseYear": 2022,
+  "lastUpdated": "2026-03",
+  "bestFor": "Founders, agency owners, and consultants building authority and generating B2B leads on LinkedIn.",
+  "keyFeatures": [
+    "AI Post Generator trained on 5M+ viral LinkedIn posts with hook and format templates",
+    "Relationship Builder: track target accounts and engage with their posts from one dashboard",
+    "Lead Database: scrape commenters and likers to export directly into sales pipelines",
+    "Chrome extension: inspect analytics and inspiration directly on LinkedIn.com"
+  ],
+  "pros": [
+    "Best dedicated LinkedIn tool for consistent posting and inbound lead generation",
+    "Inspiring viral post database reveals which topics perform best in your niche",
+    "Saves 5+ hours every week on social content writing"
+  ],
+  "cons": [
+    "No permanent free tier (only 7-day trial)",
+    "Specific exclusively to LinkedIn (does not post to X or Instagram)"
+  ],
+  "faqs": [
+    {
+      "question": "Will using Taplio get my LinkedIn account restricted?",
+      "answer": "No, Taplio complies with LinkedIn safety guidelines and does not perform prohibited automated bot scraping."
+    }
+  ],
+  "alternatives": [
+    "lately-ai",
+    "jasper"
+  ],
+  "verified": true,
+  "monogram": "TP",
+  "accentColor": "#0077B5",
+  "monthlyUsers": "500K+",
+  "capabilities": {
+    "writing": 2,
+    "research": 1,
+    "dataAnalysis": 1,
+    "chat": 1,
+    "docAnalysis": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://taplio.com",
+  "needsReview": true
+}

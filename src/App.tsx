@@ -15,6 +15,7 @@ import { ContactPage } from './pages/ContactPage';
 import { SubmitToolPage } from './pages/SubmitToolPage';
 import { LegalPage } from './pages/LegalPage';
 import { AccountPage } from './pages/AccountPage';
+import { MethodologyPage } from './pages/MethodologyPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { AuthProvider } from './context/AuthContext';
 import { AI_TOOLS } from './data/tools';
@@ -244,6 +245,9 @@ export default function App() {
         title = 'Account & Saved Tools | AI Finder Technologies';
         description = 'Manage your saved AI tools, track submitted software reviews, and configure account privacy settings.';
       }
+    } else if (currentPath === '/methodology') {
+      title = 'Testing Methodology & Editorial Score | AI Finder Technologies';
+      description = 'Complete explanation of our 4-pillar evaluation framework, benchmark data sources, and zero-sponsored ranking standards.';
     }
 
     document.title = title;
@@ -441,6 +445,11 @@ export default function App() {
     }
     if (currentPath === '/terms') {
       return <LegalPage onNavigate={handleNavigate} defaultTab="terms" />;
+    }
+
+    // 16. Methodology Page: /methodology
+    if (currentPath === '/methodology') {
+      return <MethodologyPage onNavigate={handleNavigate} />;
     }
 
     // 16. User Account & Saved Tools: /account, /account/saved, /account/submissions

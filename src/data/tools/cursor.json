@@ -1,0 +1,79 @@
+{
+  "id": "tool-cursor",
+  "name": "Cursor",
+  "slug": "cursor",
+  "tagline": "The AI-first code editor engineered for repository-wide pair programming and multi-file refactoring.",
+  "description": "Cursor is an AI-native fork of VS Code built from the ground up for software engineering. It indexes your entire git codebase, offers multi-file Composer diffs, predictive tab completion, and an autonomous terminal agent.",
+  "category": "coding",
+  "tags": [
+    "IDE",
+    "VS Code",
+    "Multi-File",
+    "Composer",
+    "Codebase Indexing"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$20/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 2,000 completions. Pro is $20/month for unlimited fast requests, Claude 3.7 Sonnet, GPT-4o, and o3-mini.",
+  "platforms": [
+    "Mac",
+    "Windows",
+    "Linux"
+  ],
+  "websiteUrl": "https://cursor.com",
+  "rating": 4.95,
+  "reviewCount": 4200,
+  "trendingRank": 3,
+  "featured": true,
+  "releaseYear": 2023,
+  "lastUpdated": "2026-03",
+  "bestFor": "Engineers who want deep codebase intelligence with familiar VS Code keybindings and extensions.",
+  "keyFeatures": [
+    "Composer (Cmd+I): Multi-file code generation and diff application across whole directories",
+    "Codebase Indexing: Semantic vector embeddings over git tree for precise contextual recall",
+    "Predictive Tab: Multi-token autocomplete that anticipates cursor moves and next edits",
+    "Terminal Agent: Natural language command generation with error auto-debugging"
+  ],
+  "pros": [
+    "Flawless VS Code extension and keybinding compatibility",
+    "Unrivaled multi-file refactoring with unified side-by-side diff preview",
+    "Choice of leading models: Claude 3.7 Sonnet, GPT-4o, o3-mini"
+  ],
+  "cons": [
+    "Requires running their VS Code fork rather than a plugin for JetBrains",
+    "Pro plan usage caps during peak server demand periods"
+  ],
+  "faqs": [
+    {
+      "question": "Does Cursor train on private code?",
+      "answer": "Cursor includes Privacy Mode, guaranteeing zero code storage or model training on your codebase. SOC 2 Type II certified."
+    }
+  ],
+  "alternatives": [
+    "github-copilot",
+    "windsurf",
+    "claude-code",
+    "v0"
+  ],
+  "verified": true,
+  "monogram": "CR",
+  "accentColor": "#3B82F6",
+  "monthlyUsers": "1.4M+",
+  "capabilities": {
+    "coding": 2,
+    "chat": 2,
+    "docAnalysis": 2,
+    "agents": 2,
+    "dataAnalysis": 1,
+    "writing": 1,
+    "research": 1,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://cursor.com",
+  "needsReview": true
+}

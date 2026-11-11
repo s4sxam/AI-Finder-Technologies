@@ -1,0 +1,77 @@
+{
+  "id": "tool-tabnine",
+  "name": "Tabnine",
+  "slug": "tabnine",
+  "tagline": "Enterprise-grade AI coding assistant with zero data retention and on-premise deployment.",
+  "description": "Tabnine is an enterprise coding assistant designed for strict compliance. It trains exclusively on permissively licensed code, offers air-gapped on-premise installation, and ensures zero proprietary code retention.",
+  "category": "coding",
+  "tags": [
+    "Enterprise",
+    "On-Premise",
+    "Security",
+    "Air-Gapped"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$12/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free basic completion tier. Pro is $12/user/month; Enterprise custom pricing for private cloud and VPC deployment.",
+  "platforms": [
+    "VS Code",
+    "JetBrains",
+    "Eclipse",
+    "Visual Studio"
+  ],
+  "websiteUrl": "https://tabnine.com",
+  "rating": 4.6,
+  "reviewCount": 5200,
+  "trendingRank": 29,
+  "featured": false,
+  "releaseYear": 2019,
+  "lastUpdated": "2026-03",
+  "bestFor": "Defense, healthcare, and financial enterprises requiring air-gapped security.",
+  "keyFeatures": [
+    "On-premise and VPC deployment options for strict regulatory compliance",
+    "Zero data retention and zero training on customer codebases",
+    "Trained exclusively on permissively licensed open-source code",
+    "Multi-IDE support across VS Code, JetBrains, and Eclipse"
+  ],
+  "pros": [
+    "Gold standard in enterprise security and IP indemnification",
+    "Works in air-gapped environments without internet access",
+    "Choice of proprietary or custom-hosted models"
+  ],
+  "cons": [
+    "Code generation creativity is more conservative than Cursor or Claude",
+    "Chat assistant interface is less integrated than modern agentic editors"
+  ],
+  "faqs": [
+    {
+      "question": "Is Tabnine trained on copyleft GPL code?",
+      "answer": "No, Tabnine Enterprise models are trained strictly on permissive MIT, Apache 2.0, and BSD licensed repositories."
+    }
+  ],
+  "alternatives": [
+    "github-copilot",
+    "cursor"
+  ],
+  "verified": true,
+  "monogram": "TB",
+  "accentColor": "#0EA5E9",
+  "monthlyUsers": "1.2M+",
+  "capabilities": {
+    "coding": 2,
+    "chat": 1,
+    "docAnalysis": 1,
+    "agents": 0,
+    "dataAnalysis": 0,
+    "writing": 0,
+    "research": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://tabnine.com",
+  "needsReview": true
+}

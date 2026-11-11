@@ -1,0 +1,74 @@
+{
+  "id": "tool-heygen",
+  "name": "HeyGen",
+  "slug": "heygen",
+  "tagline": "AI video generation platform for corporate training, marketing, and photo-real avatars.",
+  "description": "HeyGen produces studio-quality talking avatar videos for corporate marketing, onboarding, and customer support. It includes custom instant digital twin avatars, video translation with voice cloning, and personalized outreach at scale.",
+  "category": "video",
+  "tags": [
+    "Avatars",
+    "Video Translation",
+    "Voice Cloning",
+    "B2B Video"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$29/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 1 credit. Creator plan starts at $29/month; Team plan at $89/month for multiple avatar seats.",
+  "platforms": [
+    "Web",
+    "Zapier"
+  ],
+  "websiteUrl": "https://heygen.com",
+  "rating": 4.8,
+  "reviewCount": 6800,
+  "trendingRank": 25,
+  "featured": true,
+  "releaseYear": 2022,
+  "lastUpdated": "2026-03",
+  "bestFor": "Sales teams, educators, and enterprise marketing directors scaling video production without cameras or studios.",
+  "keyFeatures": [
+    "Instant Avatar: record a 2-minute webcam clip to create a digital twin avatar",
+    "Video Translation: translate speeches into 40+ languages with synchronized lip movement",
+    "Personalized Video API: dynamically generate individualized sales prospect videos",
+    "Extensive library of 100+ ethnically diverse AI studio presenter avatars"
+  ],
+  "pros": [
+    "Flawless lip synchronization and natural head movements",
+    "Video translation retains the speaker's original voice timbre and emotion",
+    "Eliminates expensive video studio rental costs"
+  ],
+  "cons": [
+    "Credit consumption can be expensive for high-volume video producers",
+    "Hand gestures occasionally look repetitive on long 10-minute presentations"
+  ],
+  "faqs": [
+    {
+      "question": "Can HeyGen translate an English video into Spanish with my own voice?",
+      "answer": "Yes, HeyGen clones your voice acoustics and translates dialogue into Spanish with matched lip-syncing."
+    }
+  ],
+  "alternatives": [
+    "synthesia"
+  ],
+  "verified": true,
+  "monogram": "HG",
+  "accentColor": "#2F5BFF",
+  "monthlyUsers": "4.5M+",
+  "capabilities": {
+    "videoGen": 2,
+    "audioVoice": 2,
+    "chat": 0,
+    "coding": 0,
+    "imageGen": 1,
+    "research": 0,
+    "writing": 1,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://heygen.com",
+  "needsReview": true
+}

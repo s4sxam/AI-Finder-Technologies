@@ -16,6 +16,12 @@ service cloud.firestore {
       return isSignedIn() && request.auth.uid == uid;
     }
 
+    function isAdmin() {
+      return isSignedIn()
+        && request.auth.token.email == 'ADMIN_EMAIL_PLACEHOLDER'
+        && request.auth.token.email_verified == true;
+    }
+
     function incoming() {
       return request.resource.data;
     }
@@ -29,22 +35,29 @@ service cloud.firestore {
     }
 
     function isValidDomainKey(key) {
-      return key is string && key.size() >= 3 && key.size() <= 128 && key.matches('^[a-z0-9._-]+$');
+      return key is string && key.size() >= 3 && key.size() <= 128 && key.matches('^[a-z0-9.-]+$');
     }
 
     function isValidSlug(s) {
       return s is string && s.size() >= 2 && s.size() <= 100 && s.matches('^[a-z0-9-]+$');
     }
 
-    function checkSubmissionRateLimit(uid) {
-      let limitDoc = getAfter(/databases/$(database)/documents/users/$(uid)/limits/submissions);
-      return limitDoc.data.count is int
-        && limitDoc.data.count <= 5
-        && limitDoc.data.windowStart is timestamp;
+    function checkBatchSubmissionLimit(uid) {
+      let limitPath = /databases/$(database)/documents/users/$(uid)/limits/submissions;
+      let limitAfter = getAfter(limitPath);
+      return limitAfter != null
+        && limitAfter.data.count is int
+        && limitAfter.data.count <= 5
+        && (
+          // Either brand new limit document with count == 1
+          limitAfter.data.count == 1
+          // Or incremented exactly by 1 in this batch
+          || (exists(limitPath) && limitAfter.data.count == get(limitPath).data.count + 1)
+        );
     }
 
     function isValidCommunityTool(data) {
-      return data.keys().hasAll([
+      return data.keys().hasOnly([
           'name', 'slug', 'websiteUrl', 'domainKey', 'description',
           'category', 'pricing', 'tags', 'logoUrl', 'ownerUid',
           'submitterName', 'submitterPhotoURL', 'showSubmitter',
@@ -55,81 +68,102 @@ service cloud.firestore {
         && data.hidden == false
         && data.name is string && data.name.size() >= 2 && data.name.size() <= 100
         && isValidSlug(data.slug)
-        && data.websiteUrl is string && data.websiteUrl.size() >= 8 && data.websiteUrl.size() <= 300
+        && data.websiteUrl is string
+        && data.websiteUrl.matches('^https://[^\\s]+$')
+        && data.websiteUrl.size() >= 8 && data.websiteUrl.size() <= 300
         && isValidDomainKey(data.domainKey)
         && data.description is string && data.description.size() >= 20 && data.description.size() <= 300
         && isValidCategory(data.category)
         && isValidPricing(data.pricing)
         && data.tags is list && data.tags.size() <= 10
-        && data.logoUrl is string && data.logoUrl.size() <= 300
+        && data.logoUrl is string && data.logoUrl.matches('^https://[^\\s]+$') && data.logoUrl.size() <= 500
         && data.submitterName is string && data.submitterName.size() <= 100
         && data.submitterPhotoURL is string && data.submitterPhotoURL.size() <= 500
         && data.showSubmitter is bool
         && data.createdAt == request.time;
     }
 
-    function isValidSubmission(data) {
-      return data.keys().hasAll(['ownerUid', 'name', 'slug', 'tagline', 'category', 'pricing', 'websiteUrl', 'status', 'createdAt'])
-        && data.ownerUid == request.auth.uid
-        && data.name is string && data.name.size() >= 2 && data.name.size() <= 100
-        && isValidSlug(data.slug)
-        && data.tagline is string && data.tagline.size() >= 5 && data.tagline.size() <= 250
-        && (!('description' in data) || (data.description is string && data.description.size() <= 3000))
-        && isValidCategory(data.category)
-        && isValidPricing(data.pricing)
-        && data.websiteUrl is string && data.websiteUrl.size() >= 8 && data.websiteUrl.size() <= 300;
-    }
-
-    // Community Tools collection: public read, authenticated owner create with rate limit & field validation, owner edit/delete
+    // Community Tools collection:
+    // Public read excludes hidden tools (admin can read all)
+    // Create enforces batch limits, valid schema, https URLs, duplicate domain prevention
+    // Owner can only edit description, tags, showSubmitter
+    // Admin can toggle hidden kill switch or delete
     match /communityTools/{domainKey} {
-      allow read: if true;
+      allow read: if resource.data.hidden != true || isAdmin();
+      
       allow create: if isSignedIn()
         && isValidDomainKey(domainKey)
         && domainKey == incoming().domainKey
         && isValidCommunityTool(incoming())
-        && checkSubmissionRateLimit(request.auth.uid);
-      allow update: if isSignedIn()
-        && resource.data.ownerUid == request.auth.uid
-        && incoming().diff(resource.data).affectedKeys().hasOnly(['description', 'tags', 'showSubmitter'])
-        && incoming().description is string && incoming().description.size() >= 20 && incoming().description.size() <= 300
-        && incoming().tags is list && incoming().tags.size() <= 10
-        && incoming().showSubmitter is bool
-        && incoming().domainKey == resource.data.domainKey
-        && incoming().ownerUid == resource.data.ownerUid
-        && incoming().createdAt == resource.data.createdAt
-        && incoming().hidden == resource.data.hidden
-        && incoming().source == resource.data.source;
-      allow delete: if isSignedIn() && resource.data.ownerUid == request.auth.uid;
+        && checkBatchSubmissionLimit(request.auth.uid);
+
+      allow update: if (
+          // Owner edit
+          isOwner(resource.data.ownerUid)
+          && incoming().diff(resource.data).affectedKeys().hasOnly(['description', 'tags', 'showSubmitter'])
+          && incoming().description is string && incoming().description.size() >= 20 && incoming().description.size() <= 300
+          && incoming().tags is list && incoming().tags.size() <= 10
+          && incoming().showSubmitter is bool
+          && incoming().domainKey == resource.data.domainKey
+          && incoming().ownerUid == resource.data.ownerUid
+          && incoming().createdAt == resource.data.createdAt
+          && incoming().hidden == resource.data.hidden
+          && incoming().source == resource.data.source
+        ) || (
+          // Admin kill switch toggle
+          isAdmin()
+          && incoming().diff(resource.data).affectedKeys().hasOnly(['hidden'])
+          && incoming().hidden is bool
+        );
+
+      allow delete: if isOwner(resource.data.ownerUid) || isAdmin();
     }
 
-    // Reports collection: authenticated user can submit a report on a domainKey, no client reads allowed
+    // Reports collection: authenticated user can submit a report on a domainKey, no public reads
     match /reports/{reportId} {
-      allow read, update, delete: if false;
+      allow read: if isAdmin();
+      allow update, delete: if isAdmin();
       allow create: if isSignedIn()
         && reportId == incoming().domainKey + '_' + request.auth.uid
+        && incoming().keys().hasOnly(['domainKey', 'slug', 'reason', 'details', 'reporterUid', 'reporterName', 'createdAt'])
         && incoming().reporterUid == request.auth.uid
         && incoming().createdAt == request.time
-        && incoming().reason is string && incoming().reason.size() >= 5 && incoming().reason.size() <= 500
-        && incoming().slug is string && incoming().slug.size() <= 100
-        && incoming().domainKey is string && incoming().domainKey.size() <= 128
+        && incoming().reason in ['spam', 'broken_link', 'malware', 'impersonation', 'offensive', 'other']
+        && (!('details' in incoming()) || (incoming().details is string && incoming().details.size() <= 500))
+        && isValidDomainKey(incoming().domainKey)
+        && isValidSlug(incoming().slug)
         && incoming().reporterName is string && incoming().reporterName.size() <= 100;
     }
 
-    // Users collection: user owns their account doc and all subcollections (favorites, limits)
+    // Users collection: user owns account profile; NO recursive wildcards
     match /users/{userId} {
       allow read, write: if isOwner(userId);
 
-      match /{subcollection=**} {
+      // Bookmarks / favorites subcollection
+      match /favorites/{toolId} {
         allow read, write: if isOwner(userId);
       }
-    }
 
-    // Legacy Submissions collection: owner can read, update (for migration flag), or delete their own
-    match /submissions/{submissionId} {
-      allow read: if isSignedIn() && resource.data.ownerUid == request.auth.uid;
-      allow create: if isSignedIn() && isValidSubmission(incoming());
-      allow update: if isSignedIn() && resource.data.ownerUid == request.auth.uid;
-      allow delete: if isSignedIn() && resource.data.ownerUid == request.auth.uid;
+      // Hardened submission rate limits document
+      match /limits/submissions {
+        allow read: if isOwner(userId);
+        allow delete: if false;
+
+        allow create: if isOwner(userId)
+          && incoming().keys().hasOnly(['count', 'windowStart'])
+          && incoming().count == 1
+          && incoming().windowStart == request.time;
+
+        allow update: if isOwner(userId)
+          && incoming().keys().hasOnly(['count', 'windowStart'])
+          && (
+            // Same window increment (max 5)
+            (incoming().windowStart == resource.data.windowStart && incoming().count == resource.data.count + 1 && incoming().count <= 5)
+            ||
+            // 24-hour reset
+            (request.time > resource.data.windowStart + duration.value(24, 'h') && incoming().count == 1 && incoming().windowStart == request.time)
+          );
+      }
     }
 
     // Benchmark history: public read access, no client writes permitted

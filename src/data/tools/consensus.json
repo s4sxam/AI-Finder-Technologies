@@ -1,0 +1,75 @@
+{
+  "id": "tool-consensus",
+  "name": "Consensus",
+  "slug": "consensus",
+  "tagline": "AI search engine searching 200M+ peer-reviewed scientific papers with consensus meters.",
+  "description": "Consensus searches over 200 million academic papers to synthesize scientific consensus on medicine, psychology, nutrition, and technology. It extracts key findings, calculates consensus meters, and provides direct links to PubMed, DOI, and journal citations.",
+  "category": "research",
+  "tags": [
+    "Academic",
+    "Scientific Papers",
+    "PubMed",
+    "Evidence-Based"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$8.99/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with unlimited basic search. Premium is $8.99/month for GPT-4o synthesis and study snapshot filters.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://consensus.app",
+  "rating": 4.8,
+  "reviewCount": 3400,
+  "trendingRank": 18,
+  "featured": false,
+  "releaseYear": 2022,
+  "lastUpdated": "2026-03",
+  "bestFor": "Academics, clinicians, and health professionals needing peer-reviewed scientific evidence and study design filters.",
+  "keyFeatures": [
+    "Consensus Meter: Visual percentage showing scientific agreement (Yes / Possibly / No)",
+    "Study Snapshot: Flags sample size, methodology (RCT, Meta-analysis, Cohort), and citations",
+    "Direct Semantic Scholar and PubMed citation exports in BibTeX and RIS format",
+    "Synthesized summaries written at non-specialist or expert comprehension levels"
+  ],
+  "pros": [
+    "Extracts genuine scientific consensus rather than marketing claims",
+    "Filters for randomized controlled trials (RCTs) and human studies",
+    "Cites exact authors, publication year, and journal impact score"
+  ],
+  "cons": [
+    "Less useful for non-academic topics like consumer technology or business news",
+    "Some paywalled journal full-texts cannot be displayed in full"
+  ],
+  "faqs": [
+    {
+      "question": "How does Consensus determine the Consensus Meter percentage?",
+      "answer": "Consensus analyzes top search-relevant peer-reviewed papers answering a yes/no question and classifies each paper's abstract findings into affirmative, neutral, or dissenting categories."
+    }
+  ],
+  "alternatives": [
+    "perplexity",
+    "notebooklm",
+    "elicit"
+  ],
+  "verified": true,
+  "monogram": "CS",
+  "accentColor": "#14B8A6",
+  "monthlyUsers": "2.2M+",
+  "capabilities": {
+    "research": 2,
+    "docAnalysis": 2,
+    "writing": 1,
+    "chat": 1,
+    "dataAnalysis": 1,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://consensus.app",
+  "needsReview": true
+}

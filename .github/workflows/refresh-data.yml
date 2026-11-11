@@ -30,6 +30,22 @@ jobs:
           ARTIFICIAL_ANALYSIS_API_KEY: ${{ secrets.ARTIFICIAL_ANALYSIS_API_KEY }}
         run: npx tsx scripts/fetch-benchmarks.ts
 
+      - name: Validate benchmarks data integrity
+        run: |
+          node -e '
+            const fs = require("fs");
+            const data = JSON.parse(fs.readFileSync("src/data/live/benchmarks.json", "utf8"));
+            if (!data.models || !Array.isArray(data.models) || data.models.length === 0) {
+              console.error("Invalid benchmarks data: empty models array");
+              process.exit(1);
+            }
+            if (typeof data.totalModels !== "number" || data.totalModels <= 0) {
+              console.error("Invalid totalModels count");
+              process.exit(1);
+            }
+            console.log("Validated benchmarks data: " + data.models.length + " models present.");
+          '
+
       - name: Commit and push changes if updated
         run: |
           git config --global user.name "github-actions[bot]"
@@ -38,6 +54,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes in benchmarks data. Skipping commit."
           else
-            git commit -m "chore(data): refresh live benchmarks from Artificial Analysis & OpenRouter [skip ci]"
+            git commit -m "chore(data): refresh live benchmarks from Artificial Analysis & OpenRouter"
             git push
           fi

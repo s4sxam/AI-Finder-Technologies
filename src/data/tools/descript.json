@@ -1,0 +1,76 @@
+{
+  "id": "tool-descript",
+  "name": "Descript",
+  "slug": "descript",
+  "tagline": "Edit audio and video podcasts as easily as editing a text document.",
+  "description": "Descript revolutionized podcast and video editing by turning audio into an editable text document. Delete words or filler \"ums\" in the transcript, and the corresponding audio and video are automatically cut seamlessly.",
+  "category": "audio",
+  "tags": [
+    "Podcast Editing",
+    "Text-based Editor",
+    "Filler Words",
+    "Studio Sound"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$12/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 1 hour of transcription/month. Creator is $12/month; Pro is $24/month with unlimited Studio Sound and Overdub.",
+  "platforms": [
+    "Mac",
+    "Windows",
+    "Web"
+  ],
+  "websiteUrl": "https://descript.com",
+  "rating": 4.8,
+  "reviewCount": 8400,
+  "trendingRank": 30,
+  "featured": false,
+  "releaseYear": 2017,
+  "lastUpdated": "2026-03",
+  "bestFor": "Podcasters, video creators, and YouTubers looking to cut editing time by 70%.",
+  "keyFeatures": [
+    "Text-based editing: cut, copy, and delete audio/video clips by editing the transcript text",
+    "1-Click Filler Word Removal: instantly removes \"um\", \"uh\", \"you know\", and repetitive stutters",
+    "Studio Sound: regenerates poor room acoustics to sound like a $1,000 Shure SM7B studio mic",
+    "Overdub: correct misspoken words by simply typing the replacement text in your cloned voice"
+  ],
+  "pros": [
+    "Revolutionary workflow that saves hours of timeline scrubbing",
+    "Studio Sound cleans up echo, air conditioning hum, and laptop mic distortion effortlessly",
+    "Automatic multi-speaker diarization"
+  ],
+  "cons": [
+    "Desktop app can be resource-intensive during large 4K video rendering",
+    "Overdub voice clone sounds slightly synthetic on long sentences"
+  ],
+  "faqs": [
+    {
+      "question": "Does Descript remove filler words automatically?",
+      "answer": "Yes, clicking \"Remove filler words\" highlights all \"ums\" and \"ahs\" and deletes them across the whole track in one click."
+    }
+  ],
+  "alternatives": [
+    "whisper",
+    "elevenlabs"
+  ],
+  "verified": true,
+  "monogram": "DS",
+  "accentColor": "#3B82F6",
+  "monthlyUsers": "4M+",
+  "capabilities": {
+    "audioVoice": 2,
+    "videoGen": 1,
+    "docAnalysis": 1,
+    "writing": 1,
+    "chat": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "research": 0,
+    "dataAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://descript.com",
+  "needsReview": true
+}

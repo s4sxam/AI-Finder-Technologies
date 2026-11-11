@@ -1,0 +1,77 @@
+{
+  "id": "tool-windsurf",
+  "name": "Windsurf by Codeium",
+  "slug": "windsurf",
+  "tagline": "The agentic IDE with Cascade flow for multi-file autonomous programming.",
+  "description": "Windsurf is Codeium's next-generation AI editor. Featuring \"Cascade\", it collaborates in real-time with developer actions, reasoning across terminals, files, and browser previews to autonomously build features and resolve bugs.",
+  "category": "coding",
+  "tags": [
+    "IDE",
+    "Agentic",
+    "Cascade",
+    "Autonomous Coding"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$15/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with unlimited basic autocomplete. Pro is $15/month for unlimited Cascade agentic workflows.",
+  "platforms": [
+    "Mac",
+    "Windows",
+    "Linux"
+  ],
+  "websiteUrl": "https://codeium.com/windsurf",
+  "rating": 4.8,
+  "reviewCount": 2800,
+  "trendingRank": 7,
+  "featured": false,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Developers seeking an agentic alternative to Cursor with high-speed multi-file execution.",
+  "keyFeatures": [
+    "Cascade Agent: deep contextual flow that inspects terminal outputs, lints, and edits",
+    "Supercomplete: predictive multi-token autocomplete across tabs",
+    "Deep context tracking across recently viewed files and git branches",
+    "Integrated preview browser with DOM inspection"
+  ],
+  "pros": [
+    "Exceptional speed during agentic multi-file refactors",
+    "Generous free tier for basic autocomplete",
+    "Sleek modern UI based on VS Code architecture"
+  ],
+  "cons": [
+    "Newer ecosystem than Cursor with fewer custom community plugins",
+    "Context indexing can take time on massive monorepos"
+  ],
+  "faqs": [
+    {
+      "question": "How does Windsurf compare to Cursor?",
+      "answer": "Windsurf features tighter Cascade real-time agent execution and is priced slightly lower ($15 vs $20), while Cursor has more mature model switching."
+    }
+  ],
+  "alternatives": [
+    "cursor",
+    "github-copilot",
+    "claude-code"
+  ],
+  "verified": true,
+  "monogram": "WS",
+  "accentColor": "#06B6D4",
+  "monthlyUsers": "600K+",
+  "capabilities": {
+    "coding": 2,
+    "chat": 2,
+    "docAnalysis": 2,
+    "agents": 2,
+    "dataAnalysis": 1,
+    "writing": 0,
+    "research": 1,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://codeium.com/windsurf",
+  "needsReview": true
+}

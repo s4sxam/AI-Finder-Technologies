@@ -1,0 +1,75 @@
+{
+  "id": "tool-leonardo",
+  "name": "Leonardo.Ai",
+  "slug": "leonardo",
+  "tagline": "All-in-one creative generative suite with custom LoRA training and production canvas tools.",
+  "description": "Leonardo.Ai offers an extensive creative studio for digital artists and game studios. Features include custom model fine-tuning, real-time canvas painting, universal upscaling, and motion animation.",
+  "category": "image",
+  "tags": [
+    "Game Assets",
+    "LoRA Training",
+    "Real-time Canvas",
+    "Concept Art"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$12/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 150 daily tokens. Paid plans start at $12/month (Apprentice) up to $60/month (Artisan).",
+  "platforms": [
+    "Web",
+    "iOS"
+  ],
+  "websiteUrl": "https://leonardo.ai",
+  "rating": 4.75,
+  "reviewCount": 9100,
+  "trendingRank": 24,
+  "featured": false,
+  "releaseYear": 2022,
+  "lastUpdated": "2026-03",
+  "bestFor": "Game developers, concept artists, and creative teams training custom visual style models.",
+  "keyFeatures": [
+    "Fine-tuned model training: train custom LoRAs directly in the web UI",
+    "Realtime Canvas: draw sketches that transform into art in real-time",
+    "Universal Upscaler with detail hallucination controls",
+    "Motion tool: animate static images into 4-second video clips"
+  ],
+  "pros": [
+    "Generous 150 daily tokens replenished every 24 hours",
+    "Great for 2D game sprites and concept art pipelines",
+    "Feature-rich visual editing suite"
+  ],
+  "cons": [
+    "UI can feel overwhelming with many model dropdowns and sliders",
+    "Photorealism on human skin requires specific model tuning"
+  ],
+  "faqs": [
+    {
+      "question": "Can I train a custom model on my company's mascot?",
+      "answer": "Yes, upload 10–20 images to train a custom fine-tuned model inside Leonardo in about 15 minutes."
+    }
+  ],
+  "alternatives": [
+    "midjourney",
+    "krea"
+  ],
+  "verified": true,
+  "monogram": "LA",
+  "accentColor": "#A855F7",
+  "monthlyUsers": "12M+",
+  "capabilities": {
+    "imageGen": 2,
+    "videoGen": 1,
+    "chat": 0,
+    "coding": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://leonardo.ai",
+  "needsReview": true
+}

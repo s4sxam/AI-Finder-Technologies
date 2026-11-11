@@ -1,0 +1,80 @@
+{
+  "id": "tool-claude",
+  "name": "Claude",
+  "slug": "claude",
+  "tagline": "Frontier reasoning intelligence model excelling at complex logic, deep coding, and nuanced prose.",
+  "description": "Anthropic's flagship family of models (Opus, Sonnet, and Haiku) offering instant responses, extended thinking tokens, and industry-leading developer and coding capabilities.",
+  "category": "chat",
+  "tags": [
+    "Reasoning",
+    "Coding",
+    "Writing",
+    "Artifacts",
+    "Frontier Model"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$20/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with daily quota. Claude Pro is $20/month for 5x capacity, extended thinking controls, and priority access.",
+  "platforms": [
+    "Web",
+    "iOS",
+    "Android",
+    "API"
+  ],
+  "websiteUrl": "https://claude.ai",
+  "rating": 4.95,
+  "reviewCount": 9400,
+  "trendingRank": 1,
+  "featured": true,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Developers, researchers, and writers who need deep analytical reasoning and honest, nuanced output.",
+  "keyFeatures": [
+    "Hybrid reasoning toggle: switch between instant latency and deep chain-of-thought",
+    "200K token context window supporting large codebases and multi-chapter manuscripts",
+    "Claude Artifacts side-by-side interactive playground for React, SVG, and HTML",
+    "Claude Projects: persistent document repositories and instructions"
+  ],
+  "pros": [
+    "Industry-leading human-like prose without formulaic structures",
+    "Exceptional algorithmic and architecture refactoring capabilities",
+    "Transparent thinking token inspection"
+  ],
+  "cons": [
+    "Daily limits on the free tier during peak hours",
+    "No native search engine indexing on the free web interface"
+  ],
+  "faqs": [
+    {
+      "question": "What is hybrid reasoning in Claude 3.7?",
+      "answer": "Hybrid reasoning allows users to toggle an extended thinking budget, giving Claude time to test multiple hypotheses before generating its final answer."
+    }
+  ],
+  "alternatives": [
+    "chatgpt",
+    "gemini-advanced",
+    "deepseek-r1"
+  ],
+  "verified": true,
+  "monogram": "CL",
+  "accentColor": "#D97706",
+  "monthlyUsers": "28M+",
+  "capabilities": {
+    "chat": 2,
+    "coding": 2,
+    "writing": 2,
+    "docAnalysis": 2,
+    "research": 1,
+    "dataAnalysis": 2,
+    "agents": 2,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-11-10",
+  "sourceUrl": "https://docs.anthropic.com",
+  "priceVerifiedAt": "2026-11-10",
+  "needsReview": false
+}

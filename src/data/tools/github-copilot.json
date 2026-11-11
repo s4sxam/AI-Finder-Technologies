@@ -1,0 +1,81 @@
+{
+  "id": "tool-github-copilot",
+  "name": "GitHub Copilot",
+  "slug": "github-copilot",
+  "tagline": "The industry-standard AI pair programmer integrated across all major IDEs.",
+  "description": "GitHub Copilot turns natural language prompts into code suggestions across dozens of languages. Backed by OpenAI and GitHub, it provides inline autocomplete, an interactive chat sidebar, automated PR descriptions, and CLI assistance.",
+  "category": "coding",
+  "tags": [
+    "Autocomplete",
+    "GitHub",
+    "JetBrains",
+    "VS Code",
+    "Enterprise"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "$10/mo",
+  "hasFreeTier": false,
+  "pricingDetails": "$10/month or $100/year for individuals. Free for verified open-source maintainers and students. Business tier at $19/user/month.",
+  "platforms": [
+    "VS Code",
+    "Visual Studio",
+    "JetBrains",
+    "Neovim",
+    "Web",
+    "CLI"
+  ],
+  "websiteUrl": "https://github.com/features/copilot",
+  "rating": 4.7,
+  "reviewCount": 13500,
+  "trendingRank": 6,
+  "featured": true,
+  "releaseYear": 2021,
+  "lastUpdated": "2026-03",
+  "bestFor": "Developers seeking frictionless autocomplete directly inside their established IDE workflow.",
+  "keyFeatures": [
+    "Ghost text completions as you type in 50+ programming languages",
+    "Copilot Chat with @workspace, @vscode, and @terminal context filters",
+    "Pull request descriptions and code review assistance directly in GitHub",
+    "Enterprise audit logs and strict public code reference filters"
+  ],
+  "pros": [
+    "Works in VS Code, JetBrains, Visual Studio, and Neovim without switching editors",
+    "Free for verified students, educators, and open-source maintainers",
+    "Deep integration with GitHub issues, PRs, and team permissions"
+  ],
+  "cons": [
+    "Lacks the holistic multi-file composer capabilities found in Cursor",
+    "Context window can lose track of complex architectural patterns across large repos"
+  ],
+  "faqs": [
+    {
+      "question": "Can Copilot block code matching public GitHub repositories?",
+      "answer": "Yes, account settings allow you to block suggestions that match public code to prevent licensing issues."
+    }
+  ],
+  "alternatives": [
+    "cursor",
+    "windsurf",
+    "claude-code"
+  ],
+  "verified": true,
+  "monogram": "GH",
+  "accentColor": "#10B981",
+  "monthlyUsers": "10M+",
+  "capabilities": {
+    "coding": 2,
+    "chat": 2,
+    "docAnalysis": 1,
+    "agents": 1,
+    "dataAnalysis": 1,
+    "writing": 0,
+    "research": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://github.com/features/copilot",
+  "needsReview": true
+}

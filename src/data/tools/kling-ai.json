@@ -1,0 +1,75 @@
+{
+  "id": "tool-kling-ai",
+  "name": "Kling AI",
+  "slug": "kling-ai",
+  "tagline": "Frontier AI video generator capable of 1080p clips up to 2 minutes with realistic physics.",
+  "description": "Kling AI by Kuaishou is a breakthrough generative video platform. It supports full 1080p clips up to 2 minutes in length, realistic physics simulations of liquids and cloth, and camera control vectors.",
+  "category": "video",
+  "tags": [
+    "Long Clips",
+    "Physics",
+    "1080p",
+    "Cinematic"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$10/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 66 daily credits. Standard plan starts at $10/month with professional camera controls.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://klingai.com",
+  "rating": 4.8,
+  "reviewCount": 3900,
+  "trendingRank": 21,
+  "featured": true,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Creators wanting longer, high-definition AI video scenes with natural human movement.",
+  "keyFeatures": [
+    "Long-form generation: create coherent video scenes up to 2 minutes long",
+    "Realistic 3D physical modeling of hair, fabric, fluids, and food preparation",
+    "Negative prompt controls and prompt weights for precise scene direction",
+    "End-frame keyframing and camera path parameters"
+  ],
+  "pros": [
+    "Remarkable stability on human body movements without limb distortion",
+    "Can generate significantly longer clips than competing 5-second tools",
+    "Affordable subscription plans"
+  ],
+  "cons": [
+    "Queue wait times can be slow on the free tier",
+    "Complex prompt translation from English to underlying Chinese model can occasionally miss nuance"
+  ],
+  "faqs": [
+    {
+      "question": "Can Kling AI generate videos at 60 FPS?",
+      "answer": "Kling generates natively at 30 FPS with smooth motion blur interpolation that can be exported up to 60 FPS in post."
+    }
+  ],
+  "alternatives": [
+    "runway",
+    "luma-dream-machine",
+    "hailuo-ai"
+  ],
+  "verified": true,
+  "monogram": "KL",
+  "accentColor": "#8B5CF6",
+  "monthlyUsers": "4M+",
+  "capabilities": {
+    "videoGen": 2,
+    "imageGen": 1,
+    "chat": 0,
+    "coding": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://klingai.com",
+  "needsReview": true
+}

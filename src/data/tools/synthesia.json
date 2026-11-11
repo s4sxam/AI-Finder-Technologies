@@ -1,0 +1,73 @@
+{
+  "id": "tool-synthesia",
+  "name": "Synthesia",
+  "slug": "synthesia",
+  "tagline": "Enterprise AI video communications platform with SOC 2 compliance and 140+ avatar languages.",
+  "description": "Synthesia is the enterprise leader in AI video generation. Used by over 50,000 companies for internal training, compliance modules, and customer support, it converts scripts into presenter videos in 140+ languages.",
+  "category": "video",
+  "tags": [
+    "Enterprise",
+    "Training Videos",
+    "Avatars",
+    "SOC 2"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "$22/mo",
+  "hasFreeTier": false,
+  "pricingDetails": "Starter plan is $22/month (billed annually); Creator plan is $67/month; Enterprise custom pricing.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://synthesia.io",
+  "rating": 4.7,
+  "reviewCount": 7500,
+  "trendingRank": 35,
+  "featured": false,
+  "releaseYear": 2020,
+  "lastUpdated": "2026-03",
+  "bestFor": "Fortune 500 L&D departments creating localized employee training videos at scale.",
+  "keyFeatures": [
+    "Over 230 diverse photorealistic studio presenters with varied vocal intonations",
+    "Instant translation across 140+ languages with localized voiceovers",
+    "Brand kits: custom fonts, logos, lower thirds, and intro/outro video templates",
+    "SOC 2 Type II compliance and robust enterprise single sign-on (SSO)"
+  ],
+  "pros": [
+    "Industry-standard enterprise security and content moderation",
+    "Cuts training video production costs by up to 80%",
+    "Screen recording tool integrates directly with AI avatar commentary"
+  ],
+  "cons": [
+    "No free tier available",
+    "Less oriented toward creative cinematic storytelling compared to Runway"
+  ],
+  "faqs": [
+    {
+      "question": "Does Synthesia support closed captions?",
+      "answer": "Yes, closed captions and multi-lingual subtitles are generated automatically for every video."
+    }
+  ],
+  "alternatives": [
+    "heygen"
+  ],
+  "verified": true,
+  "monogram": "SY",
+  "accentColor": "#0EA5E9",
+  "monthlyUsers": "3M+",
+  "capabilities": {
+    "videoGen": 2,
+    "audioVoice": 2,
+    "chat": 0,
+    "coding": 0,
+    "imageGen": 1,
+    "research": 0,
+    "writing": 1,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://synthesia.io",
+  "needsReview": true
+}

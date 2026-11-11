@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, CheckCircle2, MessageSquare, Send, ShieldAlert } from 'lucide-react';
+import { Mail, CheckCircle2, Send, AlertTriangle, Loader2 } from 'lucide-react';
 
 interface ContactPageProps {
   onNavigate: (path: string) => void;
@@ -14,22 +14,76 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, initialInt
   );
   const [toolUrl, setToolUrl] = useState('');
   const [message, setMessage] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const [pageLoadedAt] = useState<number>(() => Date.now());
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [fallbackEmail, setFallbackEmail] = useState('hello@aifindertechnologies.com');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !email.trim() || !message.trim()) {
+    setErrorMessage('');
+
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedMessage = message.trim();
+
+    if (!trimmedName || !trimmedEmail || !trimmedMessage) {
       setErrorMessage('Please complete all required fields before submitting.');
       return;
     }
-    if (!email.includes('@') || !email.includes('.')) {
-      setErrorMessage('Please enter a valid email address.');
+
+    if (trimmedMessage.length < 10) {
+      setErrorMessage('Message must be at least 10 characters long.');
       return;
     }
 
-    setErrorMessage('');
-    setIsSubmitted(true);
+    const timeOnPageMs = Date.now() - pageLoadedAt;
+    if (timeOnPageMs < 2000) {
+      setErrorMessage('Please take a moment to review your message before submitting.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const fullMessage = topic === 'submit-tool' && toolUrl.trim()
+        ? `[Tool Submission: ${toolUrl.trim()}]\n\n${trimmedMessage}`
+        : `[Topic: ${topic}]\n\n${trimmedMessage}`;
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: trimmedName,
+          email: trimmedEmail,
+          message: fullMessage,
+          honeypot,
+          timeOnPageMs
+        })
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        if (data.fallbackEmail) {
+          setFallbackEmail(data.fallbackEmail);
+        }
+        throw new Error(data.error || `Server responded with HTTP ${res.status}`);
+      }
+
+      setIsSubmitted(true);
+      setErrorMessage('');
+    } catch (err: any) {
+      console.error('Contact form submission failed:', err);
+      setErrorMessage(
+        err.message || `Couldn't send right now — email us at ${fallbackEmail}.`
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -40,15 +94,15 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, initialInt
           Home
         </button>
         <span aria-hidden="true">/</span>
-        <span className="text-slate-900 dark:text-white font-medium">Contact &amp; Submissions</span>
+        <span className="text-slate-900 dark:text-white font-medium">Contact &amp; Editorial</span>
       </div>
 
       <div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           Get in Touch with Our Editorial Team
         </h1>
-        <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl leading-relaxed">
-          Submit new AI products for evaluation, dispute benchmark findings, or inquire about research partnerships.
+        <p className="text-sm text-slate-500 mt-1 max-w-xl leading-relaxed">
+          Submit inquiries about benchmark findings, report data discrepancies, or connect with our engineering research team.
         </p>
       </div>
 
@@ -59,10 +113,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, initialInt
               <CheckCircle2 className="w-6 h-6" />
             </div>
             <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-              Submission Received
+              Message Delivered
             </h2>
-            <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
-              Thank you, <strong>{name}</strong>. Our engineering review team reviews all submissions on a weekly cycle. If your tool passes initial evaluation criteria, we will reach out directly at <strong>{email}</strong>.
+            <p className="text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
+              Thank you, <strong>{name}</strong>. Your message was confirmed and delivered to our research team. We will review your inquiry and follow up at <strong>{email}</strong>.
             </p>
             <div className="pt-2">
               <button
@@ -80,16 +134,33 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, initialInt
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+          <form onSubmit={handleSubmit} className="space-y-4 text-sm">
             {errorMessage && (
-              <div className="p-3 bg-rose-500/10 border border-rose-500/30 rounded-lg text-rose-600 dark:text-rose-400 text-xs">
-                {errorMessage}
+              <div className="p-3.5 bg-rose-500/10 border border-rose-500/30 rounded-lg text-rose-600 dark:text-rose-400 text-xs flex items-start gap-2">
+                <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
+                <div className="space-y-1">
+                  <p className="font-semibold">Unable to dispatch message</p>
+                  <p>{errorMessage}</p>
+                </div>
               </div>
             )}
 
+            {/* Honeypot field (hidden from real users, traps bots) */}
+            <div className="hidden" aria-hidden="true">
+              <label htmlFor="hp_field">Do not fill this</label>
+              <input
+                id="hp_field"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block font-semibold text-slate-900 dark:text-white mb-1">
+                <label className="block font-semibold text-slate-900 dark:text-white mb-1 text-xs">
                   Your Full Name <span className="text-rose-500">*</span>
                 </label>
                 <input
@@ -98,12 +169,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, initialInt
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Alex Morgan"
+                  disabled={isSubmitting}
                   className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#2F5BFF]"
                 />
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-900 dark:text-white mb-1">
+                <label className="block font-semibold text-slate-900 dark:text-white mb-1 text-xs">
                   Work Email <span className="text-rose-500">*</span>
                 </label>
                 <input
@@ -112,30 +184,32 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, initialInt
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="alex@company.com"
+                  disabled={isSubmitting}
                   className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#2F5BFF]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block font-semibold text-slate-900 dark:text-white mb-1">
+              <label className="block font-semibold text-slate-900 dark:text-white mb-1 text-xs">
                 Inquiry Topic
               </label>
               <select
                 value={topic}
                 onChange={(e) => setTopic(e.target.value)}
+                disabled={isSubmitting}
                 className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:border-[#2F5BFF]"
               >
-                <option value="submit-tool">Submit a Tool for Verification</option>
                 <option value="benchmark-dispute">Dispute or Update Benchmark Data</option>
-                <option value="editorial">Editorial Pitch or Contribution</option>
+                <option value="editorial">Editorial Pitch or Evaluation Query</option>
+                <option value="submit-tool">Submit a Tool for Editorial Coverage</option>
                 <option value="general">General Inquiries &amp; Press</option>
               </select>
             </div>
 
             {topic === 'submit-tool' && (
               <div>
-                <label className="block font-semibold text-slate-900 dark:text-white mb-1">
+                <label className="block font-semibold text-slate-900 dark:text-white mb-1 text-xs">
                   Tool Website URL
                 </label>
                 <input
@@ -143,13 +217,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, initialInt
                   value={toolUrl}
                   onChange={(e) => setToolUrl(e.target.value)}
                   placeholder="https://yourtool.com"
+                  disabled={isSubmitting}
                   className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#2F5BFF]"
                 />
               </div>
             )}
 
             <div>
-              <label className="block font-semibold text-slate-900 dark:text-white mb-1">
+              <label className="block font-semibold text-slate-900 dark:text-white mb-1 text-xs">
                 Message &amp; Technical Details <span className="text-rose-500">*</span>
               </label>
               <textarea
@@ -157,6 +232,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, initialInt
                 required
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                disabled={isSubmitting}
                 placeholder="Describe your request, reproduction steps for benchmark questions, or architectural details about your model..."
                 className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#2F5BFF]"
               />
@@ -165,10 +241,20 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, initialInt
             <div className="pt-2 flex justify-end">
               <button
                 type="submit"
-                className="px-5 py-2.5 bg-[#2F5BFF] hover:bg-[#1E46E6] text-white font-semibold rounded-lg transition-colors flex items-center gap-1.5 shadow-xs"
+                disabled={isSubmitting}
+                className="px-5 py-2.5 bg-[#2F5BFF] hover:bg-[#1E46E6] disabled:opacity-60 text-white font-semibold rounded-lg transition-colors flex items-center gap-2 shadow-xs"
               >
-                <Send className="w-3.5 h-3.5" />
-                <span>Submit to Editorial Review</span>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Sending message...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Send Message</span>
+                  </>
+                )}
               </button>
             </div>
           </form>

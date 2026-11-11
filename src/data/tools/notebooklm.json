@@ -1,0 +1,74 @@
+{
+  "id": "tool-notebooklm",
+  "name": "Google NotebookLM",
+  "slug": "notebooklm",
+  "tagline": "Source-grounded AI research assistant with zero outside hallucination and viral Audio Overviews.",
+  "description": "NotebookLM by Google Labs grounds its intelligence strictly in the notes, PDFs, Google Docs, and YouTube links you upload. It answers questions with page citations and generates lifelike two-host Audio Overview podcasts.",
+  "category": "research",
+  "tags": [
+    "Source Grounded",
+    "Audio Overview",
+    "Google Labs",
+    "Study Guide"
+  ],
+  "pricing": "Free",
+  "startingPrice": "Free",
+  "hasFreeTier": true,
+  "pricingDetails": "100% free during Google Labs public preview.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://notebooklm.google.com",
+  "rating": 4.9,
+  "reviewCount": 7800,
+  "trendingRank": 8,
+  "featured": true,
+  "releaseYear": 2023,
+  "lastUpdated": "2026-03",
+  "bestFor": "Students, researchers, and auditory learners wanting zero-hallucination summaries and podcast discussions.",
+  "keyFeatures": [
+    "Source-grounded synthesis: strictly answers from uploaded documents with page citations",
+    "Audio Overview: generates uncannily realistic 12-minute deep dive podcast discussions",
+    "Supports up to 50 sources per notebook (PDFs, Google Docs, Slides, web URLs, YouTube links)",
+    "Automated study guides, briefing docs, timelines, and FAQ generator"
+  ],
+  "pros": [
+    "100% free with zero advertising or subscription barriers",
+    "Zero hallucination guarantee: admits when facts are not in your source materials",
+    "Audio Overview podcasts make digesting 80-page whitepapers entertaining"
+  ],
+  "cons": [
+    "Cannot perform general web searches outside of provided source URLs",
+    "Cannot yet interactively interrupt or guide the generated Audio Overview hosts"
+  ],
+  "faqs": [
+    {
+      "question": "Does Google train on documents uploaded to NotebookLM?",
+      "answer": "Google states that personal data uploaded to NotebookLM is not used to train future foundation models."
+    }
+  ],
+  "alternatives": [
+    "perplexity",
+    "consensus"
+  ],
+  "verified": true,
+  "monogram": "NL",
+  "accentColor": "#8B5CF6",
+  "monthlyUsers": "6M+",
+  "capabilities": {
+    "docAnalysis": 2,
+    "research": 2,
+    "audioVoice": 2,
+    "chat": 2,
+    "writing": 2,
+    "dataAnalysis": 1,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://notebooklm.google.com",
+  "needsReview": true
+}

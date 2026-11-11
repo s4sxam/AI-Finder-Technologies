@@ -46,6 +46,8 @@ export const BenchmarksPage: React.FC<BenchmarksPageProps> = ({
     artificialAnalysis: true
   });
 
+  const [isUsingFallback, setIsUsingFallback] = useState<boolean>(false);
+
   // Client-side fetch to /api/benchmarks with stale-while-revalidate
   useEffect(() => {
     let isMounted = true;
@@ -60,10 +62,12 @@ export const BenchmarksPage: React.FC<BenchmarksPageProps> = ({
           if (data.fetchedAt) setFetchedAt(data.fetchedAt);
           if (data.freeModelsCount) setFreeModelsCount(data.freeModelsCount);
           if (data.sources) setSources(data.sources);
+          setIsUsingFallback(false);
         }
       })
       .catch((err) => {
         console.warn('Using bundled benchmarks fallback:', err.message);
+        if (isMounted) setIsUsingFallback(true);
       });
 
     return () => {
@@ -93,10 +97,17 @@ export const BenchmarksPage: React.FC<BenchmarksPageProps> = ({
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>{relativeTime}</span>
-            </span>
+            {isUsingFallback ? (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-amber-50 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
+                <span className="w-2 h-2 rounded-full bg-amber-500" />
+                <span>Using bundled data, last updated {new Date(fetchedAt).toLocaleDateString()}</span>
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>{relativeTime}</span>
+              </span>
+            )}
           </div>
         </div>
 

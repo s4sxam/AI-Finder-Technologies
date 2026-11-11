@@ -1,0 +1,78 @@
+{
+  "id": "tool-grammarly-ai",
+  "name": "Grammarly AI",
+  "slug": "grammarly-ai",
+  "tagline": "Ubiquitous writing assistant offering tone adjustments, grammar perfection, and on-demand rewrites.",
+  "description": "Grammarly AI integrates into desktop apps, web browsers, and email clients. Beyond standard spelling and punctuation, it rewrites sentences for conciseness, suggests vocabulary improvements, and drafts emails tailored to professional contexts.",
+  "category": "writing",
+  "tags": [
+    "Grammar",
+    "Tone Adjustment",
+    "Email Copilot",
+    "Browser Extension"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$12/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier for basic grammar and tone detection. Premium is $12/month (billed annually) for full rewrite suggestions and plagiarism checks.",
+  "platforms": [
+    "Mac",
+    "Windows",
+    "Chrome Extension",
+    "iOS",
+    "Android"
+  ],
+  "websiteUrl": "https://grammarly.com",
+  "rating": 4.8,
+  "reviewCount": 38000,
+  "trendingRank": 12,
+  "featured": true,
+  "releaseYear": 2009,
+  "lastUpdated": "2026-03",
+  "bestFor": "Every professional who sends emails, drafts Slack messages, or writes documents.",
+  "keyFeatures": [
+    "Everywhere integration: works inside Slack, Gmail, Google Docs, Word, and browser inputs",
+    "Tone Detector and Rewriter: adjust casual, formal, confident, or friendly registers",
+    "Full-sentence rewrites for conciseness and passive-to-active voice transformation",
+    "Plagiarism checker comparing against 16 billion web pages and ProQuest academic databases"
+  ],
+  "pros": [
+    "Frictionless integration across virtually every computer application",
+    "Best-in-class grammar and punctuation accuracy",
+    "Helps non-native English speakers write with native confidence"
+  ],
+  "cons": [
+    "Can occasionally suggest overly formal phrasing in casual creative writing",
+    "Floating widget icon can sometimes interfere with small custom text areas"
+  ],
+  "faqs": [
+    {
+      "question": "Does Grammarly sell user keystrokes?",
+      "answer": "No, Grammarly has a documented privacy policy confirming they do not sell user data or provide inputs to third-party ad networks."
+    }
+  ],
+  "alternatives": [
+    "notion-ai",
+    "claude"
+  ],
+  "verified": true,
+  "monogram": "GR",
+  "accentColor": "#10B981",
+  "monthlyUsers": "30M+",
+  "capabilities": {
+    "writing": 2,
+    "docAnalysis": 2,
+    "chat": 1,
+    "dataAnalysis": 0,
+    "research": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://grammarly.com",
+  "needsReview": true
+}

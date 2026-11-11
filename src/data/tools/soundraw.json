@@ -1,0 +1,74 @@
+{
+  "id": "tool-soundraw",
+  "name": "Soundraw",
+  "slug": "soundraw",
+  "tagline": "Royalty-free AI music generator customized by mood, genre, tempo, and instrument mix.",
+  "description": "Soundraw generates royalty-free background music for video creators and game developers. Users select mood, theme, and instruments, and can surgically edit energy levels across the song intro, chorus, and outro.",
+  "category": "audio",
+  "tags": [
+    "Royalty Free",
+    "Background Music",
+    "Video Creators",
+    "Instruments"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$16.99/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with unlimited music generation. Creator plan at $16.99/month allows unlimited downloads and commercial licensing.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://soundraw.io",
+  "rating": 4.65,
+  "reviewCount": 2800,
+  "trendingRank": 44,
+  "featured": false,
+  "releaseYear": 2020,
+  "lastUpdated": "2026-03",
+  "bestFor": "YouTube creators, commercial filmmakers, and podcasters needing customizable royalty-free B-roll music.",
+  "keyFeatures": [
+    "Customizable song structure: adjust energy levels for intro, verse, and drop sections",
+    "Mute or solo specific instruments (e.g. remove drums to keep only acoustic guitar)",
+    "100% royalty-free commercial licensing on YouTube, TV, and corporate ads",
+    "Exact length matching: specify 45 seconds or 3 minutes and the song arranges itself to fit"
+  ],
+  "pros": [
+    "Never triggers YouTube Content ID copyright strikes",
+    "Easy to adjust the arrangement so background music doesn't overpower voiceovers",
+    "Unlimited track downloads on paid subscriptions"
+  ],
+  "cons": [
+    "Focuses exclusively on instrumental background music (no custom singing vocals)",
+    "Arrangements can sound slightly formulaic for standalone radio listening"
+  ],
+  "faqs": [
+    {
+      "question": "Will YouTube flag Soundraw music for copyright?",
+      "answer": "No, Soundraw tracks are royalty-free and guaranteed safe from YouTube Content ID strikes for paid subscribers."
+    }
+  ],
+  "alternatives": [
+    "suno",
+    "udio"
+  ],
+  "verified": true,
+  "monogram": "SR",
+  "accentColor": "#EC4899",
+  "monthlyUsers": "1.2M+",
+  "capabilities": {
+    "audioVoice": 2,
+    "chat": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://soundraw.io",
+  "needsReview": true
+}

@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { ArrowLeft, Clock, Calendar, User, Share2, Check, ExternalLink, Bookmark, ShieldCheck, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { marked } from 'marked';
+import DOMPurify from 'dompurify';
 import { BLOG_POSTS } from '../data/blogPosts';
 import { AI_TOOLS } from '../data/tools';
 import { BlogPost, Tool } from '../types';
+import { safeJsonLd } from '../lib/safeJsonLd';
+import { SITE_URL } from '../lib/constants';
+import { Link } from '../components/Link';
 
 interface BlogPostPageProps {
   slug: string;
@@ -62,13 +67,18 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onNavigate, on
     'publisher': {
       '@type': 'Organization',
       'name': 'AI Finder Technologies',
-      'url': 'https://yourdomain.com'
+      'url': SITE_URL
     },
     'mainEntityOfPage': {
       '@type': 'WebPage',
-      '@id': `https://yourdomain.com/blog/${post.slug}`
+      '@id': `${SITE_URL}/blog/${post.slug}`
     }
   };
+
+  const parsedHtml = useMemo(() => {
+    const raw = marked.parse(post.content, { async: false }) as string;
+    return DOMPurify.sanitize(raw);
+  }, [post.content]);
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -86,18 +96,18 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onNavigate, on
   return (
     <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
       {/* Schema.org Injections */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }} />
 
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb" className="text-xs text-slate-500 flex items-center gap-1.5 flex-wrap">
-        <button onClick={() => onNavigate('/')} className="hover:text-slate-900 dark:hover:text-white">
+        <Link href="/" onNavigate={onNavigate} className="hover:text-slate-900 dark:hover:text-white">
           Home
-        </button>
+        </Link>
         <span aria-hidden="true">/</span>
-        <button onClick={() => onNavigate('/blog')} className="hover:text-slate-900 dark:hover:text-white">
+        <Link href="/blog" onNavigate={onNavigate} className="hover:text-slate-900 dark:hover:text-white">
           Blog
-        </button>
+        </Link>
         <span aria-hidden="true">/</span>
         <span className="capitalize hover:text-slate-900 dark:hover:text-white">{post.category}</span>
         <span aria-hidden="true">/</span>
@@ -172,15 +182,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onNavigate, on
       {/* Article Body Prose */}
       <div className="prose prose-slate dark:prose-invert max-w-none text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed space-y-6">
         <div
-          className="markdown-rendered space-y-6"
-          dangerouslySetInnerHTML={{
-            __html: post.content
-              .replace(/### (.*?)\n/g, '<h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mt-8 mb-3 tracking-tight">$1</h3>')
-              .replace(/## (.*?)\n/g, '<h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4 tracking-tight border-b border-slate-200 dark:border-slate-800 pb-2">$1</h2>')
-              .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-900 dark:text-white">$1</strong>')
-              .replace(/\n\n/g, '<p class="leading-relaxed mb-4">')
-              .replace(/- (.*?)\n/g, '<li class="ml-4 list-disc mb-1">$1</li>')
-          }}
+          className="markdown-rendered space-y-4"
+          dangerouslySetInnerHTML={{ __html: parsedHtml }}
         />
       </div>
 

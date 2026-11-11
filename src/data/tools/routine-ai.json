@@ -1,0 +1,77 @@
+{
+  "id": "tool-routine-ai",
+  "name": "Routine",
+  "slug": "routine-ai",
+  "tagline": "Unified productivity workspace integrating calendar, tasks, notes, and AI executive assistance.",
+  "description": "Routine brings your calendar, task lists, contacts, and meeting notes into a single keyboard-driven desktop workspace. Its AI assistant parses natural language deadlines and structures daily agendas.",
+  "category": "productivity",
+  "tags": [
+    "Calendar",
+    "Tasks",
+    "Planner",
+    "Daily Agenda"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$10/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier for personal calendar and task management. Pro is $10/month for AI agenda planning and team integrations.",
+  "platforms": [
+    "Mac",
+    "Windows",
+    "iOS",
+    "Web"
+  ],
+  "websiteUrl": "https://routine.co",
+  "rating": 4.7,
+  "reviewCount": 1600,
+  "trendingRank": 41,
+  "featured": false,
+  "releaseYear": 2021,
+  "lastUpdated": "2026-03",
+  "bestFor": "Professionals seeking an all-in-one daily dashboard combining time-blocking, task lists, and notes.",
+  "keyFeatures": [
+    "Natural language task capture: type \"Review PR with Sarah tomorrow at 3pm\" to schedule instantly",
+    "Integrated time-blocking calendar connecting Google Calendar and Outlook",
+    "Daily planner view with AI-suggested task prioritization",
+    "Full-screen minimalist notes with checklist conversions"
+  ],
+  "pros": [
+    "Beautiful minimalist aesthetic inspired by Linear",
+    "Combines task management with calendar scheduling seamlessly",
+    "Fast global keyboard shortcuts for capturing thoughts"
+  ],
+  "cons": [
+    "Mobile app has fewer features than the desktop client",
+    "AI scheduling suggestions require Pro subscription"
+  ],
+  "faqs": [
+    {
+      "question": "Does Routine connect with multiple Google calendars?",
+      "answer": "Yes, Routine syncs multiple personal and work Google/Outlook calendars into one unified agenda."
+    }
+  ],
+  "alternatives": [
+    "notion-ai",
+    "superhuman-ai"
+  ],
+  "verified": true,
+  "monogram": "RT",
+  "accentColor": "#6366F1",
+  "monthlyUsers": "250K+",
+  "capabilities": {
+    "agents": 2,
+    "chat": 1,
+    "docAnalysis": 1,
+    "writing": 1,
+    "dataAnalysis": 0,
+    "research": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://routine.co",
+  "needsReview": true
+}

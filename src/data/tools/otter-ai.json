@@ -1,0 +1,77 @@
+{
+  "id": "tool-otter-ai",
+  "name": "Otter.ai",
+  "slug": "otter-ai",
+  "tagline": "Real-time AI meeting transcription, automated summary slides, and automated action items.",
+  "description": "Otter.ai joins your scheduled Zoom, Google Meet, and Microsoft Teams meetings to transcribe conversations in real-time. It highlights key action items, captures shared slide screenshots, and answers meeting questions.",
+  "category": "productivity",
+  "tags": [
+    "Meeting Transcripts",
+    "Zoom",
+    "Action Items",
+    "Slide Capture"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$10/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 300 monthly transcription minutes (30 min/meeting). Pro is $10/user/month for 1,200 minutes.",
+  "platforms": [
+    "Web",
+    "iOS",
+    "Android",
+    "Chrome Extension"
+  ],
+  "websiteUrl": "https://otter.ai",
+  "rating": 4.7,
+  "reviewCount": 18000,
+  "trendingRank": 19,
+  "featured": false,
+  "releaseYear": 2016,
+  "lastUpdated": "2026-03",
+  "bestFor": "Sales reps, team managers, and students attending remote meetings and lectures.",
+  "keyFeatures": [
+    "OtterPilot: automatically joins scheduled calendar calls and transcribes live",
+    "Automated slide capture: snaps screenshots of presented slides and inserts them into notes",
+    "Otter AI Chat: ask questions about what happened in previous meetings",
+    "Automated email summaries sent to all participants with key takeaways"
+  ],
+  "pros": [
+    "Reliable real-time transcription with high speaker separation",
+    "Captures visual slide content alongside spoken audio",
+    "Generous 300 free monthly transcription minutes"
+  ],
+  "cons": [
+    "OtterPilot bot joining calls can feel intrusive to some external clients",
+    "Free tier cuts off meetings after 30 minutes"
+  ],
+  "faqs": [
+    {
+      "question": "Can Otter join meetings when I am late or absent?",
+      "answer": "Yes, OtterPilot can be scheduled to join meetings on your calendar even if you do not attend."
+    }
+  ],
+  "alternatives": [
+    "granola",
+    "fathom"
+  ],
+  "verified": true,
+  "monogram": "OT",
+  "accentColor": "#3B82F6",
+  "monthlyUsers": "10M+",
+  "capabilities": {
+    "audioVoice": 2,
+    "docAnalysis": 2,
+    "writing": 1,
+    "chat": 1,
+    "research": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "dataAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://otter.ai",
+  "needsReview": true
+}

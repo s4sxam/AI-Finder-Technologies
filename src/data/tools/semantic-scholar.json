@@ -1,0 +1,75 @@
+{
+  "id": "tool-semantic-scholar",
+  "name": "Semantic Scholar",
+  "slug": "semantic-scholar",
+  "tagline": "Free, AI-powered academic search engine created by the Allen Institute for AI.",
+  "description": "Semantic Scholar uses natural language processing to extract key findings, citation velocities, and influential citations from over 200 million scientific publications. Developed by the non-profit Allen Institute for AI.",
+  "category": "research",
+  "tags": [
+    "Free",
+    "Open Academic",
+    "Allen AI",
+    "Influential Citations"
+  ],
+  "pricing": "Free",
+  "startingPrice": "Free",
+  "hasFreeTier": true,
+  "pricingDetails": "100% free non-profit service with open academic APIs.",
+  "platforms": [
+    "Web",
+    "API"
+  ],
+  "websiteUrl": "https://semanticscholar.org",
+  "rating": 4.8,
+  "reviewCount": 4200,
+  "trendingRank": 39,
+  "featured": false,
+  "releaseYear": 2015,
+  "lastUpdated": "2026-03",
+  "bestFor": "Researchers seeking a clean, ad-free, non-profit alternative to Google Scholar.",
+  "keyFeatures": [
+    "TLDR summaries: 1-sentence AI-generated summaries of paper findings",
+    "Highly Influential Citations filter: separates routine references from foundational methodology citations",
+    "Research Feeds: personalized recommendations of newly published papers matching your library",
+    "Open Academic Graph API for data scientists and developers"
+  ],
+  "pros": [
+    "100% free non-profit platform with zero advertising",
+    "TLDR summaries save hours of skimming abstracts",
+    "Influential citation metrics filter out citation-gaming"
+  ],
+  "cons": [
+    "Lacks the conversational reasoning features of Perplexity or Consensus",
+    "Some paywalled articles link out to external publisher sites"
+  ],
+  "faqs": [
+    {
+      "question": "Who funds Semantic Scholar?",
+      "answer": "Semantic Scholar is developed and funded by the non-profit Allen Institute for AI (AI2), founded by Paul Allen."
+    }
+  ],
+  "alternatives": [
+    "consensus",
+    "perplexity"
+  ],
+  "verified": true,
+  "monogram": "SS",
+  "accentColor": "#1F2937",
+  "monthlyUsers": "8M+",
+  "capabilities": {
+    "research": 2,
+    "docAnalysis": 2,
+    "chat": 1,
+    "writing": 0,
+    "dataAnalysis": 1,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://semanticscholar.org",
+  "needsReview": true
+}

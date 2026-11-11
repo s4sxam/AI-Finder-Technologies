@@ -5,6 +5,8 @@ import { fileURLToPath } from 'url';
 import { createServer as createViteServer } from 'vite';
 import { MODEL_ALIASES, AA_SLUG_TO_ALIAS, OPENROUTER_ID_TO_ALIAS } from './src/data/modelAliases.ts';
 import { LiveModel } from './src/types/index.ts';
+import contactHandler from './api/contact.ts';
+import newsletterHandler from './api/newsletter-subscribe.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,6 +16,7 @@ const APP_URL = (process.env.VITE_APP_URL || process.env.APP_URL || 'https://ai-
 
 const app = express();
 app.use(express.json());
+
 
 // In-memory cache for live benchmarks (3 hours)
 const CACHE_DURATION_MS = 3 * 60 * 60 * 1000;
@@ -32,12 +35,12 @@ interface CachedBenchmarks {
 let benchmarkCache: CachedBenchmarks | null = null;
 let isRefreshing = false;
 
-// Load bundled snapshot on cold start
+// Load bundled benchmarks on cold start
 function loadBundledSnapshot(): CachedBenchmarks {
   try {
-    const snapshotPath = path.resolve(__dirname, 'src/data/live/snapshot.json');
-    if (fs.existsSync(snapshotPath)) {
-      const data = JSON.parse(fs.readFileSync(snapshotPath, 'utf8'));
+    const benchmarksPath = path.resolve(__dirname, 'src/data/live/benchmarks.json');
+    if (fs.existsSync(benchmarksPath)) {
+      const data = JSON.parse(fs.readFileSync(benchmarksPath, 'utf8'));
       return {
         fetchedAt: data.fetchedAt || new Date().toISOString(),
         sources: {
@@ -51,7 +54,7 @@ function loadBundledSnapshot(): CachedBenchmarks {
       };
     }
   } catch (err) {
-    console.warn('[SERVER] Could not read snapshot.json:', err);
+    console.warn('[SERVER] Could not read benchmarks.json:', err);
   }
 
   return {
@@ -252,6 +255,16 @@ app.get('/api/benchmarks', async (req, res) => {
     freeModelsCount: benchmarkCache.freeModelsCount,
     models: benchmarkCache.models
   });
+});
+
+// Route: Contact Form Dispatcher
+app.all('/api/contact', async (req, res) => {
+  return contactHandler(req, res);
+});
+
+// Route: Newsletter Subscription Dispatcher
+app.all('/api/newsletter-subscribe', async (req, res) => {
+  return newsletterHandler(req, res);
 });
 
 // Dynamic /robots.txt

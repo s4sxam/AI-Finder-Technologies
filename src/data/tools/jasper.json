@@ -1,0 +1,76 @@
+{
+  "id": "tool-jasper",
+  "name": "Jasper AI",
+  "slug": "jasper",
+  "tagline": "Enterprise marketing co-pilot with brand voice memory, SEO workflows, and multi-channel campaigns.",
+  "description": "Jasper is built specifically for enterprise marketing teams, agency copywriters, and content directors. It guarantees strict adherence to company brand guidelines, style rules, and product knowledge while orchestrating multi-channel marketing campaigns.",
+  "category": "writing",
+  "tags": [
+    "Marketing",
+    "Brand Voice",
+    "SEO",
+    "Enterprise Copywriting"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "$49/mo",
+  "hasFreeTier": false,
+  "pricingDetails": "Pro plan starts at $49/seat/month billed annually. Business plan with custom SSO and API access.",
+  "platforms": [
+    "Web",
+    "Chrome Extension"
+  ],
+  "websiteUrl": "https://jasper.ai",
+  "rating": 4.7,
+  "reviewCount": 11500,
+  "trendingRank": 22,
+  "featured": false,
+  "releaseYear": 2021,
+  "lastUpdated": "2026-03",
+  "bestFor": "Marketing agencies and enterprise growth teams executing multi-channel brand campaigns at scale.",
+  "keyFeatures": [
+    "Brand Voice & Style Guide memory: strictly aligns outputs with tone and banned phrasing",
+    "Integrated SurferSEO mode for live keyword density and semantic scoring",
+    "Campaign orchestration: turns a single product brief into 10 multi-channel assets",
+    "Enterprise security controls with role-based access and plagiarism checks"
+  ],
+  "pros": [
+    "Unrivaled brand voice governance prevents off-brand marketing copy",
+    "Direct integration with SurferSEO ensures high search ranking potential",
+    "Campaign workflow produces social posts, press releases, and emails in one go"
+  ],
+  "cons": [
+    "Steeper pricing compared to general consumer chat models like Claude or ChatGPT",
+    "Requires onboarding and configuring brand memory to get optimal results"
+  ],
+  "faqs": [
+    {
+      "question": "How is Jasper different from using standard ChatGPT for marketing?",
+      "answer": "Jasper includes dedicated brand memory, campaign asset templates, team style rules, SurferSEO scoring, and multi-model routing tuned specifically for conversion marketing."
+    }
+  ],
+  "alternatives": [
+    "copy-ai",
+    "writesonic",
+    "claude"
+  ],
+  "verified": true,
+  "monogram": "JS",
+  "accentColor": "#8B5CF6",
+  "monthlyUsers": "1.5M+",
+  "capabilities": {
+    "writing": 2,
+    "chat": 1,
+    "imageGen": 1,
+    "docAnalysis": 1,
+    "research": 1,
+    "agents": 1,
+    "coding": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "dataAnalysis": 1
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://jasper.ai",
+  "needsReview": true
+}

@@ -146,9 +146,14 @@ export function normalizeDomainKey(rawUrl: string): { domainKey?: string; error?
     }
   }
 
-  // Clean domainKey to be valid Firestore document ID (only a-z, 0-9, ., _, -)
-  const sanitizedKey = key.replace(/[^a-z0-9._-]/g, '_');
-  if (!sanitizedKey || sanitizedKey.length < 3) {
+  // Clean domainKey to be valid Firestore document ID (only lowercase a-z, 0-9, ., -)
+  const sanitizedKey = key
+    .toLowerCase()
+    .replace(/[^a-z0-9.-]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+
+  if (!sanitizedKey || sanitizedKey.length < 3 || !/^[a-z0-9.-]+$/.test(sanitizedKey)) {
     return { error: 'Invalid domain key computed from URL.' };
   }
 
@@ -532,9 +537,18 @@ export async function submitCommunityTool(
   const hostname = new URL(params.websiteUrl).hostname.replace(/^www\./, '');
   const logoUrl = `https://www.google.com/s2/favicons?domain=${hostname}&sz=128`;
 
+  // Curated tools always win
+  for (const staticTool of AI_TOOLS) {
+    const staticKeyResult = normalizeDomainKey(staticTool.websiteUrl);
+    if (staticKeyResult.domainKey && staticKeyResult.domainKey === domainKey) {
+      throw new Error(`Already listed: "${staticTool.name}". This tool is already cataloged in our curated registry.`);
+    }
+  }
+
   // Rate limit check: fetch users/{uid}/limits/submissions
   const limitDocRef = doc(db, 'users', user.uid, 'limits', 'submissions');
   let currentCount = 0;
+  let isExistingActiveWindow = false;
   let windowStartTimestamp = Timestamp.now();
 
   try {
@@ -552,18 +566,17 @@ export async function submitCommunityTool(
         }
         currentCount = count;
         windowStartTimestamp = windowStart;
+        isExistingActiveWindow = true;
       } else {
         // Reset window
         currentCount = 0;
-        windowStartTimestamp = Timestamp.now();
+        isExistingActiveWindow = false;
       }
     }
   } catch (err: any) {
     if (err?.message?.includes('rate limit')) throw err;
     console.warn('Rate limit read warning:', err);
   }
-
-  const nextCount = currentCount + 1;
 
   // Prepare communityTools doc payload
   const communityDocRef = doc(db, 'communityTools', domainKey);
@@ -600,11 +613,18 @@ export async function submitCommunityTool(
 
   const batch = writeBatch(db);
   batch.set(communityDocRef, communityDocPayload);
-  batch.set(limitDocRef, {
-    count: nextCount,
-    windowStart: windowStartTimestamp,
-    updatedAt: serverTimestamp()
-  });
+
+  if (isExistingActiveWindow) {
+    batch.update(limitDocRef, {
+      count: currentCount + 1,
+      windowStart: windowStartTimestamp
+    });
+  } else {
+    batch.set(limitDocRef, {
+      count: 1,
+      windowStart: serverTimestamp()
+    });
+  }
 
   try {
     await batch.commit();
@@ -690,6 +710,8 @@ export async function deleteCommunityTool(domainKey: string, user: User): Promis
   }
 }
 
+export type ReportReason = 'spam' | 'broken_link' | 'malware' | 'impersonation' | 'offensive' | 'other';
+
 /**
  * Submits a takedown/content report for a community tool.
  * Document ID = `reports/{domainKey}_{uid}`
@@ -697,15 +719,18 @@ export async function deleteCommunityTool(domainKey: string, user: User): Promis
 export async function submitToolReport(
   domainKey: string,
   slug: string,
-  reason: string,
+  reason: ReportReason,
+  details: string,
   user: User
 ): Promise<void> {
   if (!user) throw new Error('Authentication required to submit a report.');
 
-  const cleanReason = reason.trim();
-  if (cleanReason.length < 5 || cleanReason.length > 500) {
-    throw new Error('Report explanation must be between 5 and 500 characters.');
+  const validReasons: ReportReason[] = ['spam', 'broken_link', 'malware', 'impersonation', 'offensive', 'other'];
+  if (!validReasons.includes(reason)) {
+    throw new Error('Please select a valid report reason category.');
   }
+
+  const cleanDetails = details.trim().slice(0, 500);
 
   const reportId = `${domainKey}_${user.uid}`;
   const reportDocRef = doc(db, 'reports', reportId);
@@ -714,7 +739,8 @@ export async function submitToolReport(
     await setDoc(reportDocRef, {
       domainKey,
       slug,
-      reason: cleanReason,
+      reason,
+      details: cleanDetails,
       reporterUid: user.uid,
       reporterName: user.displayName || 'Anonymous Reporter',
       createdAt: serverTimestamp()

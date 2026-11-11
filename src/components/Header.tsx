@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { BrandGuideModal } from './BrandGuideModal';
+import { Link } from './Link';
 
 interface HeaderProps {
   currentPath: string;
@@ -97,10 +98,11 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4 sm:gap-8">
           
           {/* Zone 1: Logo & brand */}
-          <button
-            onClick={() => {
+          <Link
+            href="/"
+            onNavigate={(p) => {
               setIsMobileMenuOpen(false);
-              onNavigate('/');
+              onNavigate(p);
             }}
             className="flex items-center gap-3 text-left whitespace-nowrap shrink-0 group focus:outline-none"
             aria-label="AI Finder Technologies Home"
@@ -128,51 +130,56 @@ export const Header: React.FC<HeaderProps> = ({
                 Technologies
               </span>
             </div>
-          </button>
+          </Link>
 
           {/* Zone 2: Navigation Links (Desktop) */}
           <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-slate-600 dark:text-slate-300">
-            <button
-              onClick={() => onNavigate('/tools')}
+            <Link
+              href="/tools"
+              onNavigate={onNavigate}
               className={`whitespace-nowrap shrink-0 transition-colors hover:text-[#2F5BFF] dark:hover:text-[#2F5BFF] ${
                 currentPath.startsWith('/tools') ? 'text-[#2F5BFF] dark:text-[#2F5BFF] font-semibold' : ''
               }`}
             >
               Directory
-            </button>
-            <button
-              onClick={() => onNavigate('/benchmarks')}
+            </Link>
+            <Link
+              href="/benchmarks"
+              onNavigate={onNavigate}
               className={`whitespace-nowrap shrink-0 transition-colors hover:text-[#2F5BFF] dark:hover:text-[#2F5BFF] flex items-center gap-1.5 ${
                 currentPath === '/benchmarks' ? 'text-[#2F5BFF] dark:text-[#2F5BFF] font-semibold' : ''
               }`}
             >
               <span>Live Benchmarks</span>
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            </button>
-            <button
-              onClick={() => onNavigate('/free-apis')}
+            </Link>
+            <Link
+              href="/free-apis"
+              onNavigate={onNavigate}
               className={`whitespace-nowrap shrink-0 transition-colors hover:text-[#2F5BFF] dark:hover:text-[#2F5BFF] ${
                 currentPath.startsWith('/free-apis') ? 'text-[#2F5BFF] dark:text-[#2F5BFF] font-semibold' : ''
               }`}
             >
               Free APIs
-            </button>
-            <button
-              onClick={() => onNavigate('/compare')}
+            </Link>
+            <Link
+              href="/compare"
+              onNavigate={onNavigate}
               className={`whitespace-nowrap shrink-0 transition-colors hover:text-[#2F5BFF] dark:hover:text-[#2F5BFF] ${
                 currentPath === '/compare' ? 'text-[#2F5BFF] dark:text-[#2F5BFF] font-semibold' : ''
               }`}
             >
               Compare
-            </button>
-            <button
-              onClick={() => onNavigate('/blog')}
+            </Link>
+            <Link
+              href="/blog"
+              onNavigate={onNavigate}
               className={`whitespace-nowrap shrink-0 transition-colors hover:text-[#2F5BFF] dark:hover:text-[#2F5BFF] ${
                 currentPath.startsWith('/blog') ? 'text-[#2F5BFF] dark:text-[#2F5BFF] font-semibold' : ''
               }`}
             >
               Research &amp; Guides
-            </button>
+            </Link>
           </nav>
 
           {/* Zone 3: Actions (Search, Favorites, Theme, Google Auth, Submit) */}

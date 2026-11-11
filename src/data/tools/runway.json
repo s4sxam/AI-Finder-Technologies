@@ -1,0 +1,76 @@
+{
+  "id": "tool-runway",
+  "name": "Runway Gen-3 Alpha",
+  "slug": "runway",
+  "tagline": "Hollywood-grade generative video with granular camera vectors and motion brushes.",
+  "description": "Runway Gen-3 Alpha is the premier AI video foundation model for cinematic workflows. It features text-to-video, image-to-video, 5-region motion brushes, camera motion vectors, and lip-sync audio generation.",
+  "category": "video",
+  "tags": [
+    "Cinematic",
+    "Motion Brush",
+    "Camera Vectors",
+    "VFX",
+    "Hollywood"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$15/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 125 one-time credits. Standard is $15/month; Pro is $35/month with 4K upscaling and custom watermarks.",
+  "platforms": [
+    "Web",
+    "iOS"
+  ],
+  "websiteUrl": "https://runwayml.com",
+  "rating": 4.85,
+  "reviewCount": 9200,
+  "trendingRank": 11,
+  "featured": true,
+  "releaseYear": 2023,
+  "lastUpdated": "2026-03",
+  "bestFor": "Filmmakers, video editors, and creative agencies producing commercial-grade cinematic sequences.",
+  "keyFeatures": [
+    "Gen-3 Alpha Turbo: Generates 5s and 10s clips with photorealistic motion dynamics",
+    "Camera Control: Specify exact dolly, pan, zoom, pedestal, and tilt camera trajectory vectors",
+    "Motion Brush: Paint up to 5 individual scene regions to control independent motion velocities",
+    "Lip-Sync: Animate portrait characters with accurate speech phoneme synchronizations"
+  ],
+  "pros": [
+    "Cinematic lighting, camera motions, and lens effects look authentic",
+    "Motion brush allows surgical directional control over scene elements",
+    "Comprehensive editing suite with frame interpolation and background cleanup"
+  ],
+  "cons": [
+    "High credit consumption per 10-second generation",
+    "Complex human physics (intricate finger interactions) can still warp"
+  ],
+  "faqs": [
+    {
+      "question": "Can I extend Runway video clips beyond 10 seconds?",
+      "answer": "Yes, Runway allows extending generated clips forward and backward in 5-second increments to build longer narrative sequences."
+    }
+  ],
+  "alternatives": [
+    "luma-dream-machine",
+    "kling-ai"
+  ],
+  "verified": true,
+  "monogram": "RW",
+  "accentColor": "#EC4899",
+  "monthlyUsers": "6.5M+",
+  "capabilities": {
+    "videoGen": 2,
+    "imageGen": 2,
+    "audioVoice": 1,
+    "chat": 0,
+    "coding": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://runwayml.com",
+  "needsReview": true
+}

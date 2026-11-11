@@ -1,0 +1,75 @@
+{
+  "id": "tool-tripo-3d",
+  "name": "Tripo3D",
+  "slug": "tripo-3d",
+  "tagline": "Ultra-fast text and image-to-3D generator delivering textured game-ready assets in 10 seconds.",
+  "description": "Tripo3D specializes in ultra-fast 3D asset generation. In just 10 seconds, it turns single images or prompts into textured 3D drafts, followed by automated auto-rigging and animation support.",
+  "category": "design",
+  "tags": [
+    "Ultra Fast",
+    "Auto-Rigging",
+    "Game Ready",
+    "3D Models"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$19.90/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 10 daily generations. Pro is $19.90/month with 1,200 credits and auto-rigging features.",
+  "platforms": [
+    "Web",
+    "API"
+  ],
+  "websiteUrl": "https://tripo3d.ai",
+  "rating": 4.7,
+  "reviewCount": 1800,
+  "trendingRank": 38,
+  "featured": false,
+  "releaseYear": 2023,
+  "lastUpdated": "2026-03",
+  "bestFor": "Indie game developers needing rapid prop drafting and automated skeletal rigging.",
+  "keyFeatures": [
+    "10-Second Draft generation: preview 3D geometry in seconds before refining",
+    "Automated Skeletal Auto-Rigging: automatically adds bone rigs to humanoids and creatures",
+    "Built-in animation library: apply walking, running, and jumping cycles to generated models",
+    "Smart Retopology: reduces polycount for mobile and WebGL performance"
+  ],
+  "pros": [
+    "Fastest generation turnaround in the 3D AI market",
+    "Built-in auto-rigging saves hours of manual weight painting",
+    "Direct export to GLB with embedded animations"
+  ],
+  "cons": [
+    "Fine micro-surface details require the high-resolution refinement step",
+    "Clothing physics can have minor clipping during extreme animation poses"
+  ],
+  "faqs": [
+    {
+      "question": "Does Tripo3D rig characters for animation?",
+      "answer": "Yes, Tripo3D includes an automated rigging tool that assigns humanoid bone armatures with 1 click."
+    }
+  ],
+  "alternatives": [
+    "meshy",
+    "spline-ai"
+  ],
+  "verified": true,
+  "monogram": "TP",
+  "accentColor": "#10B981",
+  "monthlyUsers": "600K+",
+  "capabilities": {
+    "imageGen": 1,
+    "chat": 0,
+    "coding": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://tripo3d.ai",
+  "needsReview": true
+}

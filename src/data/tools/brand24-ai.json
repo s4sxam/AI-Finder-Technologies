@@ -1,0 +1,75 @@
+{
+  "id": "tool-brand24-ai",
+  "name": "Brand24 AI",
+  "slug": "brand24-ai",
+  "tagline": "AI social listening and sentiment monitoring across web, podcasts, news, and social networks.",
+  "description": "Brand24 tracks brand mentions across social media, forums, podcasts, and news in real time. Its AI sentiment analysis detects PR crises, customer complaints, and competitor moves before they escalate.",
+  "category": "marketing",
+  "tags": [
+    "Social Listening",
+    "Sentiment Analysis",
+    "Brand Monitoring",
+    "PR Alerts"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "$79/mo",
+  "hasFreeTier": false,
+  "pricingDetails": "Individual plan starts at $79/month; Team plan is $149/month for 10 keywords and real-time alerts.",
+  "platforms": [
+    "Web",
+    "iOS",
+    "Android"
+  ],
+  "websiteUrl": "https://brand24.com",
+  "rating": 4.75,
+  "reviewCount": 3100,
+  "trendingRank": 45,
+  "featured": false,
+  "releaseYear": 2011,
+  "lastUpdated": "2026-03",
+  "bestFor": "PR agencies, brand directors, and community managers protecting reputation and tracking competitors.",
+  "keyFeatures": [
+    "Real-time mention tracking across X, Reddit, YouTube, TikTok, news, and podcasts",
+    "AI Sentiment Analysis: classifies mentions as positive, negative, or neutral with context reasoning",
+    "Anomaly detector: alerts your team when mention volume spikes unexpectedly",
+    "Influencer score: identifies which accounts talking about your brand have the most authority"
+  ],
+  "pros": [
+    "Catches brand crises and customer complaints within minutes",
+    "Tracks mentions across Reddit and podcasts that standard Google Alerts miss",
+    "Automated weekly executive PDF reports"
+  ],
+  "cons": [
+    "Higher price point for early-stage bootstrap startups",
+    "Requires configuring boolean keyword filters to filter out common homonym words"
+  ],
+  "faqs": [
+    {
+      "question": "Does Brand24 monitor Reddit discussions?",
+      "answer": "Yes, Brand24 indexes Reddit posts and comments in real-time."
+    }
+  ],
+  "alternatives": [
+    "taplio"
+  ],
+  "verified": true,
+  "monogram": "B2",
+  "accentColor": "#0EA5E9",
+  "monthlyUsers": "400K+",
+  "capabilities": {
+    "research": 2,
+    "dataAnalysis": 2,
+    "docAnalysis": 1,
+    "chat": 1,
+    "writing": 1,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://brand24.com",
+  "needsReview": true
+}

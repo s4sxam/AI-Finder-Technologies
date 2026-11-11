@@ -1,0 +1,75 @@
+{
+  "id": "tool-writesonic",
+  "name": "Writesonic",
+  "slug": "writesonic",
+  "tagline": "SEO-optimized article writer with real-time web search and Chatsonic conversational agent.",
+  "description": "Writesonic focuses on high-ranking SEO content generation. It writes 3,000-word articles with real-time web data citations, automated internal linking, and competitor SERP analysis.",
+  "category": "writing",
+  "tags": [
+    "SEO Articles",
+    "Long-form",
+    "Chatsonic",
+    "SERP Analysis"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$16/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 25 one-time credits. Individual plan starts at $16/month (billed annually) with unlimited generation.",
+  "platforms": [
+    "Web",
+    "Chrome Extension"
+  ],
+  "websiteUrl": "https://writesonic.com",
+  "rating": 4.65,
+  "reviewCount": 7200,
+  "trendingRank": 32,
+  "featured": false,
+  "releaseYear": 2021,
+  "lastUpdated": "2026-03",
+  "bestFor": "SEO specialists and affiliate publishers needing high-ranking long-form blog articles fast.",
+  "keyFeatures": [
+    "AI Article Writer 6.0: drafts 3,000-word articles based on top 10 ranking Google competitors",
+    "Chatsonic: conversational assistant with real-time Google search grounding",
+    "Audience-tailored internal linking and external authority citation suggestions",
+    "Brand Voice memory and automated WordPress/Shopify 1-click publishing"
+  ],
+  "pros": [
+    "Fast turnaround for 3,000+ word structured articles",
+    "Direct 1-click export to WordPress and Webflow",
+    "Economical pricing structure compared to enterprise tools"
+  ],
+  "cons": [
+    "Requires human editorial review to eliminate repetitive transition phrases",
+    "Fact-checking is still necessary on technical niche topics"
+  ],
+  "faqs": [
+    {
+      "question": "Can Writesonic publish directly to WordPress?",
+      "answer": "Yes, connecting your WordPress credentials allows 1-click publishing formatted with H2s, H3s, and featured images."
+    }
+  ],
+  "alternatives": [
+    "jasper",
+    "copy-ai"
+  ],
+  "verified": true,
+  "monogram": "WS",
+  "accentColor": "#8B5CF6",
+  "monthlyUsers": "2M+",
+  "capabilities": {
+    "writing": 2,
+    "chat": 2,
+    "research": 2,
+    "imageGen": 1,
+    "audioVoice": 1,
+    "docAnalysis": 1,
+    "coding": 0,
+    "videoGen": 0,
+    "dataAnalysis": 1,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://writesonic.com",
+  "needsReview": true
+}

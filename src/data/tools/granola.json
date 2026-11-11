@@ -1,0 +1,74 @@
+{
+  "id": "tool-granola",
+  "name": "Granola",
+  "slug": "granola",
+  "tagline": "AI notepad for meetings that turns your rough bullet points into polished, executive notes.",
+  "description": "Granola is an AI notepad for Zoom, Google Meet, and in-person meetings. Unlike annoying AI bot attendees that join your calls, Granola runs quietly on your Mac, listening via system audio and enhancing your own handwritten notes.",
+  "category": "productivity",
+  "tags": [
+    "Meeting Notes",
+    "Mac Native",
+    "No Bot Attendee",
+    "Executive Summary"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$10/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier includes 25 meetings. Pro is $10/user/month for unlimited meetings and custom note templates.",
+  "platforms": [
+    "Mac"
+  ],
+  "websiteUrl": "https://granola.ai",
+  "rating": 4.9,
+  "reviewCount": 2200,
+  "trendingRank": 14,
+  "featured": true,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Founders, product leaders, and executives wanting clean meeting notes without inviting awkward bot attendees.",
+  "keyFeatures": [
+    "No bot attendees: records directly from Mac system audio and microphone",
+    "Enhance handwritten notes: writes executive summaries based on your actual typed bullets",
+    "Customizable templates for 1-on-1s, investor pitches, customer discovery, and engineering syncs",
+    "1-click export to Slack, Notion, and Gmail"
+  ],
+  "pros": [
+    "Never embarrasses you by sending a third-party bot into client meetings",
+    "Honors your human notes rather than dumping generic 10-page AI transcripts",
+    "Blazing fast Mac-native design with keyboard shortcuts"
+  ],
+  "cons": [
+    "Currently exclusive to macOS (Windows version in development)",
+    "Free tier capped at 25 total meetings"
+  ],
+  "faqs": [
+    {
+      "question": "Does Granola send a bot to join my Zoom call?",
+      "answer": "No, Granola captures audio locally through macOS system permissions without any bot joining the call."
+    }
+  ],
+  "alternatives": [
+    "otter-ai",
+    "fathom"
+  ],
+  "verified": true,
+  "monogram": "GN",
+  "accentColor": "#D97706",
+  "monthlyUsers": "180K+",
+  "capabilities": {
+    "docAnalysis": 2,
+    "writing": 2,
+    "audioVoice": 2,
+    "chat": 1,
+    "research": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "dataAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://granola.ai",
+  "needsReview": true
+}

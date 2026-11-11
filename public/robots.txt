@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ai-finder-ruddy.vercel.app/sitemap.xml
+Sitemap: https://ais-dev-xs6vk7sp4uqms3vwjt2w7g-49624313247.asia-east1.run.app/sitemap.xml

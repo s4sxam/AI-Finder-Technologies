@@ -1,0 +1,76 @@
+{
+  "id": "tool-spline-ai",
+  "name": "Spline AI",
+  "slug": "spline-ai",
+  "tagline": "Collaborative 3D design tool generating 3D objects, materials, and physics animations from text.",
+  "description": "Spline AI makes 3D design accessible to web designers. Prompt 3D objects, apply procedural PBR textures, set up lighting rigs, and export interactive WebGL scenes directly into React or web projects.",
+  "category": "design",
+  "tags": [
+    "3D Design",
+    "WebGL",
+    "Three.js",
+    "Interactive 3D"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$9/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with basic 3D editor. Super plan is $9/month (billed annually) with unlimited AI generations and code export.",
+  "platforms": [
+    "Web",
+    "Mac",
+    "Windows"
+  ],
+  "websiteUrl": "https://spline.design",
+  "rating": 4.8,
+  "reviewCount": 3900,
+  "trendingRank": 20,
+  "featured": true,
+  "releaseYear": 2021,
+  "lastUpdated": "2026-03",
+  "bestFor": "Web designers and front-end developers building interactive 3D hero scenes without learning Blender.",
+  "keyFeatures": [
+    "Prompt-to-3D: generate 3D geometric meshes, props, and organic models with prompts",
+    "AI Textures: generate PBR normal, roughness, and albedo maps tailored to 3D geometry",
+    "Real-time physics and game interaction events (hover, click, drag, scroll)",
+    "Direct React component export (`@splinetool/react-spline`) and WebGL embeds"
+  ],
+  "pros": [
+    "Vastly easier learning curve than Blender for web designers",
+    "Generates interactive WebGL scenes runnable at 60 FPS in browsers",
+    "Direct React and Three.js compatibility"
+  ],
+  "cons": [
+    "High-poly organic character generation requires manual clean-up",
+    "Complex animations require paid Super tier for code export without watermark"
+  ],
+  "faqs": [
+    {
+      "question": "Can I embed Spline 3D scenes into a React website?",
+      "answer": "Yes, Spline provides an official `@splinetool/react-spline` component that embeds interactive 3D canvas scenes with 1 line of code."
+    }
+  ],
+  "alternatives": [
+    "meshy",
+    "tripo-3d"
+  ],
+  "verified": true,
+  "monogram": "SP",
+  "accentColor": "#3B82F6",
+  "monthlyUsers": "1.8M+",
+  "capabilities": {
+    "imageGen": 1,
+    "coding": 1,
+    "chat": 1,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://spline.design",
+  "needsReview": true
+}

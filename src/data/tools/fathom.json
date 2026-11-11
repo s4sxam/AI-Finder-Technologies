@@ -1,0 +1,76 @@
+{
+  "id": "tool-fathom",
+  "name": "Fathom AI Notetaker",
+  "slug": "fathom",
+  "tagline": "Free AI meeting notetaker with flawless Zoom, Meet, and Teams CRM synchronization.",
+  "description": "Fathom records, transcribes, and highlights key moments from your video calls. It automatically syncs meeting summaries and action items into Salesforce, HubSpot, and Notion with zero manual data entry.",
+  "category": "productivity",
+  "tags": [
+    "Free Notetaker",
+    "CRM Sync",
+    "Zoom",
+    "Salesforce"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$19/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier includes 100% free unlimited meeting transcription and summaries. Team edition is $19/user/month for CRM auto-sync.",
+  "platforms": [
+    "Zoom",
+    "Google Meet",
+    "Microsoft Teams"
+  ],
+  "websiteUrl": "https://fathom.video",
+  "rating": 4.85,
+  "reviewCount": 6500,
+  "trendingRank": 26,
+  "featured": false,
+  "releaseYear": 2020,
+  "lastUpdated": "2026-03",
+  "bestFor": "Sales representatives and account executives who want free, unlimited meeting notes.",
+  "keyFeatures": [
+    "100% free unlimited recording and transcription minutes with zero caps",
+    "Click-to-highlight button to mark important soundbites during calls",
+    "Automated sync with HubSpot, Salesforce, Close, and Notion",
+    "Multi-language transcription supporting 28 languages"
+  ],
+  "pros": [
+    "Most generous free tier among all meeting transcription platforms",
+    "Instant transcript generation available the second the call ends",
+    "Native Zoom App integration with high user satisfaction"
+  ],
+  "cons": [
+    "CRM synchronization requires the paid Team edition ($19/mo)",
+    "Bot joins calls and introduces itself in meeting chat"
+  ],
+  "faqs": [
+    {
+      "question": "Is Fathom really free for individuals?",
+      "answer": "Yes, Fathom offers 100% free, unlimited recording and transcription for personal use without time limits."
+    }
+  ],
+  "alternatives": [
+    "granola",
+    "otter-ai"
+  ],
+  "verified": true,
+  "monogram": "FT",
+  "accentColor": "#10B981",
+  "monthlyUsers": "2M+",
+  "capabilities": {
+    "audioVoice": 2,
+    "docAnalysis": 2,
+    "writing": 1,
+    "chat": 1,
+    "research": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "dataAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://fathom.video",
+  "needsReview": true
+}

@@ -1,0 +1,77 @@
+{
+  "id": "tool-whisper",
+  "name": "OpenAI Whisper",
+  "slug": "whisper",
+  "tagline": "Industry-standard open-source speech recognition and transcription engine.",
+  "description": "Whisper is OpenAI's speech-to-text foundation model trained on 680,000 hours of multilingual audio. It achieves near-human transcription accuracy even with heavy background noise, accents, and technical jargon.",
+  "category": "audio",
+  "tags": [
+    "Speech to Text",
+    "Transcription",
+    "Open Source",
+    "Multilingual"
+  ],
+  "pricing": "Free",
+  "startingPrice": "Free (Open Source)",
+  "hasFreeTier": true,
+  "pricingDetails": "Open-weights model free on GitHub under MIT license. OpenAI hosted API is $0.006 per minute.",
+  "platforms": [
+    "CLI",
+    "Python",
+    "API",
+    "Local"
+  ],
+  "websiteUrl": "https://github.com/openai/whisper",
+  "rating": 4.9,
+  "reviewCount": 22000,
+  "trendingRank": 27,
+  "featured": true,
+  "releaseYear": 2022,
+  "lastUpdated": "2026-03",
+  "bestFor": "Developers, researchers, and podcast producers transcribing hours of audio locally or via API.",
+  "keyFeatures": [
+    "Multilingual transcription across 98+ languages with automatic language detection",
+    "Speech translation: transcribes foreign language audio directly into English text",
+    "Timestamp precision at word-level for generating SRT and VTT video subtitles",
+    "Multiple model sizes (Tiny, Base, Small, Medium, Large-v3, Turbo) for varied hardware"
+  ],
+  "pros": [
+    "100% free and open-source with permissive MIT license",
+    "Can run offline on a laptop CPU or GPU with zero internet connection",
+    "Extremely resilient to thick regional accents and ambient background noise"
+  ],
+  "cons": [
+    "Requires basic command-line or Python knowledge to run locally",
+    "Does not identify individual speaker names (diarization requires additional libraries like pyannote)"
+  ],
+  "faqs": [
+    {
+      "question": "Can Whisper run locally on an Apple Silicon Mac?",
+      "answer": "Yes, using whisper.cpp or MacWhisper, Whisper runs blazing fast on M-series chips."
+    }
+  ],
+  "alternatives": [
+    "descript",
+    "elevenlabs"
+  ],
+  "verified": true,
+  "monogram": "WP",
+  "accentColor": "#10B981",
+  "monthlyUsers": "5M+",
+  "capabilities": {
+    "audioVoice": 2,
+    "docAnalysis": 1,
+    "chat": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://github.com/openai/whisper",
+  "needsReview": true
+}

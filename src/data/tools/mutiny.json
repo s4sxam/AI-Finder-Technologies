@@ -1,0 +1,75 @@
+{
+  "id": "tool-mutiny",
+  "name": "Mutiny",
+  "slug": "mutiny",
+  "tagline": "No-code AI website personalization platform that doubles B2B website conversion rates.",
+  "description": "Mutiny personalizes website copy, headlines, and calls-to-action for each visiting company. It integrates with IP intelligence (6sense, Clearbit) to dynamically swap case studies and value propositions for target enterprise accounts.",
+  "category": "marketing",
+  "tags": [
+    "Personalization",
+    "ABM",
+    "B2B Marketing",
+    "Conversion Optimization"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "Custom",
+  "hasFreeTier": false,
+  "pricingDetails": "Enterprise subscription based on monthly unique visitors.",
+  "platforms": [
+    "Web",
+    "Chrome Extension"
+  ],
+  "websiteUrl": "https://mutinyhq.com",
+  "rating": 4.8,
+  "reviewCount": 850,
+  "trendingRank": 33,
+  "featured": false,
+  "releaseYear": 2018,
+  "lastUpdated": "2026-03",
+  "bestFor": "B2B growth leaders and Account-Based Marketing (ABM) teams personalizing websites for key enterprise tiers.",
+  "keyFeatures": [
+    "1-Click AI copy personalization tailored to visitor industry, company size, and stage",
+    "Reverse-IP identification via Clearbit and 6sense to identify anonymous B2B visitors",
+    "Visual editor: change headlines and case study logos without engineering or code deployment",
+    "Automated A/B testing and statistical significance tracking"
+  ],
+  "pros": [
+    "Drives verifiable 30–80% increases in pipeline conversion from existing web traffic",
+    "Zero developer dependency: marketers edit live sites visually",
+    "Deep analytics on account engagement"
+  ],
+  "cons": [
+    "Enterprise-tier pricing requires substantial marketing budget",
+    "Only effective for websites with sufficient inbound B2B traffic"
+  ],
+  "faqs": [
+    {
+      "question": "Does Mutiny slow down page loading speeds?",
+      "answer": "Mutiny uses a lightweight edge script designed to prevent layout flickers with minimal latency impact."
+    }
+  ],
+  "alternatives": [
+    "surfer-seo",
+    "copy-ai"
+  ],
+  "verified": true,
+  "monogram": "MT",
+  "accentColor": "#3B82F6",
+  "monthlyUsers": "80K+",
+  "capabilities": {
+    "dataAnalysis": 2,
+    "writing": 2,
+    "research": 1,
+    "chat": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "docAnalysis": 1,
+    "agents": 1
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://mutinyhq.com",
+  "needsReview": true
+}

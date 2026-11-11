@@ -1,0 +1,76 @@
+{
+  "id": "tool-flux",
+  "name": "Flux.1 by Black Forest Labs",
+  "slug": "flux",
+  "tagline": "Open-weights frontier image model with exceptional prompt adherence and anatomy realism.",
+  "description": "Created by the original team behind Stable Diffusion at Black Forest Labs, FLUX.1 represents the current pinnacle of open-weights generative imagery. It achieves realistic human anatomy, typography rendering, and photorealistic skin nuances across Schnell, Dev, and Pro models.",
+  "category": "image",
+  "tags": [
+    "Open Weights",
+    "ComfyUI",
+    "Photorealism",
+    "Typography"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "Free (Schnell)",
+  "hasFreeTier": true,
+  "pricingDetails": "Open weights (Schnell/Dev) free for local/non-commercial use. Hosted API starts at $0.03/image.",
+  "platforms": [
+    "Web",
+    "API",
+    "Local (ComfyUI)"
+  ],
+  "websiteUrl": "https://blackforestlabs.ai",
+  "rating": 4.9,
+  "reviewCount": 8200,
+  "trendingRank": 12,
+  "featured": true,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Developers and creators who need open-weights models runnable locally with zero content censorship or licensing hurdles.",
+  "keyFeatures": [
+    "12-Billion parameter flow-matching transformer architecture",
+    "Precise text rendering across signs, clothing, book titles, and badges",
+    "Realistic human anatomy with clean fingers, joints, and eye reflections",
+    "Available across Schnell (4-step fast), Dev (research open), and Pro (commercial API)"
+  ],
+  "pros": [
+    "Can be run 100% offline and locally via ComfyUI with sufficient GPU VRAM",
+    "Significantly higher prompt adherence than SDXL",
+    "Open weights allow custom fine-tuning and LoRA development"
+  ],
+  "cons": [
+    "Demands powerful local GPU (12GB+ VRAM minimum for quantized models)",
+    "No official all-in-one consumer chat application provided directly by Black Forest Labs"
+  ],
+  "faqs": [
+    {
+      "question": "What is the difference between Flux Schnell and Dev?",
+      "answer": "Flux Schnell is optimized for 4-step generation and is Apache 2.0 licensed. Flux Dev is a 28-step model for non-commercial research."
+    }
+  ],
+  "alternatives": [
+    "midjourney",
+    "ideogram"
+  ],
+  "verified": true,
+  "monogram": "FX",
+  "accentColor": "#F97316",
+  "monthlyUsers": "4.5M+",
+  "capabilities": {
+    "imageGen": 2,
+    "chat": 0,
+    "coding": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://blackforestlabs.ai",
+  "needsReview": true
+}

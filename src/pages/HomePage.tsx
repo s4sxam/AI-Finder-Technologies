@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy } from 'react';
+import React, { useState, useMemo, Suspense, lazy } from 'react';
 import { Search, Sparkles, ArrowRight, ShieldCheck, TrendingUp, BookOpen, Layers, Check, Star, Zap, Clock, Activity, Key } from 'lucide-react';
 import { AI_TOOLS, CATEGORIES_META } from '../data/tools';
 import { BLOG_POSTS } from '../data/blogPosts';
@@ -63,17 +63,35 @@ export const HomePage: React.FC<HomePageProps> = ({
     }
   };
 
+  const computedUpdatedText = useMemo(() => {
+    const dates = tools
+      .map((t) => t.lastVerified || (t.lastUpdated ? `${t.lastUpdated}-01` : ''))
+      .filter(Boolean);
+    if (!dates.length) return 'November 2026';
+    const sorted = [...dates].sort().reverse();
+    const latest = sorted[0];
+    const parsed = new Date(latest);
+    return isNaN(parsed.getTime())
+      ? 'November 2026'
+      : parsed.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  }, [tools]);
+
   return (
     <div className="space-y-16 sm:space-y-24">
       {/* --- HERO SECTION --- */}
       <section className="relative pt-12 pb-8 sm:pt-20 sm:pb-12 text-center max-w-4xl mx-auto px-4">
         {/* Editorial Kicker (Unboxed metadata text, zero pill slop) */}
-        <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4 flex items-center justify-center gap-2">
-          <span>The Independent AI Benchmark</span>
+        <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4 flex items-center justify-center gap-2 flex-wrap">
+          <span>Independent Software Directory</span>
           <span aria-hidden="true">·</span>
-          <span>Updated March 2026</span>
+          <span>Updated {computedUpdatedText}</span>
           <span aria-hidden="true">·</span>
-          <span>Zero-Sponsored Ratings</span>
+          <button
+            onClick={() => onNavigate('/methodology')}
+            className="hover:text-[#2F5BFF] dark:hover:text-blue-400 hover:underline transition-colors"
+          >
+            Zero-Sponsored Editorial Scores
+          </button>
         </div>
 
         {/* Hero Title */}

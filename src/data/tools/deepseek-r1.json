@@ -1,0 +1,79 @@
+{
+  "id": "tool-deepseek-r1",
+  "name": "DeepSeek R1",
+  "slug": "deepseek-r1",
+  "tagline": "Open-weights frontier reasoning model matching proprietary benchmarks with inspectable thought steps.",
+  "description": "DeepSeek R1 is an open-weights reasoning model developed using large-scale reinforcement learning. It showcases transparent chain-of-thought logic excelling at competitive math, programming algorithms, and formal logic verification.",
+  "category": "chat",
+  "tags": [
+    "Open Weights",
+    "Reasoning",
+    "Math",
+    "Coding",
+    "Local Execution"
+  ],
+  "pricing": "Free",
+  "startingPrice": "Free",
+  "hasFreeTier": true,
+  "pricingDetails": "100% free web chat and mobile app. Open weights under MIT license for offline deployment. Extremely economical API ($0.14/M input tokens).",
+  "platforms": [
+    "Web",
+    "iOS",
+    "Android",
+    "API",
+    "Local (Ollama)"
+  ],
+  "websiteUrl": "https://chat.deepseek.com",
+  "rating": 4.9,
+  "reviewCount": 18000,
+  "trendingRank": 2,
+  "featured": true,
+  "releaseYear": 2025,
+  "lastUpdated": "2026-03",
+  "bestFor": "Developers, students, and engineers seeking open reasoning models with zero subscription cost.",
+  "keyFeatures": [
+    "Transparent chain of thought: inspect the model's self-corrections in real time",
+    "Distilled versions (1.5B to 70B) runnable locally on consumer laptops with Ollama",
+    "Permissive MIT open-source license for commercial and personal deployment",
+    "Competitive programming and mathematical verification performance"
+  ],
+  "pros": [
+    "Completely free public web chat and mobile app",
+    "Transparent thinking process allows full auditing of conclusions",
+    "Ultra-affordable API pricing for developers"
+  ],
+  "cons": [
+    "Server busy errors can occur during peak global usage",
+    "Initial thinking phase introduces slight latency before answer streams"
+  ],
+  "faqs": [
+    {
+      "question": "Can I run DeepSeek R1 locally on my Mac or PC?",
+      "answer": "Yes, using Ollama or LM Studio, you can run DeepSeek-R1-Distill models (such as 8B or 14B) fully offline."
+    }
+  ],
+  "alternatives": [
+    "claude",
+    "chatgpt"
+  ],
+  "verified": true,
+  "monogram": "DS",
+  "accentColor": "#2563EB",
+  "monthlyUsers": "45M+",
+  "capabilities": {
+    "chat": 2,
+    "coding": 2,
+    "writing": 1,
+    "dataAnalysis": 2,
+    "docAnalysis": 1,
+    "research": 1,
+    "agents": 1,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://chat.deepseek.com",
+  "needsReview": true
+}

@@ -1,0 +1,76 @@
+{
+  "id": "tool-recraft",
+  "name": "Recraft",
+  "slug": "recraft",
+  "tagline": "AI design canvas generating editable vector SVGs, 3D icons, and brand design systems.",
+  "description": "Recraft is an infinite visual design canvas built specifically for graphic designers. It generates true scalable vector graphics (SVG), clean 3D icons, and consistent brand illustration sets with custom style palettes.",
+  "category": "image",
+  "tags": [
+    "SVG",
+    "Vector",
+    "Icons",
+    "Brand Systems",
+    "Canvas"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$20/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with daily generation credits. Pro is $20/month with private mode, vector exports, and team brand storage.",
+  "platforms": [
+    "Web",
+    "iOS"
+  ],
+  "websiteUrl": "https://recraft.ai",
+  "rating": 4.85,
+  "reviewCount": 3800,
+  "trendingRank": 18,
+  "featured": true,
+  "releaseYear": 2023,
+  "lastUpdated": "2026-03",
+  "bestFor": "Product designers and branding agencies generating true scalable vector artwork and icon libraries.",
+  "keyFeatures": [
+    "Export directly to clean, scalable vector graphics (SVG) with editable anchor points",
+    "Brand style consistency: train custom visual styles from 5 reference images",
+    "Infinite canvas interface for organizing moodboards and variations",
+    "Built-in vector recoloring and background removal tools"
+  ],
+  "pros": [
+    "Outputs genuine SVG vectors, not just pixelated raster bitmaps",
+    "Maintains exact brand color hex codes across generations",
+    "Superb icon design and flat editorial illustration quality"
+  ],
+  "cons": [
+    "Less oriented toward cinematic photorealism compared to Midjourney",
+    "Vector path complexity can be high on intricate detailed scenes"
+  ],
+  "faqs": [
+    {
+      "question": "Are Recraft SVG files editable in Adobe Illustrator and Figma?",
+      "answer": "Yes, Recraft SVGs contain standard vector paths and layers that open natively in Figma and Illustrator."
+    }
+  ],
+  "alternatives": [
+    "ideogram",
+    "midjourney"
+  ],
+  "verified": true,
+  "monogram": "RC",
+  "accentColor": "#10B981",
+  "monthlyUsers": "1.5M+",
+  "capabilities": {
+    "imageGen": 2,
+    "chat": 0,
+    "coding": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://recraft.ai",
+  "needsReview": true
+}

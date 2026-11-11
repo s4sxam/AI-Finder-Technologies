@@ -1,0 +1,73 @@
+{
+  "id": "tool-hailuo-ai",
+  "name": "Hailuo AI (MiniMax)",
+  "slug": "hailuo-ai",
+  "tagline": "High-speed cinematic video generator famous for natural human expressions and zero morphing.",
+  "description": "Hailuo AI (powered by MiniMax video foundation models) has taken the creative community by storm with exceptional character facial expressions, natural eye movement, and cinematic prompt comprehension.",
+  "category": "video",
+  "tags": [
+    "Facial Expressions",
+    "High Coherence",
+    "Fast Gen"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$10/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free daily generations. Paid plans provide priority queue credits starting at $10/month.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://hailuoai.video",
+  "rating": 4.8,
+  "reviewCount": 2900,
+  "trendingRank": 23,
+  "featured": false,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Narrative storytellers needing believable human character acting and natural eye gaze.",
+  "keyFeatures": [
+    "Unsurpassed facial micro-expressions without distorted smiles or blinking glitches",
+    "Text-to-video and Image-to-video pipelines with prompt expansion",
+    "High cinematic color grading and authentic lens bokeh depth-of-field",
+    "Fast 6-second video rendering in under 90 seconds"
+  ],
+  "pros": [
+    "Best-in-class character acting and facial fidelity",
+    "Minimal visual morphing or unnatural floating objects",
+    "Fast rendering turnaround"
+  ],
+  "cons": [
+    "Limited camera motion directional vectors compared to Runway",
+    "Clip duration currently capped at 6 seconds per generation"
+  ],
+  "faqs": [
+    {
+      "question": "Can I upload an image to animate on Hailuo?",
+      "answer": "Yes, Hailuo's Image-to-Video mode maintains character facial identity while animating subtle gestures and background movement."
+    }
+  ],
+  "alternatives": [
+    "kling-ai",
+    "runway"
+  ],
+  "verified": true,
+  "monogram": "HL",
+  "accentColor": "#10B981",
+  "monthlyUsers": "2.5M+",
+  "capabilities": {
+    "videoGen": 2,
+    "imageGen": 1,
+    "chat": 0,
+    "coding": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://hailuoai.video",
+  "needsReview": true
+}

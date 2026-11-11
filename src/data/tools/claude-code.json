@@ -1,0 +1,77 @@
+{
+  "id": "tool-claude-code",
+  "name": "Claude Code",
+  "slug": "claude-code",
+  "tagline": "Anthropic's agentic command-line tool that lives in your terminal and edits codebases directly.",
+  "description": "Claude Code is an agentic coding tool that operates directly in your terminal. It understands git status, searches files, runs build scripts, fixes compiler errors, and writes git commits with human-level clarity.",
+  "category": "coding",
+  "tags": [
+    "CLI",
+    "Terminal",
+    "Agentic",
+    "Git Integration"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "Usage-based",
+  "hasFreeTier": false,
+  "pricingDetails": "Billed through Anthropic API key usage ($3/M input, $15/M output tokens with prompt caching).",
+  "platforms": [
+    "CLI",
+    "Mac",
+    "Linux",
+    "Windows"
+  ],
+  "websiteUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview",
+  "rating": 4.9,
+  "reviewCount": 1900,
+  "trendingRank": 9,
+  "featured": true,
+  "releaseYear": 2025,
+  "lastUpdated": "2026-03",
+  "bestFor": "Senior engineers, terminal enthusiasts, and DevOps specialists managing complex git workflows.",
+  "keyFeatures": [
+    "Native terminal operation: works directly inside tmux, bash, or zsh",
+    "Git awareness: reads diffs, authors branch commits, and checks out branches",
+    "Compiler loop: executes tests and compiler commands to iterate on errors autonomously",
+    "Substantial prompt caching reduces API costs by up to 90%"
+  ],
+  "pros": [
+    "Zero IDE vendor lock-in; works with Neovim, Emacs, or any editor",
+    "Extremely high architectural comprehension powered by Claude 3.7",
+    "Automates multi-step refactoring loops without leaving the shell"
+  ],
+  "cons": [
+    "Command-line only; lacks visual side-by-side GUI diff review",
+    "API token usage can grow quickly on massive codebases without caching"
+  ],
+  "faqs": [
+    {
+      "question": "Does Claude Code run tests automatically?",
+      "answer": "Yes, Claude Code can run npm test or cargo test and fix failing assertions before proposing a git commit."
+    }
+  ],
+  "alternatives": [
+    "aider",
+    "cursor"
+  ],
+  "verified": true,
+  "monogram": "CC",
+  "accentColor": "#D97706",
+  "monthlyUsers": "150K+",
+  "capabilities": {
+    "coding": 2,
+    "chat": 2,
+    "docAnalysis": 2,
+    "agents": 2,
+    "dataAnalysis": 2,
+    "writing": 1,
+    "research": 1,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview",
+  "needsReview": true
+}

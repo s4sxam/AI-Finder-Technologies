@@ -1,0 +1,75 @@
+{
+  "id": "tool-luma-dream-machine",
+  "name": "Luma Dream Machine",
+  "slug": "luma-dream-machine",
+  "tagline": "High-speed generative video with realistic physical interactions and fluid camera sweeps.",
+  "description": "Luma Dream Machine is a video foundation model trained directly on video data. Capable of generating 5-second shots with consistent characters, realistic physics simulations, and fluid camera sweeps in under two minutes.",
+  "category": "video",
+  "tags": [
+    "Fast Rendering",
+    "Keyframing",
+    "Camera Sweeps",
+    "Image-to-Video"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$29.99/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 30 generations/month. Standard is $29.99/month; Pro is $99.99/month with priority queue.",
+  "platforms": [
+    "Web",
+    "iOS"
+  ],
+  "websiteUrl": "https://lumalabs.ai/dream-machine",
+  "rating": 4.75,
+  "reviewCount": 4400,
+  "trendingRank": 20,
+  "featured": false,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Creators needing rapid image-to-video animations with fluid camera trajectories.",
+  "keyFeatures": [
+    "Fast video rendering: creates 5-second 720p clips in under two minutes",
+    "Image-to-Video mode transforms static portraits into dynamic camera sweeps",
+    "Keyframing feature: specify start and end image frames to guide smooth transitions",
+    "Consistent object physics and lighting continuity across camera moves"
+  ],
+  "pros": [
+    "Generous free tier offering 30 video generations per month",
+    "Start-to-end keyframe interpolation produces intentional storytelling",
+    "Clean intuitive web interface with fast preview turnaround"
+  ],
+  "cons": [
+    "Occasional morphing artifacts when moving between disparate visual subjects",
+    "Free tier generations take longer to queue during busy hours"
+  ],
+  "faqs": [
+    {
+      "question": "What resolution does Luma Dream Machine export at?",
+      "answer": "Dream Machine generates natively at 720p with 1080p and 4K upscaling available on paid plans."
+    }
+  ],
+  "alternatives": [
+    "runway",
+    "kling-ai"
+  ],
+  "verified": true,
+  "monogram": "LM",
+  "accentColor": "#3B82F6",
+  "monthlyUsers": "3.2M+",
+  "capabilities": {
+    "videoGen": 2,
+    "imageGen": 1,
+    "chat": 0,
+    "coding": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://lumalabs.ai/dream-machine",
+  "needsReview": true
+}

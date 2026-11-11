@@ -1,0 +1,78 @@
+{
+  "id": "tool-figma-ai",
+  "name": "Figma AI",
+  "slug": "figma-ai",
+  "tagline": "Native intelligence embedded into Figma for layout generation, asset search, and copy rewriting.",
+  "description": "Figma AI brings machine learning directly into the world's leading UI design tool. It generates initial UI screen layouts, searches design systems semantically, removes image backgrounds, and populates realistic mock data.",
+  "category": "design",
+  "tags": [
+    "UI Design",
+    "Figma",
+    "Auto Layout",
+    "Design Systems",
+    "Mock Data"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$12/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Included with Figma Professional ($12/editor/month) and Figma Organization plans.",
+  "platforms": [
+    "Web",
+    "Mac",
+    "Windows"
+  ],
+  "websiteUrl": "https://figma.com",
+  "rating": 4.85,
+  "reviewCount": 28000,
+  "trendingRank": 2,
+  "featured": true,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Product designers, UI/UX engineers, and design systems architects working inside Figma.",
+  "keyFeatures": [
+    "First Draft: generate mobile and desktop UI screens with auto-layout and components from prompts",
+    "Visual Search: find similar components across massive team design libraries using image queries",
+    "Contextual Rewrite: translate, shorten, or tone-adjust copy directly on design frames",
+    "Automated background removal and realistic placeholder image population"
+  ],
+  "pros": [
+    "Operates natively inside existing professional design workflows",
+    "Generated screens use proper Auto Layout frames and design system tokens",
+    "Saves hours of tedious mock data population"
+  ],
+  "cons": [
+    "Complex custom bespoke illustrations still require manual vector craft",
+    "First Draft generation requires editing to match specific brand guidelines"
+  ],
+  "faqs": [
+    {
+      "question": "Does Figma AI use proper Auto Layout?",
+      "answer": "Yes, screens generated with Figma AI use native Auto Layout constraints, responsive paddings, and semantic layers."
+    }
+  ],
+  "alternatives": [
+    "uizard",
+    "framer-ai",
+    "v0"
+  ],
+  "verified": true,
+  "monogram": "FG",
+  "accentColor": "#F24E1E",
+  "monthlyUsers": "15M+",
+  "capabilities": {
+    "imageGen": 1,
+    "writing": 1,
+    "coding": 1,
+    "docAnalysis": 1,
+    "chat": 1,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "dataAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://figma.com",
+  "needsReview": true
+}

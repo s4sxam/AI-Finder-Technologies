@@ -1,0 +1,77 @@
+{
+  "id": "tool-devin",
+  "name": "Devin by Cognition",
+  "slug": "devin",
+  "tagline": "Autonomous AI software engineer capable of planning, debugging, and executing end-to-end engineering tasks.",
+  "description": "Devin is an autonomous AI engineer that operates with its own browser, terminal, and editor. Given a Jira issue or bug report, Devin plans the solution, reads docs, debugs errors, and submits a verified pull request.",
+  "category": "coding",
+  "tags": [
+    "Autonomous",
+    "SWE Agent",
+    "Enterprise",
+    "Async Tasks"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "Custom",
+  "hasFreeTier": false,
+  "pricingDetails": "Enterprise subscription billed per ACU (Agent Compute Unit) with team licensing.",
+  "platforms": [
+    "Web",
+    "Slack",
+    "GitHub"
+  ],
+  "websiteUrl": "https://cognition.ai",
+  "rating": 4.7,
+  "reviewCount": 950,
+  "trendingRank": 19,
+  "featured": false,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Engineering organizations automating migration tasks, test coverage, and backlog bug resolution.",
+  "keyFeatures": [
+    "Sandboxed compute environment with private browser, shell, and code editor",
+    "Autonomous debugging: reads compiler logs, browses API docs, and tests fixes",
+    "GitHub integration: opens PRs with testing summaries and reproduction steps",
+    "Long-horizon planning for complex multi-hour migration tasks"
+  ],
+  "pros": [
+    "Solves end-to-end bugs without human micro-management",
+    "Navigates unfamiliar documentation and third-party APIs autonomously",
+    "Transparent execution logs and screen recordings"
+  ],
+  "cons": [
+    "Enterprise-oriented pricing is steep for individual developers",
+    "Can get stuck on non-deterministic bugs requiring domain architecture decisions"
+  ],
+  "faqs": [
+    {
+      "question": "Can Devin be invited to a GitHub repository?",
+      "answer": "Yes, Devin integrates as a GitHub App that can be assigned to issues via @devin mentions."
+    }
+  ],
+  "alternatives": [
+    "cursor",
+    "replit-agent",
+    "claude-code"
+  ],
+  "verified": true,
+  "monogram": "DV",
+  "accentColor": "#6366F1",
+  "monthlyUsers": "50K+",
+  "capabilities": {
+    "coding": 2,
+    "agents": 2,
+    "chat": 2,
+    "dataAnalysis": 2,
+    "docAnalysis": 2,
+    "research": 2,
+    "writing": 1,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://cognition.ai",
+  "needsReview": true
+}

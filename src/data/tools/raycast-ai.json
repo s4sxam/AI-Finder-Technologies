@@ -1,0 +1,75 @@
+{
+  "id": "tool-raycast-ai",
+  "name": "Raycast AI",
+  "slug": "raycast-ai",
+  "tagline": "Mac command bar with system-wide AI models, translation, and custom prompt commands.",
+  "description": "Raycast AI integrates into the premier Mac launcher. Press Opt+Space from any application to query Claude 3.7, GPT-4o, or DeepSeek, summarize clipboard text, explain code errors, or run custom automated AI scripts.",
+  "category": "productivity",
+  "tags": [
+    "Mac Launcher",
+    "Command Bar",
+    "System-Wide",
+    "Keyboard First"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$8/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Raycast launcher is free. Raycast AI Pro is $8/month (billed annually) for unlimited model switching.",
+  "platforms": [
+    "Mac",
+    "Windows (Beta)"
+  ],
+  "websiteUrl": "https://raycast.com",
+  "rating": 4.95,
+  "reviewCount": 8800,
+  "trendingRank": 4,
+  "featured": true,
+  "releaseYear": 2020,
+  "lastUpdated": "2026-03",
+  "bestFor": "Mac power users, developers, and designers wanting instantaneous system-wide AI access without browser tabs.",
+  "keyFeatures": [
+    "Instant access anywhere via global hotkey without switching windows",
+    "Model picker: toggle seamlessly between Claude 3.7 Sonnet, GPT-4o, and Perplexity",
+    "Custom AI Commands: create shortcuts like \"Fix Grammar\", \"Explain Code\", or \"Translate to German\"",
+    "Floating AI Chat window with markdown formatting and code highlighting"
+  ],
+  "pros": [
+    "Zero latency: summons AI anywhere in macOS in under 50 milliseconds",
+    "Replaces multiple browser tabs with a clean native interface",
+    "Massive open-source community extension ecosystem"
+  ],
+  "cons": [
+    "Windows version is currently in early beta (primarily Mac-focused)",
+    "Advanced models require the $8/mo Pro subscription"
+  ],
+  "faqs": [
+    {
+      "question": "Can I use Claude 3.7 in Raycast AI?",
+      "answer": "Yes, Raycast Pro includes full access to Claude 3.7 Sonnet, GPT-4o, and specialized reasoning models."
+    }
+  ],
+  "alternatives": [
+    "cursor",
+    "chatgpt"
+  ],
+  "verified": true,
+  "monogram": "RC",
+  "accentColor": "#EF4444",
+  "monthlyUsers": "1M+",
+  "capabilities": {
+    "chat": 2,
+    "coding": 1,
+    "writing": 1,
+    "agents": 2,
+    "docAnalysis": 1,
+    "dataAnalysis": 1,
+    "research": 1,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://raycast.com",
+  "needsReview": true
+}

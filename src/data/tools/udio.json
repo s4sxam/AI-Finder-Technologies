@@ -1,0 +1,75 @@
+{
+  "id": "tool-udio",
+  "name": "Udio",
+  "slug": "udio",
+  "tagline": "High-fidelity music creation studio with granular stems, remixing, and complex jazz and rock genres.",
+  "description": "Created by former Google DeepMind researchers, Udio produces extraordinary audio fidelity with deep genre complexity. Excels at jazz, metal, classical, and vocal nuances with granular extend and remix tools.",
+  "category": "audio",
+  "tags": [
+    "Music AI",
+    "DeepMind",
+    "Audiophile",
+    "Stems",
+    "Remixing"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$10/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 100 monthly credits. Standard plan is $10/month with 1,200 priority credits and stem downloads.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://udio.com",
+  "rating": 4.85,
+  "reviewCount": 8900,
+  "trendingRank": 16,
+  "featured": false,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Musicians and audio producers wanting deep control over musical arrangement, chord progressions, and stems.",
+  "keyFeatures": [
+    "Modular song building: generate 32-second sections and extend forward or backward",
+    "Individual stem extraction (Vocals, Bass, Drums, Other) for DAW production",
+    "Remix slider: adjust similarity to alter vocals or instrumentation style",
+    "Pristine stereo separation and high-fidelity mastering"
+  ],
+  "pros": [
+    "Audiophile-grade clarity with minimal compression haze",
+    "Outstanding comprehension of niche musical genres (math rock, fusion jazz, baroque)",
+    "Granular stem downloads allow importing directly into Ableton or Logic Pro"
+  ],
+  "cons": [
+    "Song generation workflow is modular and requires more manual steps than Suno",
+    "Free tier has slower rendering queues during peak hours"
+  ],
+  "faqs": [
+    {
+      "question": "Can I export stems into my DAW from Udio?",
+      "answer": "Yes, Udio Standard subscribers can download separated WAV stems for vocals, drums, bass, and instruments."
+    }
+  ],
+  "alternatives": [
+    "suno",
+    "soundraw"
+  ],
+  "verified": true,
+  "monogram": "UD",
+  "accentColor": "#6366F1",
+  "monthlyUsers": "8M+",
+  "capabilities": {
+    "audioVoice": 2,
+    "writing": 1,
+    "chat": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "research": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://udio.com",
+  "needsReview": true
+}

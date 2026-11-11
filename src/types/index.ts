@@ -73,6 +73,10 @@ export interface Tool {
   logoUrl?: string;
   hidden?: boolean;
   createdAt?: string;
+  lastVerified?: string; // ISO date e.g. "2026-11-10"
+  sourceUrl?: string; // Official documentation or verification URL
+  priceVerifiedAt?: string; // ISO date of verified pricing
+  needsReview?: boolean; // True if tool metrics need active manual audit
 }
 
 export interface Author {

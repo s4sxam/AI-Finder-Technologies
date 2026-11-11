@@ -69,10 +69,8 @@ export const ToolCard: React.FC<ToolCardProps> = ({
                   </span>
                 )}
                 {tool.source === 'community' && (
-                  <span className="inline-flex items-center text-[10px] px-1.5 py-0.2 rounded bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 font-medium">
-                    {tool.showSubmitter && tool.submitterName
-                      ? `Community · by ${tool.submitterName}`
-                      : 'Community submitted'}
+                  <span className="inline-flex items-center text-[10px] px-1.5 py-0.2 rounded bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800 font-medium">
+                    Community submitted · unverified
                   </span>
                 )}
                 {/* Zero-Pill: Clean unboxed metadata with bullet separators */}
@@ -156,10 +154,8 @@ export const ToolCard: React.FC<ToolCardProps> = ({
                   </span>
                 )}
                 {tool.source === 'community' && (
-                  <span className="inline-flex items-center text-[10px] px-1.5 py-0.2 rounded bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 font-medium">
-                    {tool.showSubmitter && tool.submitterName
-                      ? `by ${tool.submitterName}`
-                      : 'Community'}
+                  <span className="inline-flex items-center text-[10px] px-1.5 py-0.2 rounded bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800 font-medium">
+                    Community submitted · unverified
                   </span>
                 )}
               </div>

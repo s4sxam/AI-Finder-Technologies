@@ -1,0 +1,77 @@
+{
+  "id": "tool-framer-ai",
+  "name": "Framer AI",
+  "slug": "framer-ai",
+  "tagline": "Generate, design, and publish high-performance production websites with zero code.",
+  "description": "Framer AI turns text prompts into responsive websites published directly to a global CDN. It combines a Figma-like design canvas with built-in CMS, localization, and animation interactions.",
+  "category": "design",
+  "tags": [
+    "Websites",
+    "No Code",
+    "CMS",
+    "Responsive",
+    "Publishing"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$5/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier for personal projects with Framer badge. Mini plan starts at $5/month; Pro plan at $30/month for custom domains and full CMS.",
+  "platforms": [
+    "Web",
+    "Mac",
+    "Windows"
+  ],
+  "websiteUrl": "https://framer.com",
+  "rating": 4.85,
+  "reviewCount": 12000,
+  "trendingRank": 15,
+  "featured": true,
+  "releaseYear": 2023,
+  "lastUpdated": "2026-03",
+  "bestFor": "Designers, startups, and marketing agencies publishing conversion landing pages fast.",
+  "keyFeatures": [
+    "Prompt-to-Website: generate fully responsive multi-breakpoint web pages in 30 seconds",
+    "AI Text and Image generation directly on canvas layers",
+    "Figma to Framer: copy layers from Figma and paste directly as working web pages",
+    "Built-in CMS, localization across multiple languages, and world-class hosting"
+  ],
+  "pros": [
+    "Outputs real, blazing-fast production websites, not just prototype mockups",
+    "World-class typography and layout control identical to Figma",
+    "Zero hosting setup: 1-click publish with automatic SSL and CDN"
+  ],
+  "cons": [
+    "Less suited for complex SaaS web applications requiring dynamic SQL databases",
+    "CMS pricing tiers scale up for high-traffic enterprise portals"
+  ],
+  "faqs": [
+    {
+      "question": "Can I connect a custom domain to my Framer website?",
+      "answer": "Yes, Framer paid plans support connecting custom domains with free automatic SSL certificates."
+    }
+  ],
+  "alternatives": [
+    "v0",
+    "figma-ai"
+  ],
+  "verified": true,
+  "monogram": "FR",
+  "accentColor": "#0055FF",
+  "monthlyUsers": "5M+",
+  "capabilities": {
+    "coding": 2,
+    "writing": 1,
+    "imageGen": 1,
+    "chat": 1,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://framer.com",
+  "needsReview": true
+}

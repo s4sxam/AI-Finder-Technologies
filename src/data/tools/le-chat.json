@@ -1,0 +1,78 @@
+{
+  "id": "tool-le-chat",
+  "name": "Le Chat by Mistral",
+  "slug": "le-chat",
+  "tagline": "European frontier AI platform with Mistral Large, web search, and open enterprise governance.",
+  "description": "Le Chat is Mistral AI's conversational assistant. Powered by Mistral Large and Pixtral, it emphasizes privacy, European data sovereignty, web search, and fast document analysis.",
+  "category": "chat",
+  "tags": [
+    "European AI",
+    "Privacy",
+    "Mistral Large",
+    "Document Search"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "Free",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with generous access to Mistral Large and Pixtral. Enterprise tiers with EU data residency guarantees.",
+  "platforms": [
+    "Web",
+    "iOS",
+    "Android",
+    "API"
+  ],
+  "websiteUrl": "https://chat.mistral.ai",
+  "rating": 4.65,
+  "reviewCount": 4200,
+  "trendingRank": 22,
+  "featured": false,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "European organizations and privacy-focused teams requiring GDPR-strict AI hosting.",
+  "keyFeatures": [
+    "Mistral Large 2 foundation model with fluent multilingual capabilities",
+    "Native web search and citation verification",
+    "Image analysis powered by Pixtral 12B multimodal architecture",
+    "Canvas editing workspace for writing and code drafting"
+  ],
+  "pros": [
+    "Extremely generous free tier without restrictive timeouts",
+    "GDPR-compliant European infrastructure and data privacy",
+    "Fast inference latency"
+  ],
+  "cons": [
+    "Ecosystem of plugins and extensions is smaller than ChatGPT",
+    "Thinking mode less detailed than Claude 3.7 or DeepSeek R1"
+  ],
+  "faqs": [
+    {
+      "question": "Is Le Chat free for commercial use?",
+      "answer": "The web chat interface is free for individual use; enterprise deployments use the Mistral API platform."
+    }
+  ],
+  "alternatives": [
+    "claude",
+    "deepseek-r1",
+    "chatgpt"
+  ],
+  "verified": true,
+  "monogram": "MC",
+  "accentColor": "#F97316",
+  "monthlyUsers": "10M+",
+  "capabilities": {
+    "chat": 2,
+    "coding": 2,
+    "writing": 2,
+    "docAnalysis": 2,
+    "research": 1,
+    "dataAnalysis": 1,
+    "agents": 1,
+    "imageGen": 1,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://chat.mistral.ai",
+  "needsReview": true
+}

@@ -1,0 +1,75 @@
+{
+  "id": "tool-adcreative-ai",
+  "name": "AdCreative.ai",
+  "slug": "adcreative-ai",
+  "tagline": "Generate high-converting conversion ad banners and social creatives in seconds.",
+  "description": "AdCreative.ai trains on high-converting advertising data to generate ad banners, video ads, and social posts. It predicts conversion scores for each design to help marketers maximize ROAS on Meta, Google, and TikTok.",
+  "category": "marketing",
+  "tags": [
+    "Ad Banners",
+    "ROAS",
+    "Meta Ads",
+    "Conversion Design",
+    "Social Ads"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "$29/mo",
+  "hasFreeTier": false,
+  "pricingDetails": "7-day free trial. Startup plan is $29/month; Professional is $189/month for agencies managing multiple client brands.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://adcreative.ai",
+  "rating": 4.7,
+  "reviewCount": 5400,
+  "trendingRank": 27,
+  "featured": false,
+  "releaseYear": 2021,
+  "lastUpdated": "2026-03",
+  "bestFor": "E-commerce brands, performance marketing agencies, and media buyers scaling ad creative testing.",
+  "keyFeatures": [
+    "Generates hundreds of ad variations in 1:1, 9:16, and 16:9 aspect ratios simultaneously",
+    "Conversion Score prediction: estimates click-through rate probability based on historical ad datasets",
+    "Text Generator: writes headlines and primary copy tailored to specific advertising platforms",
+    "Direct integration with Meta Ads Manager and Google Ads for 1-click campaign pushes"
+  ],
+  "pros": [
+    "Cuts ad banner production time from hours to seconds",
+    "Maintains brand logos and hex colors across all generated sizes",
+    "Direct export into Meta Ads Manager simplifies testing cycles"
+  ],
+  "cons": [
+    "Credit consumption limits how many variations you can download per month",
+    "Templates can look repetitive if multiple competitors use default layouts"
+  ],
+  "faqs": [
+    {
+      "question": "Does AdCreative connect directly to Meta Ads?",
+      "answer": "Yes, connecting your Meta Ads account allows pushing approved creatives directly into ad sets."
+    }
+  ],
+  "alternatives": [
+    "recraft",
+    "jasper"
+  ],
+  "verified": true,
+  "monogram": "AC",
+  "accentColor": "#EF4444",
+  "monthlyUsers": "1.5M+",
+  "capabilities": {
+    "imageGen": 2,
+    "writing": 2,
+    "dataAnalysis": 1,
+    "chat": 0,
+    "coding": 0,
+    "videoGen": 1,
+    "audioVoice": 0,
+    "research": 1,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://adcreative.ai",
+  "needsReview": true
+}

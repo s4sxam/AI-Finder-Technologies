@@ -1,0 +1,78 @@
+{
+  "id": "tool-replit-agent",
+  "name": "Replit Agent",
+  "slug": "replit-agent",
+  "tagline": "Autonomous programming agent that builds and deploys full-stack cloud applications from natural language.",
+  "description": "Replit Agent builds complete web applications from conversational prompts. It plans database schemas, installs packages, codes frontend and backend routes, provisions PostgreSQL, and hosts the app on a live URL.",
+  "category": "coding",
+  "tags": [
+    "Full Stack",
+    "Cloud",
+    "PostgreSQL",
+    "Autonomous",
+    "No Setup"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "$25/mo",
+  "hasFreeTier": false,
+  "pricingDetails": "Requires Replit Core ($25/month billed annually) which includes usage credits for the agent and cloud database hosting.",
+  "platforms": [
+    "Web",
+    "iOS",
+    "Android"
+  ],
+  "websiteUrl": "https://replit.com",
+  "rating": 4.7,
+  "reviewCount": 3600,
+  "trendingRank": 14,
+  "featured": false,
+  "releaseYear": 2024,
+  "lastUpdated": "2026-03",
+  "bestFor": "Founders, product builders, and non-technical creators building and hosting full web apps.",
+  "keyFeatures": [
+    "Autonomous architecture planning: sets up schemas, frontend UI, backend routes, and configs",
+    "Integrated live PostgreSQL database provisioning and secrets management",
+    "Instant cloud deployment with custom domain mapping and SSL configuration",
+    "Mobile app building: build and deploy apps directly from an iPhone or Android"
+  ],
+  "pros": [
+    "Takes an idea from prompt to hosted production URL in minutes",
+    "Eliminates local development environment setup entirely",
+    "Full-stack execution includes real database tables and API endpoints"
+  ],
+  "cons": [
+    "Requires paid Replit Core subscription",
+    "Refactoring existing large enterprise codebases can produce regressions"
+  ],
+  "faqs": [
+    {
+      "question": "Do I get access to the underlying code built by Replit Agent?",
+      "answer": "Yes, you have complete access to the git repository, code files, and exportable source."
+    }
+  ],
+  "alternatives": [
+    "lovable",
+    "bolt-new",
+    "cursor"
+  ],
+  "verified": true,
+  "monogram": "RP",
+  "accentColor": "#F97316",
+  "monthlyUsers": "2.5M+",
+  "capabilities": {
+    "coding": 2,
+    "chat": 2,
+    "agents": 2,
+    "docAnalysis": 1,
+    "dataAnalysis": 2,
+    "writing": 0,
+    "research": 1,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://replit.com",
+  "needsReview": true
+}

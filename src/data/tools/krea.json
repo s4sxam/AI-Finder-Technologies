@@ -1,0 +1,75 @@
+{
+  "id": "tool-krea",
+  "name": "Krea AI",
+  "slug": "krea",
+  "tagline": "Real-time generative canvas with sub-100ms visual feedback and AI video enhancement.",
+  "description": "Krea AI is famous for its real-time generation canvas that updates visuals instantly as you move shapes or draw lines. It also provides high-definition video generation and an AI upscale engine.",
+  "category": "image",
+  "tags": [
+    "Real-time",
+    "Canvas",
+    "Upscaler",
+    "Interactive Art"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$30/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with daily generations. Pro is $30/month for unlimited real-time generation and fast queue access.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://krea.ai",
+  "rating": 4.75,
+  "reviewCount": 3400,
+  "trendingRank": 26,
+  "featured": false,
+  "releaseYear": 2023,
+  "lastUpdated": "2026-03",
+  "bestFor": "Art directors, designers, and visual artists who want instant interactive visual feedback.",
+  "keyFeatures": [
+    "Real-time generation: updates canvas output within 80ms of drawing gestures",
+    "AI Upscaler & Enhancer: adds realistic textures and cinematic resolution to blurry renders",
+    "Scene camera controls with live 3D depth injection",
+    "Video generation module with keyframe guidance"
+  ],
+  "pros": [
+    "Incredible real-time tactile painting experience",
+    "Upscaler restores details on low-resolution client photos effortlessly",
+    "Minimalist, distraction-free creative workspace"
+  ],
+  "cons": [
+    "Pro plan is priced higher than standard image tools ($30/mo)",
+    "Free tier has strict daily generation limits"
+  ],
+  "faqs": [
+    {
+      "question": "Can I connect a graphics tablet (e.g. Wacom) to Krea?",
+      "answer": "Yes, Krea works smoothly with drawing tablets, stylus pens, and screen digitizers."
+    }
+  ],
+  "alternatives": [
+    "magnific",
+    "midjourney",
+    "leonardo"
+  ],
+  "verified": true,
+  "monogram": "KR",
+  "accentColor": "#EF4444",
+  "monthlyUsers": "2M+",
+  "capabilities": {
+    "imageGen": 2,
+    "videoGen": 1,
+    "chat": 0,
+    "coding": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://krea.ai",
+  "needsReview": true
+}

@@ -1,0 +1,77 @@
+{
+  "id": "tool-aider",
+  "name": "Aider",
+  "slug": "aider",
+  "tagline": "Open-source command-line AI pair programmer with git repository synchronization.",
+  "description": "Aider is an open-source terminal pair programming tool that pairs with your local git repository. It edits files, creates structured git commits with clear messages, and works with Claude, GPT-4o, and local models.",
+  "category": "coding",
+  "tags": [
+    "Open Source",
+    "CLI",
+    "Git",
+    "Local LLMs"
+  ],
+  "pricing": "Free",
+  "startingPrice": "Free (BYOK)",
+  "hasFreeTier": true,
+  "pricingDetails": "Free and open-source (Apache 2.0). Bring your own API keys (OpenAI, Anthropic, DeepSeek, or local Ollama).",
+  "platforms": [
+    "CLI",
+    "Mac",
+    "Linux",
+    "Windows"
+  ],
+  "websiteUrl": "https://aider.chat",
+  "rating": 4.85,
+  "reviewCount": 3100,
+  "trendingRank": 16,
+  "featured": false,
+  "releaseYear": 2023,
+  "lastUpdated": "2026-03",
+  "bestFor": "Open-source developers and privacy advocates who want complete control over LLM backends.",
+  "keyFeatures": [
+    "Automatic git commits with descriptive commit messages after each verified edit",
+    "Repository map: generates concise abstract syntax tree (AST) maps of your repo",
+    "Voice coding mode: dictate refactoring instructions via speech",
+    "Supports local models via Ollama or LM Studio"
+  ],
+  "pros": [
+    "100% open-source with no SaaS middleman",
+    "Works with any frontier or locally hosted model",
+    "Clean git commit discipline prevents lost code"
+  ],
+  "cons": [
+    "Requires comfort with CLI workflows and API key configuration",
+    "No visual GUI editor"
+  ],
+  "faqs": [
+    {
+      "question": "Can Aider be used with DeepSeek R1?",
+      "answer": "Yes, Aider supports DeepSeek R1 via both the DeepSeek API and local Ollama instances."
+    }
+  ],
+  "alternatives": [
+    "claude-code",
+    "cursor"
+  ],
+  "verified": true,
+  "monogram": "AD",
+  "accentColor": "#10B981",
+  "monthlyUsers": "250K+",
+  "capabilities": {
+    "coding": 2,
+    "chat": 1,
+    "docAnalysis": 1,
+    "agents": 2,
+    "dataAnalysis": 1,
+    "writing": 0,
+    "research": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://aider.chat",
+  "needsReview": true
+}

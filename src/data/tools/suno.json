@@ -1,0 +1,77 @@
+{
+  "id": "tool-suno",
+  "name": "Suno v4",
+  "slug": "suno",
+  "tagline": "Create broadcast-ready songs with vocals, instruments, and lyrics from a single prompt.",
+  "description": "Suno v4 generates complete songs spanning any musical genre—pop, rock, jazz, EDM, classical—complete with realistic singing vocals, harmonies, bridge transitions, and mastered instrumental arrangements.",
+  "category": "audio",
+  "tags": [
+    "Music Generation",
+    "Songs",
+    "Vocals",
+    "Composing",
+    "Broadcast Master"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$10/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 50 daily credits (creates ~5 songs). Pro is $10/month for 2,500 credits and commercial rights.",
+  "platforms": [
+    "Web",
+    "iOS",
+    "Android"
+  ],
+  "websiteUrl": "https://suno.com",
+  "rating": 4.9,
+  "reviewCount": 14500,
+  "trendingRank": 7,
+  "featured": true,
+  "releaseYear": 2023,
+  "lastUpdated": "2026-03",
+  "bestFor": "Musicians, content creators, game composers, and advertisers needing custom royalty-free music.",
+  "keyFeatures": [
+    "Full 2-to-4 minute song generation with verses, chorus, bridge, and vocal harmonies",
+    "Audio Inpainting: highlight specific lyric bars to re-record words or guitar solos",
+    "Custom Mode: write your own lyrics and structure tags like [Verse], [Chorus], [Guitar Solo]",
+    "Stem separation: split generated tracks into separate vocal and instrumental WAV files"
+  ],
+  "pros": [
+    "Stunning musicality across every conceivable genre from blues to synthwave",
+    "Vocal timbre, vibrato, and emotional power sound like recorded studio musicians",
+    "Pro plan grants 100% commercial ownership of generated songs"
+  ],
+  "cons": [
+    "Free tier generations cannot be monetized commercially",
+    "Occasional minor audio artifacts on very complex polyphonic orchestral passages"
+  ],
+  "faqs": [
+    {
+      "question": "Do I own the copyright to songs generated on Suno Pro?",
+      "answer": "Yes, paid subscribers own full commercial rights to monetize their generated songs on Spotify, YouTube, and Apple Music."
+    }
+  ],
+  "alternatives": [
+    "udio",
+    "soundraw"
+  ],
+  "verified": true,
+  "monogram": "SN",
+  "accentColor": "#F97316",
+  "monthlyUsers": "15M+",
+  "capabilities": {
+    "audioVoice": 2,
+    "writing": 1,
+    "chat": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "research": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://suno.com",
+  "needsReview": true
+}

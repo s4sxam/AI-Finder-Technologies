@@ -1,0 +1,74 @@
+{
+  "id": "tool-sudowrite",
+  "name": "Sudowrite",
+  "slug": "sudowrite",
+  "tagline": "The AI creative writing copilot built specifically for fiction novelists and screenwriters.",
+  "description": "Sudowrite is designed exclusively for narrative fiction writers. Featuring \"Story Engine\", sensory description generators, character brainstormers, and pacing analyzers, it acts as a tireless creative collaborator for full novels.",
+  "category": "writing",
+  "tags": [
+    "Fiction",
+    "Novel Writing",
+    "Story Engine",
+    "Creative Writing"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "$10/mo",
+  "hasFreeTier": false,
+  "pricingDetails": "Hobby plan is $10/month (billed annually) for 30,000 words; Professional is $25/month for 90,000 words.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://sudowrite.com",
+  "rating": 4.8,
+  "reviewCount": 3200,
+  "trendingRank": 36,
+  "featured": false,
+  "releaseYear": 2021,
+  "lastUpdated": "2026-03",
+  "bestFor": "Fiction novelists, screenwriters, and creative storytellers writing multi-chapter books.",
+  "keyFeatures": [
+    "Story Engine: structured multi-step novel drafting from premise to beats to chapter prose",
+    "Describe tool: generates sensory descriptions using sight, smell, taste, touch, and metaphor",
+    "Twist generator: injects unexpected plot developments and obstacles into narrative arcs",
+    "Pacing expander: stretches brief scenes into rich, slow-paced dramatic dialogues"
+  ],
+  "pros": [
+    "Understands story structure, character arcs, and dramatic tension better than general chatbots",
+    "Does not lecture or apply corporate safety filtering to creative fictional conflicts",
+    "Sensory description tools break through writer's block instantly"
+  ],
+  "cons": [
+    "No free tier available (only free trial)",
+    "Word credit limits require monitoring during heavy novel writing sprints"
+  ],
+  "faqs": [
+    {
+      "question": "Does Sudowrite claim any copyright on my stories?",
+      "answer": "No, you retain 100% intellectual property rights over all stories and prose created with Sudowrite."
+    }
+  ],
+  "alternatives": [
+    "claude",
+    "notion-ai"
+  ],
+  "verified": true,
+  "monogram": "SW",
+  "accentColor": "#EC4899",
+  "monthlyUsers": "200K+",
+  "capabilities": {
+    "writing": 2,
+    "chat": 1,
+    "docAnalysis": 1,
+    "imageGen": 1,
+    "research": 0,
+    "coding": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "dataAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://sudowrite.com",
+  "needsReview": true
+}

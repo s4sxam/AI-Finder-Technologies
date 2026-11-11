@@ -1,0 +1,76 @@
+{
+  "id": "tool-meshy",
+  "name": "Meshy 3D",
+  "slug": "meshy",
+  "tagline": "Text and image to 3D mesh generator with clean quad topology, PBR textures, and GLTF export.",
+  "description": "Meshy converts text prompts and 2D concept art into fully textured 3D models in under 60 seconds. It produces clean quad-dominant topology, PBR material maps, and exports in GLTF, OBJ, and FBX format.",
+  "category": "design",
+  "tags": [
+    "3D Meshes",
+    "GLTF",
+    "Game Assets",
+    "PBR Textures"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$16/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier with 200 credits/month. Pro is $16/month (billed annually) for 1,000 credits and commercial rights.",
+  "platforms": [
+    "Web",
+    "API",
+    "Blender Plugin"
+  ],
+  "websiteUrl": "https://meshy.ai",
+  "rating": 4.75,
+  "reviewCount": 2200,
+  "trendingRank": 34,
+  "featured": false,
+  "releaseYear": 2023,
+  "lastUpdated": "2026-03",
+  "bestFor": "Game developers, 3D printing enthusiasts, and visual effects artists needing rapid 3D asset drafting.",
+  "keyFeatures": [
+    "Text to 3D: generates textured 3D meshes in under a minute",
+    "Image to 3D: converts character concept art or photo angles into 3D models",
+    "AI Texturing: re-texture existing untextured 3D models with PBR maps",
+    "Export formats: GLTF/GLB, FBX, OBJ, USDZ, and STL for 3D printing"
+  ],
+  "pros": [
+    "Clean quad-remeshing options suitable for game engines (Unity, Unreal)",
+    "Generates realistic PBR roughness, normal, and metallic maps",
+    "Blender add-on allows importing models directly into active scenes"
+  ],
+  "cons": [
+    "Complex hollow mechanical assemblies can have interior geometry artifacts",
+    "Credit consumption can be high for high-resolution 4K texture baking"
+  ],
+  "faqs": [
+    {
+      "question": "Can Meshy models be 3D printed?",
+      "answer": "Yes, Meshy exports watertight STL and OBJ files ready for slicers like Cura or Bambu Studio."
+    }
+  ],
+  "alternatives": [
+    "tripo-3d",
+    "spline-ai"
+  ],
+  "verified": true,
+  "monogram": "MS",
+  "accentColor": "#8B5CF6",
+  "monthlyUsers": "900K+",
+  "capabilities": {
+    "imageGen": 1,
+    "chat": 0,
+    "coding": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "writing": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://meshy.ai",
+  "needsReview": true
+}

@@ -1,0 +1,79 @@
+{
+  "id": "tool-perplexity",
+  "name": "Perplexity AI",
+  "slug": "perplexity",
+  "tagline": "Conversational answer engine delivering cited, synthesized research and real-time news.",
+  "description": "Perplexity AI replaces traditional search engines with synthesized answers backed by inline numbered citations. Features Pro Search with multi-step reasoning, specialized focus modes (Academic, Reddit, YouTube), and Spaces.",
+  "category": "research",
+  "tags": [
+    "Answer Engine",
+    "Citations",
+    "Search",
+    "Pro Search",
+    "Spaces"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$20/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free standard search. Perplexity Pro is $20/month with 300+ Pro queries daily, model selection (Claude 3.7, GPT-4o), and file analysis.",
+  "platforms": [
+    "Web",
+    "iOS",
+    "Android",
+    "Mac"
+  ],
+  "websiteUrl": "https://perplexity.ai",
+  "rating": 4.95,
+  "reviewCount": 16200,
+  "trendingRank": 6,
+  "featured": true,
+  "releaseYear": 2022,
+  "lastUpdated": "2026-03",
+  "bestFor": "Researchers, journalists, and knowledge workers wanting synthesized answers with verifiable sources.",
+  "keyFeatures": [
+    "Inline numbered citations linking directly to primary journalism and academic research",
+    "Pro Search: Autonomous query reformulation exploring multiple angles before synthesizing",
+    "Focus Modes: Target searches exclusively to Academic papers, Reddit discussions, or YouTube",
+    "Perplexity Spaces: Team archives for organizing research dossiers with shared context"
+  ],
+  "pros": [
+    "Eliminates search engine clutter, SEO farm spam, and ad bloat",
+    "Lets you choose the underlying frontier model (Claude 3.7, GPT-4o, Sonar Large)",
+    "Perplexity Pages turn research findings into beautifully formatted articles"
+  ],
+  "cons": [
+    "Occasional citation hallucination on obscure niche queries",
+    "Free tier search depth is limited to basic single-pass searches"
+  ],
+  "faqs": [
+    {
+      "question": "Can I cite Perplexity sources in academic papers?",
+      "answer": "Yes, Perplexity links directly to original journal DOIs and primary sources which can be cited in APA/MLA format."
+    }
+  ],
+  "alternatives": [
+    "notebooklm",
+    "consensus",
+    "chatgpt"
+  ],
+  "verified": true,
+  "monogram": "PX",
+  "accentColor": "#0EA5E9",
+  "monthlyUsers": "16M+",
+  "capabilities": {
+    "research": 2,
+    "chat": 2,
+    "writing": 2,
+    "docAnalysis": 2,
+    "dataAnalysis": 1,
+    "coding": 1,
+    "agents": 1,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://perplexity.ai",
+  "needsReview": true
+}

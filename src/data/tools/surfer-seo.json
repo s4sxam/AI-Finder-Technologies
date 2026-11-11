@@ -1,0 +1,77 @@
+{
+  "id": "tool-surfer-seo",
+  "name": "SurferSEO",
+  "slug": "surfer-seo",
+  "tagline": "Data-driven content intelligence and keyword optimization to rank #1 on Google search.",
+  "description": "SurferSEO analyzes top-ranking Google SERP competitors to give writers real-time content scores, keyword recommendations, and article outlines. Used by over 150,000 marketers to dominate search rankings.",
+  "category": "marketing",
+  "tags": [
+    "SEO",
+    "Content Score",
+    "SERP Analysis",
+    "Keywords",
+    "Audit"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "$89/mo",
+  "hasFreeTier": false,
+  "pricingDetails": "Essential plan starts at $89/month; Scale plan at $129/month for agencies with AI article generation credits.",
+  "platforms": [
+    "Web",
+    "Google Docs Extension",
+    "WordPress Plugin"
+  ],
+  "websiteUrl": "https://surferseo.com",
+  "rating": 4.8,
+  "reviewCount": 6200,
+  "trendingRank": 17,
+  "featured": true,
+  "releaseYear": 2017,
+  "lastUpdated": "2026-03",
+  "bestFor": "SEO specialists, content agencies, and niche affiliate site builders wanting ranking certainty.",
+  "keyFeatures": [
+    "Content Editor with real-time Content Score from 0 to 100 based on top 10 competitors",
+    "Keyword Research: clusters keywords into topical authority topic maps",
+    "SERP Analyzer: dissects word counts, heading structures, and image counts of ranking pages",
+    "Surfer AI: writes full ranking-optimized articles with 1 click based on live SERP data"
+  ],
+  "pros": [
+    "Provides empirical data on exactly which keywords and headings Google rewards",
+    "Seamless integration into Google Docs and WordPress via browser extensions",
+    "Topical authority clustering prevents keyword cannibalization"
+  ],
+  "cons": [
+    "Higher starting price point ($89/mo) than basic AI writing tools",
+    "Over-optimizing solely for a 100 Content Score can make writing sound mechanical without human review"
+  ],
+  "faqs": [
+    {
+      "question": "Does SurferSEO work with Google Docs?",
+      "answer": "Yes, the Surfer Chrome extension embeds the live Content Score panel directly inside Google Docs."
+    }
+  ],
+  "alternatives": [
+    "jasper",
+    "writesonic"
+  ],
+  "verified": true,
+  "monogram": "SF",
+  "accentColor": "#F59E0B",
+  "monthlyUsers": "1.2M+",
+  "capabilities": {
+    "research": 2,
+    "writing": 2,
+    "dataAnalysis": 2,
+    "docAnalysis": 2,
+    "chat": 1,
+    "coding": 0,
+    "imageGen": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://surferseo.com",
+  "needsReview": true
+}

@@ -1,0 +1,75 @@
+{
+  "id": "tool-uizard",
+  "name": "Uizard",
+  "slug": "uizard",
+  "tagline": "Rapid wireframe-to-prototype design tool converting hand-drawn sketches into digital UI mockups.",
+  "description": "Uizard empowers founders and product teams to design web and mobile apps in minutes. Scan hand-drawn napkin wireframes to convert them into digital prototypes, or generate full multi-screen user journeys from text prompts.",
+  "category": "design",
+  "tags": [
+    "Wireframing",
+    "Sketch to UI",
+    "Prototypes",
+    "Non-Designers"
+  ],
+  "pricing": "Freemium",
+  "startingPrice": "$12/mo",
+  "hasFreeTier": true,
+  "pricingDetails": "Free tier includes 2 projects. Pro plan starts at $12/month (billed annually) for unlimited screens and exports.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://uizard.io",
+  "rating": 4.65,
+  "reviewCount": 5100,
+  "trendingRank": 28,
+  "featured": false,
+  "releaseYear": 2018,
+  "lastUpdated": "2026-03",
+  "bestFor": "Product managers, startup founders, and non-designers creating clickable prototype decks for investors.",
+  "keyFeatures": [
+    "Autodesigner 2.0: generate multi-screen user flows and clickable wireframes from a prompt",
+    "Sketch to UI: snap a phone photo of a whiteboard or paper sketch to generate editable vector UI",
+    "Screenshot to Mockup: upload competitor screenshots to extract themes and layout components",
+    "Heatmap predictor: AI prediction of where users will look first on your interface"
+  ],
+  "pros": [
+    "Extremely friendly for non-designers who find Figma intimidating",
+    "Converts hand-drawn sketches to digital layouts in under 30 seconds",
+    "Clickable prototype sharing links for user testing"
+  ],
+  "cons": [
+    "Less fine-grained control over micro-interactions than Figma",
+    "Exports to code are basic HTML/CSS rather than production React components"
+  ],
+  "faqs": [
+    {
+      "question": "Can I export Uizard designs to Figma?",
+      "answer": "Yes, Uizard Pro allows exporting screens directly as editable Figma files."
+    }
+  ],
+  "alternatives": [
+    "figma-ai",
+    "framer-ai",
+    "v0"
+  ],
+  "verified": true,
+  "monogram": "UZ",
+  "accentColor": "#0EA5E9",
+  "monthlyUsers": "3M+",
+  "capabilities": {
+    "imageGen": 2,
+    "coding": 1,
+    "chat": 1,
+    "writing": 0,
+    "videoGen": 0,
+    "audioVoice": 0,
+    "research": 0,
+    "dataAnalysis": 0,
+    "docAnalysis": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://uizard.io",
+  "needsReview": true
+}

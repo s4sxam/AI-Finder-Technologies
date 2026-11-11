@@ -1,0 +1,74 @@
+{
+  "id": "tool-lately-ai",
+  "name": "Lately AI",
+  "slug": "lately-ai",
+  "tagline": "Repurpose long-form blogs, podcasts, and webinars into dozens of viral social media posts.",
+  "description": "Lately analyzes long-form audio, video, or text documents and slices them into dozens of social media posts. It studies historical engagement data to learn which messaging angles drive the most clicks and retweets.",
+  "category": "marketing",
+  "tags": [
+    "Content Repurposing",
+    "Social Media",
+    "Audiograms",
+    "Analytics"
+  ],
+  "pricing": "Paid",
+  "startingPrice": "$19/mo",
+  "hasFreeTier": false,
+  "pricingDetails": "Starter plan starts at $19/month; Enterprise plans with multi-channel publishing at $119/month.",
+  "platforms": [
+    "Web"
+  ],
+  "websiteUrl": "https://lately.ai",
+  "rating": 4.65,
+  "reviewCount": 1400,
+  "trendingRank": 43,
+  "featured": false,
+  "releaseYear": 2018,
+  "lastUpdated": "2026-03",
+  "bestFor": "Podcasters, content marketers, and thought leaders turning long webinars into months of social content.",
+  "keyFeatures": [
+    "Turn 1 podcast or blog into 40+ customized LinkedIn, X, and Instagram posts",
+    "Video clipping: generates captioned short video clips matching high-engagement quotes",
+    "Learns your unique brand voice and audience preferences over time",
+    "Integrated social scheduling and publishing calendar"
+  ],
+  "pros": [
+    "Saves dozens of hours slicing transcripts manually",
+    "Generates captioned video clips with zero video editing software required",
+    "Understands which hooks convert best on LinkedIn vs X"
+  ],
+  "cons": [
+    "No free tier available (only free trial)",
+    "UI can take time to master for solo creators"
+  ],
+  "faqs": [
+    {
+      "question": "Can Lately extract video clips with burned-in subtitles?",
+      "answer": "Yes, Lately cuts short video snippets from uploaded webinars and burns in automated animated captions."
+    }
+  ],
+  "alternatives": [
+    "taplio",
+    "descript"
+  ],
+  "verified": true,
+  "monogram": "LT",
+  "accentColor": "#10B981",
+  "monthlyUsers": "120K+",
+  "capabilities": {
+    "writing": 2,
+    "audioVoice": 1,
+    "videoGen": 1,
+    "docAnalysis": 1,
+    "dataAnalysis": 1,
+    "chat": 0,
+    "coding": 0,
+    "imageGen": 0,
+    "research": 0,
+    "agents": 0
+  },
+  "lastReviewed": "2026-03",
+  "lastVerified": "2026-03",
+  "sourceUrl": "https://lately.ai",
+  "needsReview": true
+}

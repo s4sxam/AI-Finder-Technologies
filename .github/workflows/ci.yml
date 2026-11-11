@@ -1,14 +1,14 @@
-name: CI & Build Verification
+name: CI & Quality Gate
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, 'fix/**' ]
   pull_request:
     branches: [ main, master ]
 
 jobs:
-  build:
-    name: Build & Type Check
+  verify:
+    name: Lint, Test, Typecheck & Build
     runs-on: ubuntu-latest
 
     steps:
@@ -18,14 +18,20 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Type check (Lint)
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Lint
         run: npm run lint
+
+      - name: Run unit & integration tests
+        run: npm test
 
       - name: Production Build
         run: npm run build
